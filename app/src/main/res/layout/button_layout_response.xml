@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <Button
+        android:id="@+id/btn_cancelReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="12dp"
+        android:text="Cancel Reservation"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_changeAvailability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_changeConfiguration"
+        android:layout_alignEnd="@+id/btn_getLocalListVersion"
+        android:layout_alignRight="@+id/btn_getLocalListVersion"
+        android:text="Change Availability"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_changeConfiguration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_cancelReservation"
+        android:layout_alignStart="@+id/btn_cancelReservation"
+        android:layout_below="@+id/btn_cancelReservation"
+        android:text="Change Configuration"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_clearCache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_clearChargingProfile"
+        android:layout_alignEnd="@+id/btn_clearChargingProfile"
+        android:layout_alignRight="@+id/btn_clearChargingProfile"
+        android:text="Clear Cache "
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_clearChargingProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_dataTransfer"
+        android:layout_toEndOf="@+id/btn_cancelReservation"
+        android:layout_toRightOf="@+id/btn_cancelReservation"
+        android:text="Clear Charging Profile"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_dataTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_changeConfiguration"
+        android:layout_alignStart="@+id/btn_changeConfiguration"
+        android:layout_below="@+id/btn_changeConfiguration"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:text="Data Transfer"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_getCompositeSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_changeConfiguration"
+        android:layout_alignStart="@+id/btn_changeConfiguration"
+        android:layout_below="@+id/btn_clearChargingProfile"
+        android:text="Get Composite Schedule"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_getConfiguration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_changeAvailability"
+        android:layout_alignStart="@+id/btn_changeAvailability"
+        android:layout_below="@+id/btn_clearChargingProfile"
+        android:text="Get Configuration"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_getDiagnostics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_dataTransfer"
+        android:layout_alignStart="@+id/btn_dataTransfer"
+        android:layout_below="@+id/btn_getCompositeSchedule"
+        android:text="Get Diagnostics"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_getLocalListVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_getCompositeSchedule"
+        android:layout_toEndOf="@+id/btn_getCompositeSchedule"
+        android:layout_toRightOf="@+id/btn_getCompositeSchedule"
+        android:text="Get LocalList Version"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_remoteStartTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_getCompositeSchedule"
+        android:layout_alignStart="@+id/btn_getCompositeSchedule"
+        android:layout_below="@+id/btn_getDiagnostics"
+        android:text="Remote Start Transaction"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_remoteStopTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_remoteStartTransaction"
+        android:layout_alignStart="@+id/btn_remoteStartTransaction"
+        android:layout_below="@+id/btn_remoteStartTransaction"
+        android:text="Remote Stop Transaction"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_reserveNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_clearCache"
+        android:layout_alignStart="@+id/btn_clearCache"
+        android:layout_below="@+id/btn_getLocalListVersion"
+        android:text="Reserve Now"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_resetResponse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn_getLocalListVersion"
+        android:layout_alignRight="@+id/btn_getLocalListVersion"
+        android:layout_below="@+id/btn_reserveNow"
+        android:text="Reset Response"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_sendLocalList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn_changeConfiguration"
+        android:layout_alignRight="@+id/btn_changeConfiguration"
+        android:layout_below="@+id/btn_remoteStopTransaction"
+        android:text="Send LocalList"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_setChargingProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_remoteStopTransaction"
+        android:layout_toEndOf="@+id/btn_updateFirmware"
+        android:layout_toRightOf="@+id/btn_updateFirmware"
+        android:text="Set Charging Profile"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_triggerMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn_dataTransfer"
+        android:layout_alignRight="@+id/btn_dataTransfer"
+        android:layout_below="@+id/btn_sendLocalList"
+        android:text="Trigger Message"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_unlockConnector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_updateFirmware"
+        android:layout_alignLeft="@+id/btn_resetResponse"
+        android:layout_alignStart="@+id/btn_resetResponse"
+        android:text="Unlock Connector"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_updateFirmware"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_triggerMessage"
+        android:layout_toLeftOf="@+id/btn_reserveNow"
+        android:layout_toStartOf="@+id/btn_reserveNow"
+        android:text="Update Firmware"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

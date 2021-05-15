@@ -1,0 +1,882 @@
+[
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_ocppwith_ok_http.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_ocppwith_ok_http.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_bulletpoint.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\bulletpoint.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_button_1_not_pressed.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\button_1_not_pressed.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_blueiii.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_blueiii.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_003_cp2.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_003_cp2.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_toast.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\custom_toast.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_cstation.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\ic_cstation.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_maindisplay.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_maindisplay.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_setting.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_confirm_dialog.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\custom_confirm_dialog.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_electric.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\electric.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_newmaindesign.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\newmaindesign.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_masstech.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_masstech.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_detailinfo.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\dialog_detailinfo.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_myprogress_style.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\myprogress_style.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_border_status.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\border_status.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_charging.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_charging.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_electric.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\electric.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_blue.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_blue.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_newllborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\newllborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_003_cp3.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_003_cp3.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_dummyqr.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_dummyqr.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_giphy.gif.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_giphy.gif"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_border_unit.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\border_unit.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_language_selection.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\language_selection.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_004_cp3.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_004_cp3.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_electric.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\electric.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_tatapower_logo.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_tatapower_logo.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_border_unit.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\border_unit.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_otpdisplay.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\layout_otpdisplay.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_four.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\four.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_closef.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\ic_closef.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_green.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_green.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_button_layout_request.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\button_layout_request.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_tatapowertitle.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_tatapowertitle.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_tatapower_logo.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\ic_tatapower_logo.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_impact.ttf.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\impact.ttf"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_deviceitem_list.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\fragment_deviceitem_list.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_charging_station.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\charging_station.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_debuglayout.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\debuglayout.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_appbrandlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\appbrandlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\anim_slidedown.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\anim\\slidedown.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_002_cp2.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_002_cp2.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_appbrandlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\appbrandlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_closef.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\ic_closef.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_masstech.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\ic_masstech.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_bgsquare.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_bgsquare.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_cancel_btn.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_cancel_btn.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_border.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\border.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_masstechlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_masstechlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_cstation.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\ic_cstation.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_tatapower_logo.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_tatapower_logo.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_charging_station.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\charging_station.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ntpcsymbol.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ntpcsymbol.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_tatapowerlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_tatapowerlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_pleasewait.gif.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\ic_pleasewait.gif"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_unit.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_unit.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_002_cp3.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_002_cp3.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_pleasewait.gif.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\ic_pleasewait.gif"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_charging.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\ic_charging.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_charging_station.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\charging_station.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_border.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\border.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_device_grid_item.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\device_grid_item.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_digital7.ttf.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\digital7.ttf"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_border_status.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\border_status.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_for_custom_toast.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\background_for_custom_toast.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_electric.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\electric.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_textinputborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\textinputborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_statusbar.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_statusbar.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_txtborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_txtborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_newllborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\newllborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_ip_address.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\layout_ip_address.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_tatapower_logo.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\ic_tatapower_logo.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_close_detail.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\ic_close_detail.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_rockb.ttf.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\rockb.ttf"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_insruction_layout.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\insruction_layout.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_newdesign.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\newdesign.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_cstation.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\ic_cstation.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_five.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\five.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_blue.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_blue.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_red.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_red.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_custom_button.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_custom_button.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_cstation.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\ic_cstation.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layoutborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\layoutborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_electric.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\electric.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_cancel_btn.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\ic_cancel_btn.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btnborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\btnborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\anim_slideright.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\anim\\slideright.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_digital7mono.ttf.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\digital7mono.ttf"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_cstation.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_cstation.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_cstation.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_cstation.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_otp_bgr.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\otp_bgr.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_mybutton.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\mybutton.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_masstech.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\ic_masstech.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_dummydisplay.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_dummydisplay.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_closef.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_closef.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_rock.TTF.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\rock.TTF"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_downborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\downborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_closef.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_closef.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_connecting.gif.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_connecting.gif"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_three.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\three.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_border_etime.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\border_etime.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_cancel_btn.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\ic_cancel_btn.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_blueii.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_blueii.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\anim_slideleft.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\anim\\slideleft.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_005_cp1.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_005_cp1.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_red.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_red.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_charging.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\ic_charging.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_initiating_next.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_initiating_next.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_electric.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\electric.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_charging_station.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\charging_station.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_button_layout_response.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\button_layout_response.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_welcome.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\color_app_button_color.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\color\\app_button_color.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_border_etime.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\border_etime.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_ocpp.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_new_ocpp.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_downborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\downborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_pleasewait.gif.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_pleasewait.gif"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_bttn_03.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\bttn_03.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_pleasewait.gif.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_pleasewait.gif"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_otp_window_layout.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\otp_window_layout.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_closef.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\ic_closef.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_upborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\upborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_blueiv.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_blueiv.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_appbrandlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\appbrandlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_update.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_update.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_charging.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\ic_charging.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_cancel_btn.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\ic_cancel_btn.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_close_detail.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\ic_close_detail.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_maven_pro_medium.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\maven_pro_medium.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main2.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_main2.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_progress_layout.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\progress_layout.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_bttn_02.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\bttn_02.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_setting_for_configure.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\layout_setting_for_configure.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_electric.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\electric.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_button_1_pressed.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\button_1_pressed.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_one.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\one.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_newdesign.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\ic_newdesign.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shapenew.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\shapenew.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_masstech.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_masstech.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_digital7italic.ttf.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\digital7italic.ttf"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_005_cp3.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_005_cp3.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_did002.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\did002.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_close_detail.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\ic_close_detail.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\font_digital7monoitalic.ttf.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\font\\digital7monoitalic.ttf"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_green.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_green.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_cancel_btn.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\ic_cancel_btn.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_masstech.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\ic_masstech.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_layoutborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\layoutborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_blueii.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_blueii.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_corners.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\corners.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_textborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\textborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_004_cp1.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_004_cp1.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_upborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\upborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_appbrandlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\appbrandlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_logo_mass_tech.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\logo_mass_tech.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_statusbar.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_statusbar.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_connectorborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\connectorborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_initiating.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_initiating.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_two.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\two.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_authentication.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_authentication.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_charging_station.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\charging_station.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_004_cp2.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_004_cp2.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_close_detail.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\ic_close_detail.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_appbrandlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xhdpi\\appbrandlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_charge_point.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\charge_point.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_lang_selection.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\activity_lang_selection.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_textborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\textborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_btnborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\btnborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_appbrandlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-hdpi\\appbrandlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_device_list_item.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\device_list_item.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_border.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\background_border.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_appbrandlogo.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\appbrandlogo.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_blueiv.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_blueiv.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_005_cp2.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_005_cp2.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_close_detail.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_close_detail.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_detailinfo_layout.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\detailinfo_layout.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_002_cp1.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_002_cp1.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_charging.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-ldpi\\ic_charging.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_bgbutton.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_bgbutton.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_cstation.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\ic_cstation.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_did001.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\did001.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_toast_layout.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\custom_toast_layout.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_ac_3p_003_cp1.jpg.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\ic_ac_3p_003_cp1.jpg"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_closef.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-xxhdpi\\ic_closef.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\layout_newdesignm.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\layout\\newdesignm.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_innerlayoutborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\innerlayoutborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_innerlayoutborder.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\innerlayoutborder.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_circle1.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\circle1.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_bttn_01.png.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-mdpi\\bttn_01.png"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\anim_fadein.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\anim\\fadein.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg_blueiii.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable-v24\\bg_blueiii.xml"
+    },
+    {
+        "merged": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_unit.xml.flat",
+        "source": "E:\\BACKUPSSSSSIMP\\ThreePortsEkaLevelLaWorking\\AC3PhaseBuildGivenToNishad6.0.5\\app\\src\\main\\res\\drawable\\bg_unit.xml"
+    }
+]

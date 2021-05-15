@@ -1,0 +1,37 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:2:1-9:12
+	package
+		ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:4:5-48
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:6:5-31
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:3:5-63
+	android:versionCode
+		ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:5:5-28
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+	android:targetSdkVersion
+		ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:15-43
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml
+		ADDED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+		INJECTED from E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml

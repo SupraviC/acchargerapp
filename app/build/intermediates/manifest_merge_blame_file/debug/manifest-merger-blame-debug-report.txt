@@ -1,0 +1,467 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.supravin.accharger"
+4    android:versionCode="60"
+5    android:versionName="6.0.9.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="17"
+8-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="26" />
+9-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.BLUETOOTH" />
+11-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:7:5-68
+11-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:7:22-65
+12    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+12-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:8:5-74
+12-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:8:22-71
+13    <uses-permission android:name="android.permission.WAKE_LOCK" />
+13-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:9:5-68
+13-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:9:22-65
+14    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+14-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:10:5-12:47
+14-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:11:9-63
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:13:5-67
+15-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:13:22-64
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:13:5-67
+16-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:13:22-64
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:15:5-79
+17-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:15:22-76
+18    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+18-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:16:5-79
+18-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:16:22-76
+19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+19-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:17:5-81
+19-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:17:22-78
+20    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+20-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:18:5-81
+20-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:18:22-78
+21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+21-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:19:5-80
+21-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:19:22-77
+22    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+22-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:20:5-75
+22-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:20:22-72
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:15:5-79
+23-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:15:22-76
+24    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+24-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:22:5-76
+24-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:22:22-73
+25    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+25-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:23:5-76
+25-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:23:22-73
+26    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+26-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:24:5-26:47
+26-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:25:9-58
+27    <uses-permission android:name="android.permission.SHUTDOWN" />
+27-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:27:5-29:47
+27-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:28:9-51
+28    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+28-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:30:5-32:47
+28-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:31:9-61
+29    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+29-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:22:5-81
+29-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:22:22-79
+30
+31    <permission
+31-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:24:5-109
+32        android:name="com.supravin.accharger.permission.C2D_MESSAGE"
+32-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:24:17-71
+33        android:protectionLevel="signature" />
+33-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:24:72-107
+34
+35    <uses-permission android:name="com.supravin.accharger.permission.C2D_MESSAGE" />
+35-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:26:5-78
+35-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:26:22-76
+36
+37    <application
+37-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:34:5-153:19
+38        android:name="com.supravin.accharger.AppApplication"
+38-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:35:9-61
+39        android:allowBackup="true"
+39-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-35
+40        android:debuggable="true"
+41        android:hardwareAccelerated="false"
+41-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:36:9-44
+42        android:icon="@mipmap/ic_launcher"
+42-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:37:9-43
+43        android:label="@string/app_name"
+43-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:38:9-41
+44        android:largeHeap="true"
+44-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:39:9-33
+45        android:roundIcon="@mipmap/ic_launcher_round"
+45-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:40:9-54
+46        android:supportsRtl="true"
+46-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:41:9-35
+47        android:testOnly="true"
+48        android:theme="@style/AppTheme"
+48-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:43:9-40
+49        android:usesCleartextTraffic="true" >
+49-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:42:9-44
+50        <activity
+50-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:45:9-48:62
+51            android:name="com.supravin.accharger.OCPP_Implementation_1_6.OCPPWithOkHttpActivity"
+51-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:45:19-103
+52            android:screenOrientation="landscape"
+52-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:46:13-50
+53            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+53-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:47:13-72
+54            android:windowSoftInputMode="stateAlwaysHidden" />
+54-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:48:13-60
+55        <activity
+55-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:49:9-64:20
+56            android:name="com.supravin.accharger.WelcomeActivity"
+56-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:50:13-66
+57            android:screenOrientation="landscape"
+57-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:51:13-50
+58            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
+58-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:52:13-72
+59            <intent-filter>
+59-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:54:13-63:29
+60                <action android:name="android.intent.action.MAIN" />
+60-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:55:17-69
+60-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:55:25-66
+61
+62                <category android:name="android.intent.category.LAUNCHER" />
+62-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:57:17-77
+62-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:57:27-74
+63                <category android:name="android.intent.category.HOME" />
+63-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:58:17-73
+63-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:58:27-70
+64                <category android:name="android.intent.category.DEFAULT" />
+64-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:59:17-76
+64-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:59:27-73
+65
+66                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
+66-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:61:17-90
+66-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:61:25-87
+67                <action android:name="android.bluetooth.device.action.PAIRING_CANCEL" />
+67-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:62:17-89
+67-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:62:25-86
+68            </intent-filter>
+69        </activity>
+70        <activity android:name="com.supravin.accharger.For_Test.MainActivityResponse" >
+70-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:65:9-71:20
+70-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:65:19-64
+71            <intent-filter>
+71-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:66:13-70:29
+72                <action android:name="android.intent.action.MAIN" />
+72-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:55:17-69
+72-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:55:25-66
+73
+74                <category android:name="android.intent.category.DEFAULT" />
+74-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:59:17-76
+74-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:59:27-73
+75            </intent-filter>
+76        </activity>
+77        <activity
+77-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:72:9-74:53
+78            android:name="com.supravin.accharger.InitiatingActivityMannual"
+78-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:73:13-76
+79            android:screenOrientation="landscape" />
+79-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:74:13-50
+80        <activity
+80-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:75:9-77:53
+81            android:name="com.supravin.accharger.InitiatingActivityOcpp"
+81-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:76:13-73
+82            android:screenOrientation="landscape" />
+82-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:77:13-50
+83        <activity
+83-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:78:9-82:63
+84            android:name="com.supravin.accharger.MaindisplayActivityMannual"
+84-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:79:13-77
+85            android:screenOrientation="landscape"
+85-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:80:13-50
+86            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+86-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:81:13-72
+87            android:windowSoftInputMode="stateAlwaysHidden" />
+87-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:82:13-60
+88        <activity
+88-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:83:9-87:63
+89            android:name="com.supravin.accharger.MaindisplayActivityOcpp"
+89-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:84:13-74
+90            android:screenOrientation="landscape"
+90-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:85:13-50
+91            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+91-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:86:13-72
+92            android:windowSoftInputMode="stateAlwaysHidden" />
+92-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:87:13-60
+93        <activity
+93-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:88:9-91:75
+94            android:name="com.supravin.accharger.AppUpdateActivity"
+94-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:89:13-68
+95            android:screenOrientation="landscape"
+95-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:90:13-50
+96            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+96-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:91:13-72
+97        <activity
+97-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:92:9-96:71
+98            android:name="com.supravin.accharger.Authentication"
+98-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:93:13-65
+99            android:screenOrientation="landscape"
+99-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:94:13-50
+100            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+100-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:95:13-72
+101            android:windowSoftInputMode="stateVisible|adjustResize" />
+101-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:96:13-68
+102        <activity
+102-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:97:9-113:20
+103            android:name="com.supravin.accharger.LangSelection"
+103-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:98:13-64
+104            android:screenOrientation="landscape"
+104-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:99:13-50
+105            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
+105-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:100:13-72
+106
+107            <!--
+108            <intent-filter>
+109                <action android:name="android.intent.action.MAIN" />
+110
+111                <category android:name="android.intent.category.LAUNCHER" />
+112                <category android:name="android.intent.category.HOME" />
+113                <category android:name="android.intent.category.DEFAULT" />
+114
+115                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
+116                <action android:name="android.bluetooth.device.action.PAIRING_CANCEL" />
+117            </intent-filter>
+118            -->
+119        </activity>
+120        <activity
+120-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:114:9-117:75
+121            android:name="com.supravin.accharger.InstruSelection"
+121-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:115:13-66
+122            android:screenOrientation="landscape"
+122-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:116:13-50
+123            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+123-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:117:13-72
+124
+125        <service
+125-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:119:9-122:39
+126            android:name="com.supravin.accharger.For_Test.ServiceSendJSONRequestToServer"
+126-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:120:13-68
+127            android:enabled="true"
+127-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:121:13-35
+128            android:exported="true" />
+128-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:122:13-36
+129        <service
+129-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:123:9-126:39
+130            android:name="com.supravin.accharger.For_Test.ServiceSendJSONResponseToServer"
+130-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:124:13-69
+131            android:enabled="true"
+131-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:125:13-35
+132            android:exported="true" />
+132-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:126:13-36
+133
+134        <activity
+134-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:128:9-131:75
+135            android:name="com.supravin.accharger.InitiatingActivityNext"
+135-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:129:13-73
+136            android:screenOrientation="landscape"
+136-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:130:13-50
+137            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+137-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:131:13-72
+138        <activity
+138-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:132:9-135:75
+139            android:name="com.supravin.accharger.SettingActivity"
+139-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:133:13-66
+140            android:screenOrientation="landscape"
+140-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:134:13-50
+141            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+141-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:135:13-72
+142
+143        <service android:name="com.supravin.accharger.For_Test.Reconnect_service" />
+143-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:137:9-63
+143-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:137:18-60
+144        <service
+144-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:138:9-141:39
+145            android:name="com.supravin.accharger.IsThreadAliveService"
+145-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:139:13-71
+146            android:enabled="true"
+146-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:140:13-35
+147            android:exported="true" />
+147-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:141:13-36
+148
+149        <receiver
+149-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:143:9-149:20
+150            android:name="com.supravin.accharger.OCPP_Implementation_1_6.Receiver.ConnectivityReceiver"
+150-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:144:13-104
+151            android:enabled="true" >
+151-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:145:13-35
+152            <intent-filter>
+152-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:146:13-148:29
+153                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+153-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:147:17-79
+153-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:147:25-76
+154            </intent-filter>
+155        </receiver>
+156
+157        <meta-data
+157-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:150:9-152:57
+158            android:name="preloaded_fonts"
+158-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:151:13-43
+159            android:resource="@array/preloaded_fonts" />
+159-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:152:13-54
+160
+161        <activity
+161-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:9-29:20
+162            android:name="com.rxgradle.wifi.activity.WifiActivity"
+162-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-67
+163            android:launchMode="singleTop"
+163-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-43
+164            android:screenOrientation="landscape"
+164-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-50
+165            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
+165-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-72
+166            <intent-filter>
+166-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-28:29
+167                <action android:name="com.haier.wifi.list" />
+167-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:17-62
+167-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:25-59
+168
+169                <category android:name="android.intent.category.DEFAULT" />
+169-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:59:17-76
+169-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\src\main\AndroidManifest.xml:59:27-73
+170            </intent-filter>
+171        </activity>
+172
+173        <service android:name="com.rxgradle.wifi.server.WifiServer" />
+173-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:9-71
+173-->[:libwifi] E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\libwifi\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:18-68
+174        <!--
+175 FirebaseMessagingService performs security checks at runtime,
+176             no need for explicit permissions despite exported="true"
+177        -->
+178        <service
+178-->[com.google.firebase:firebase-messaging:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\b4a7c36e5c5b4a669e21883923423bed\firebase-messaging-11.0.4\AndroidManifest.xml:23:9-27:19
+179            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+179-->[com.google.firebase:firebase-messaging:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\b4a7c36e5c5b4a669e21883923423bed\firebase-messaging-11.0.4\AndroidManifest.xml:23:18-87
+180            android:exported="true" >
+180-->[com.google.firebase:firebase-messaging:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\b4a7c36e5c5b4a669e21883923423bed\firebase-messaging-11.0.4\AndroidManifest.xml:23:88-111
+181            <intent-filter android:priority="-500" >
+181-->[com.google.firebase:firebase-messaging:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\b4a7c36e5c5b4a669e21883923423bed\firebase-messaging-11.0.4\AndroidManifest.xml:24:13-26:29
+181-->[com.google.firebase:firebase-messaging:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\b4a7c36e5c5b4a669e21883923423bed\firebase-messaging-11.0.4\AndroidManifest.xml:24:28-51
+182                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+182-->[com.google.firebase:firebase-messaging:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\b4a7c36e5c5b4a669e21883923423bed\firebase-messaging-11.0.4\AndroidManifest.xml:25:17-77
+182-->[com.google.firebase:firebase-messaging:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\b4a7c36e5c5b4a669e21883923423bed\firebase-messaging-11.0.4\AndroidManifest.xml:25:25-75
+183            </intent-filter>
+184        </service>
+185
+186        <receiver
+186-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:25:7-26:18
+187            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+187-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:25:17-89
+188            android:enabled="true"
+188-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:25:90-112
+189            android:exported="false" >
+189-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:25:113-137
+190        </receiver>
+191        <receiver
+191-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:27:7-31:18
+192            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+192-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:27:17-104
+193            android:enabled="true"
+193-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:27:162-184
+194            android:exported="true"
+194-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:27:185-208
+195            android:permission="android.permission.INSTALL_PACKAGES" >
+195-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:27:105-161
+196            <intent-filter>
+196-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:28:11-30:27
+197                <action android:name="com.android.vending.INSTALL_REFERRER" />
+197-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:29:15-76
+197-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:29:23-74
+198            </intent-filter>
+199        </receiver>
+200
+201        <service
+201-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:32:7-137
+202            android:name="com.google.android.gms.measurement.AppMeasurementService"
+202-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:32:16-87
+203            android:enabled="true"
+203-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:32:88-110
+204            android:exported="false" />
+204-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:32:111-135
+205        <service
+205-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:33:7-197
+206            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+206-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:33:16-90
+207            android:enabled="true"
+207-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:33:148-170
+208            android:exported="false"
+208-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:33:171-195
+209            android:permission="android.permission.BIND_JOB_SERVICE" />
+209-->[com.google.firebase:firebase-analytics:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\c8d5a3f1a992d456e8c795b43387dd55\firebase-analytics-11.0.4\AndroidManifest.xml:33:91-147
+210
+211        <receiver
+211-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:30:9-35:20
+212            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+212-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:30:19-84
+213            android:exported="true"
+213-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:30:85-108
+214            android:permission="com.google.android.c2dm.permission.SEND" >
+214-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:30:109-169
+215            <intent-filter>
+215-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:31:13-34:29
+216                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+216-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:32:17-80
+216-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:32:25-78
+217
+218                <category android:name="com.supravin.accharger" />
+218-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:33:17-60
+218-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:33:27-58
+219            </intent-filter>
+220        </receiver>
+221        <!--
+222 Internal (not exported) receiver used by the app to start its own exported services
+223             without risk of being spoofed.
+224        -->
+225        <receiver
+225-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:39:9-119
+226            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+226-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:39:19-92
+227            android:exported="false" />
+227-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:39:93-117
+228        <!--
+229 FirebaseInstanceIdService performs security checks at runtime,
+230             no need for explicit permissions despite exported="true"
+231        -->
+232        <service
+232-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:43:9-47:19
+233            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+233-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:43:18-82
+234            android:exported="true" >
+234-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:43:83-106
+235            <intent-filter android:priority="-500" >
+235-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:44:13-46:29
+235-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:44:28-51
+236                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+236-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:45:17-79
+236-->[com.google.firebase:firebase-iid:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\1920274445a5ff7c7ac5c02d39cfcb6d\firebase-iid-11.0.4\AndroidManifest.xml:45:25-77
+237            </intent-filter>
+238        </service>
+239
+240        <provider
+240-->[com.google.firebase:firebase-common:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\913231253be015f74359e0aab7fa7c70\firebase-common-11.0.4\AndroidManifest.xml:6:9-194
+241            android:name="com.google.firebase.provider.FirebaseInitProvider"
+241-->[com.google.firebase:firebase-common:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\913231253be015f74359e0aab7fa7c70\firebase-common-11.0.4\AndroidManifest.xml:6:79-143
+242            android:authorities="com.supravin.accharger.firebaseinitprovider"
+242-->[com.google.firebase:firebase-common:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\913231253be015f74359e0aab7fa7c70\firebase-common-11.0.4\AndroidManifest.xml:6:19-78
+243            android:exported="false"
+243-->[com.google.firebase:firebase-common:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\913231253be015f74359e0aab7fa7c70\firebase-common-11.0.4\AndroidManifest.xml:6:144-168
+244            android:initOrder="100" />
+244-->[com.google.firebase:firebase-common:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\913231253be015f74359e0aab7fa7c70\firebase-common-11.0.4\AndroidManifest.xml:6:169-192
+245
+246        <meta-data
+246-->[com.google.android.gms:play-services-basement:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\2dd8eca5bbad9311d39e5c3e97f99a66\play-services-basement-11.0.4\AndroidManifest.xml:20:9-121
+247            android:name="com.google.android.gms.version"
+247-->[com.google.android.gms:play-services-basement:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\2dd8eca5bbad9311d39e5c3e97f99a66\play-services-basement-11.0.4\AndroidManifest.xml:20:20-65
+248            android:value="@integer/google_play_services_version" />
+248-->[com.google.android.gms:play-services-basement:11.0.4] C:\Users\Pravin\.gradle\caches\transforms-2\files-2.1\2dd8eca5bbad9311d39e5c3e97f99a66\play-services-basement-11.0.4\AndroidManifest.xml:20:66-119
+249    </application>
+250
+251</manifest>

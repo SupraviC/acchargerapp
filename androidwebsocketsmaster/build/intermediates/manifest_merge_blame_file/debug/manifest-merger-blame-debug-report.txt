@@ -1,0 +1,14 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.codebutler.android_websockets"
+4    android:versionCode="1"
+5    android:versionName="0.01" >
+6
+7    <uses-sdk
+7-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+8        android:minSdkVersion="8"
+8-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:5-46
+9        android:targetSdkVersion="8" />
+9-->E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\androidwebsocketsmaster\src\main\AndroidManifest.xml:8:15-43
+10
+11</manifest>

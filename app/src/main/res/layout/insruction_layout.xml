@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.supravin.accharger.InstruSelection"
+    android:keepScreenOn="true">
+
+
+
+<ImageView
+        android:id="@+id/masstechLogo"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/appbrandlogo"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="1sp"
+        android:background="@android:color/darker_gray"
+        android:layout_alignBottom="@+id/masstechLogo"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginRight="10sp"
+        tools:ignore="SmallSp" />
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/layout123"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view1"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:layout_marginBottom="3dp">
+
+        <TextView
+            android:id="@+id/textInstruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instructions"
+            android:gravity="center"
+            android:textSize="43sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10sp"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textInstruction"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rg_mode"
+            android:layout_marginBottom="10dp">
+
+            <RadioButton
+                android:id="@+id/rb_auto"
+                android:hint="a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Auto"
+                android:textSize="37dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"/>
+
+            >
+
+            <RadioButton
+                android:id="@+id/rb_mannual"
+                android:hint="m"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Manual"
+                android:textSize="37dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"/>
+        </RadioGroup>
+
+        <Button
+            android:layout_width="220dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/rg_mode"
+            android:gravity="center"
+            android:text="Submit"
+            android:textSize="30dp"
+            android:id="@+id/btn_submitmode"
+            android:layout_marginTop="25dp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="90dp"
+            android:background="@drawable/mybutton"
+            />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt_instrumorqu"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="26dp"
+        android:background="#D3D3D3"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="Select mode here       Select mode here       Select mode here       Select mode here       Select mode here       Select mode here       Select mode here       "
+        android:textColor="@android:color/black"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/txt_VersionNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout123"
+        android:layout_alignEnd="@+id/view1"
+        android:layout_marginEnd="14dp"
+        android:text="Version 4.0"
+
+        android:textSize="40sp"/>
+</RelativeLayout>

@@ -1,0 +1,2 @@
+# Referenced at E:\BACKUPSSSSSIMP\ThreePortsEkaLevelLaWorking\AC3PhaseBuildGivenToNishad6.0.5\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:37
+-keep class com.supravin.accharger.AppApplication { <init>(); }

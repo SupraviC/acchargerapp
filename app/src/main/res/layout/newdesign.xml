@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:id="@+id/layout_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+
+            <LinearLayout
+                android:id="@+id/ll_parent1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <LinearLayout
+                        android:id="@+id/ll_connect1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:weightSum="6"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_blue">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2.2"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_unit"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tv_unit1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="₹ 00.00"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:textSize="60sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:visibility="gone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Units (kWh)"
+                                android:layout_gravity="center"
+                                android:textSize="30sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.3"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_time1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="85:00"
+                                android:layout_gravity="center"
+                                android:textSize="55sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/digital7italic"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/txt_etime_display1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Elapsed Time"
+                                android:layout_gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="24sp"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_statusbar">
+                            <TextView
+                                android:id="@+id/tv_status1"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="STATUS"
+                                android:textStyle="bold"
+                                android:textColor="@color/status_color"
+                                android:textSize="36sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/toggleBtn"
+                                android:layout_width="140dp"
+                                android:layout_height="100dp"
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="8dp"
+                                android:background="@drawable/bg_unit"
+                                android:layout_gravity="center"
+                                >
+                                <TextView
+                                    android:id="@+id/toggleValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="25sp"
+                                    android:layout_gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/rockb"
+                                    android:gravity="center"
+                                    android:text="START"/>
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:id="@+id/connectionLayout1st"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorTransparent">
+                        <TextView
+                            android:id="@+id/txt_touch1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:text="Touch Here \nTo \nSTART"
+                            android:layout_centerInParent="true"
+                            android:textSize="36sp"/>
+
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="100dp"
+                            android:src="@drawable/bttn_01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CHARGE POINT 1"
+                            android:textStyle="bold"
+                            android:textSize="32sp"
+                            android:visibility="gone"
+                            android:textColor="@color/white"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="50dp"/>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true">
+                    <LinearLayout
+                        android:id="@+id/ll_connect2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:weightSum="6"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_green">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2.2"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_unit"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:gravity="center">
+
+
+                            <TextView
+                                android:id="@+id/tv_unit2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="₹ 00.00"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:textSize="60sp"
+                                android:textStyle="bold"
+                                />
+                            <TextView
+                                android:visibility="gone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Units (kWh)"
+                                android:layout_gravity="center"
+                                android:textSize="30sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.3"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_time2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="85:00"
+                                android:layout_gravity="center"
+                                android:textSize="55sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/digital7italic"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/txt_etime_display2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Elapsed Time"
+                                android:layout_gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="24sp"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_statusbar">
+                            <TextView
+                                android:id="@+id/tv_status2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="STATUS"
+                                android:textStyle="bold"
+                                android:textColor="@color/status_color"
+                                android:textSize="36sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/btn_p2onff"
+                                android:layout_width="140dp"
+                                android:layout_height="100dp"
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="8dp"
+                                android:layout_gravity="center"
+                                >
+                                <TextView
+                                    android:id="@+id/txt_p2btnValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="25sp"
+                                    android:layout_gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/rockb"
+                                    android:gravity="center"
+                                    android:text="START"/>
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/connectionLayout2nd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorTransparent">
+                        <TextView
+                            android:id="@+id/txt_touch2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:text="Touch Here \nTo \nSTART"
+                            android:textStyle="bold"
+                            android:layout_centerInParent="true"
+                            android:textSize="36sp"/>
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="100dp"
+                            android:src="@drawable/bttn_02" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CHARGE POINT 2"
+                            android:textStyle="bold"
+                            android:textSize="32sp"
+                            android:textColor="@color/white"
+                            android:visibility="gone"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="50dp"/>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <LinearLayout
+                        android:id="@+id/ll_connect3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:weightSum="6"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_red">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2.2"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_unit"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tv_unit3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="₹ 00.00"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textSize="60sp"
+                                android:textStyle="bold"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Units (kWh)"
+                                android:visibility="gone"
+                                android:layout_gravity="center"
+                                android:textSize="30sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.3"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_time3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="85:00"
+                                android:layout_gravity="center"
+                                android:textSize="55sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/digital7italic"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/txt_etime_display3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Elapsed Time"
+                                android:layout_gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="24sp"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_statusbar">
+                            <TextView
+                                android:id="@+id/tv_status3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="STATUS"
+                                android:textStyle="bold"
+                                android:textColor="@color/status_color"
+                                android:textSize="36sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center"
+                            android:layout_margin="20dp">
+                            <android.support.v7.widget.CardView
+                                android:id="@+id/btn_p3onff"
+                                android:layout_width="140dp"
+                                android:layout_height="100dp"
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="8dp"
+                                android:layout_gravity="center"
+                                >
+                                <TextView
+                                    android:id="@+id/txt_p3btnValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="25sp"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/rockb"
+                                    android:gravity="center"
+                                    android:text="START"/>
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/connectionLayout3rd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorTransparent">
+                        <TextView
+                            android:id="@+id/txt_touch3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:text="Touch Here \nTo \nSTART"
+                            android:layout_centerInParent="true"
+                            android:textStyle="bold"
+                            android:textSize="36sp"/>
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="100dp"
+                            android:src="@drawable/bttn_03" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CHARGE POINT 3"
+                            android:textStyle="bold"
+                            android:textSize="32sp"
+                            android:visibility="gone"
+                            android:textColor="@color/white"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="50dp"/>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+        <!--<LinearLayout
+            android:id="@+id/layout_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@android:color/darker_gray">
+                <LinearLayout
+                    android:id="@+id/over_layout"
+                    android:layout_width="975dp"
+                    android:layout_height="550dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:background="#f9f7f7"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center_horizontal"
+
+                            android:layout_weight="1.98"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+                            <TextView
+                                android:id="@+id/txt_cpname"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Charge Point #01"
+                                android:textSize="42sp"
+                                android:layout_marginLeft="18dp"
+                                android:textStyle="bold"
+                                android:textColor="#676767"/>
+                            <TextView
+                                android:id="@+id/txt_rate"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="₹ 00.00"
+                                android:textSize="52sp"
+                                android:layout_marginRight="28dp"
+                                android:textStyle="bold"
+                                android:gravity="end"
+                                android:textColor="#da0404"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="2"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:weightSum="3"
+                            android:paddingRight="40dp"
+                            android:paddingLeft="40dp"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_blueii"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_voltage_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="000"
+                                    android:textStyle="bold"
+                                    android:textColor="#94a316"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Voltage"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_blueiii"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_current_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00.00"
+                                    android:textStyle="bold"
+                                    android:textColor="#fbb424"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Current"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_blueiv"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_power_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="000"
+                                    android:textStyle="bold"
+                                    android:textColor="#78012b"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Power"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:weightSum="3"
+                            android:paddingRight="40dp"
+                            android:paddingLeft="40dp"
+
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/border_unit"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_unit_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="000"
+                                    android:textStyle="bold"
+                                    android:textColor="#fa7808"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Unit"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/border_etime"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_etime_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00:00:00"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/digital7italic"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="#27cad3"
+                                    android:textSize="55sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Elapsed Time"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/border_status"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_status_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="IDLE"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="#0b4366"
+                                    android:textSize="34sp"/>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView_close"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top|right"
+                    android:clickable="true"
+                    android:src="@drawable/ic_cancel_btn" />
+
+            </FrameLayout>
+        </LinearLayout>-->
+        <LinearLayout
+            android:id="@+id/layout_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@android:color/darker_gray">
+                <LinearLayout
+                    android:id="@+id/over_layout1"
+                    android:layout_width="965dp"
+                    android:layout_height="540dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:background="#f9f7f7"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.98"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <Button
+                                android:id="@+id/checkBox"
+                                android:layout_width="150dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="0dp"
+                                android:text="h"
+                                android:alpha="0"
+                                android:layout_alignParentStart="true"
+                                android:layout_below="@+id/connecting"
+                                android:layout_marginTop="1dp"
+                                />
+                            <TextView
+                                android:id="@+id/txt_cpname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Charge Point #01"
+                                android:textSize="35sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="18dp"
+                                android:layout_marginRight="160dp"
+                                android:textStyle="bold"
+                                android:textColor="#676767"/>
+
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="2"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight=".9"
+                            android:orientation="horizontal"
+                            android:paddingLeft="40dp"
+                            android:paddingRight="40dp"
+                            android:weightSum="2">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_weight="1"
+                                android:weightSum="2">
+                                <TextView
+                                    android:id="@+id/txt_rate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text=" ₹ 2000.00"
+                                    android:textSize="60sp"
+                                    android:textStyle="bold"
+                                    android:layout_gravity="left"
+                                    android:textColor="#da0404"/>
+                                <TextView
+                                    android:id="@+id/txt_rate_display"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=" 7₹ per unit"
+                                    android:layout_gravity="left"
+                                    android:textSize="40sp"
+                                    android:gravity="center"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:id="@+id/langSelectm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Language"
+                                    android:textSize="30sp"
+                                    android:layout_gravity="end"
+                                    android:visibility="gone"
+                                    android:textColor="@android:color/black"
+                                    android:layout_marginBottom="5sp"/>
+                                <RadioGroup
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:id="@+id/rg_language_m"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="10dp">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_en_m"
+                                        android:hint="en"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="  English"
+                                        android:textSize="28dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="7dp"
+                                        android:layout_marginBottom="7dp"/>
+
+                                    <RadioButton
+                                        android:id="@+id/rb_hi_m"
+                                        android:hint="hi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="  हिंदी "
+                                        android:textSize="28dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="7dp"
+                                        android:layout_marginBottom="7dp"/>
+
+                                    <RadioButton
+                                        android:id="@+id/rb_ma_m"
+                                        android:hint="ma"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="  मराठी "
+                                        android:textSize="28dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="7dp"
+                                        android:layout_marginBottom="7dp"/>
+                                </RadioGroup>
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:weightSum="3"
+                            android:paddingRight="40dp"
+                            android:paddingLeft="40dp"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_blueii"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_voltage_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="000"
+                                    android:textStyle="bold"
+                                    android:textColor="#94a316"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Voltage"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_blueiii"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_current_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00.00"
+                                    android:textStyle="bold"
+                                    android:textColor="#fbb424"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Current"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_blueiv"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_power_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="000"
+                                    android:textStyle="bold"
+                                    android:textColor="#78012b"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Power"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:weightSum="3"
+                            android:paddingRight="40dp"
+                            android:paddingLeft="40dp"
+
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/border_unit"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_unit_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="000"
+                                    android:textStyle="bold"
+                                    android:textColor="#fa7808"
+                                    android:textSize="56sp"/>
+                                <TextView
+                                    android:id="@+id/txt_unit_display"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Unit"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/border_etime"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_etime_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00:00:00"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/digital7italic"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="#27cad3"
+                                    android:textSize="55sp"/>
+                                <TextView
+                                    android:id="@+id/txt_etime_displayf"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Elapsed Time"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="#666666"
+                                    android:textSize="28sp"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/border_status"
+                                android:gravity="center">
+                                <TextView
+                                    android:id="@+id/txt_status_detail"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="IDLE"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="#0b4366"
+                                    android:textSize="32sp"/>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <!-- <TextView
+                    android:id="@+id/mywidget"
+                    android:layout_below="@+id/layout123"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:ellipsize="marquee"
+                    android:textSize="25dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:fadingEdge="horizontal"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:textColor="@android:color/black"
+                    android:background="#D3D3D3"
+                    android:text="Full detail information here     Full detail information here      Full detail information here      Full detail information here       Full detail information here       Full detail information here      Full detail information here    "
+                    android:singleLine="true"
+                    android:layout_weight=".1"/>-->
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView_close"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="top|right"
+                    android:clickable="true"
+                    android:src="@drawable/ic_closef" />
+
+
+
+            </FrameLayout>
+        </LinearLayout>
+        <!--<LinearLayout-->
+        <!--android:id="@+id/layout_otp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:gravity="center"-->
+        <!--android:visibility="gone"-->
+        <!--android:orientation="vertical" >-->
+        <!--<RelativeLayout-->
+
+        <!--android:layout_width="350dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:id="@+id/relaytiveLayout2"-->
+        <!--android:background="@drawable/ic_txtborder"-->
+        <!--android:inputType="number"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginBottom="17dp">-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/et_getotp"-->
+        <!--android:padding="5dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:hint="ENTER OTP"-->
+        <!--android:imeOptions="actionDone"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--/>-->
+
+        <!--</RelativeLayout>-->
+        <!--<Button-->
+
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/ic_bgbutton"-->
+        <!--android:textColor="#FFF"-->
+        <!--android:text="OK"-->
+        <!--android:id="@+id/btn_checkOTP"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:paddingLeft="30dp"-->
+        <!--android:paddingRight="30dp"-->
+        <!--android:layout_below="@+id/relaytiveLayout1"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/layout_otp"
+            >
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp">
+
+                <LinearLayout
+                    android:id="@+id/layout_detailqr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="70dp"
+                    android:layout_marginTop="30dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@color/white">
+
+                        <!--</LinearLayout>-->
+                        <LinearLayout
+                            android:id="@+id/layout_otpinner"
+                            android:layout_width="950dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="visible"
+                            android:weightSum="2.1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight=".1"
+                                android:gravity="center"
+                                android:id="@+id/txt_qrcodename"
+                                android:text="Charge Point #01"
+                                android:textColor="#676767"
+                                android:textSize="35sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/rl_Layout_1st"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_weight="1.5"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+                                    <!-- Image View for QR Code-->
+                                    <ImageView
+                                        android:id="@+id/iv_QRCode"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="7dp"
+                                        android:layout_marginLeft="7dp"
+                                        android:layout_marginRight="7dp"
+                                        android:layout_marginTop="7dp"
+                                        android:src="@drawable/did001" />
+
+                                </LinearLayout>
+
+                                <!--  <LinearLayout
+                                      android:layout_width="0dp"
+                                      android:layout_height="wrap_content"
+                                      android:layout_weight=".1"
+                                      android:layout_gravity="center">-->
+                                <View
+                                    android:id="@+id/view"
+                                    android:layout_width="3dp"
+                                    android:layout_height="350dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@android:color/black" />
+                                <!--</LinearLayout>-->
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text=" Instructions"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="40dp" />
+
+                                    <android.support.v4.widget.NestedScrollView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginTop="10dp"
+                                                android:text="1. Download TATA Power Charger App From Play Store To Avail this Facility"
+                                                android:textSize="30dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginTop="10dp"
+                                                android:text="2. Please Follow The Instructions Given In App"
+                                                android:textSize="30dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginTop="10dp"
+                                                android:text=" 3. Please Scan The QR Code To Initiate The Session "
+                                                android:textSize="30dp" />
+
+                                            <!-- <TextView
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="wrap_content"
+                                                 android:text=" 4. 4th Dummy Instruction"
+                                                 android:layout_marginTop="10dp"
+                                                 android:layout_marginBottom="10dp"
+                                                 android:textSize="30dp"/>
+
+                                             <TextView
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="wrap_content"
+                                                 android:text=" 5. 5th Dummy Instruction"
+                                                 android:layout_marginTop="10dp"
+                                                 android:layout_marginBottom="10dp"
+                                                 android:textSize="30dp"/>
+                         -->
+                                        </LinearLayout>
+                                    </android.support.v4.widget.NestedScrollView>
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_below="@+id/rl_Layout_1st"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight=".5"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:text="Enter OTP Here !           "
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="25dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="1.5">
+
+                                    <EditText
+                                        android:id="@+id/et_getotp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/ic_txtborder"
+                                        android:hint="One Time Password"
+                                        android:inputType="phone"
+                                        android:textAlignment="center"
+                                        android:textColor="#000"
+                                        android:textColorHint="@color/black" />
+
+                                    <Button
+                                        android:id="@+id/btn_checkOTP"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        android:layout_marginLeft="7dp"
+                                        android:layout_marginRight="7dp"
+                                        android:layout_weight=".5"
+                                        android:background="@drawable/ic_custom_button"
+                                        android:text="Submit"
+                                        android:textAllCaps="false"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="30dp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <ImageView
+                            android:id="@+id/imageView_close_qr_layout"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="top|right"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:clickable="true"
+                            android:src="@drawable/ic_closef" />
+
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/layout_goback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:keepScreenOn="true"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@color/white"
+                >
+                <ImageView
+                    android:layout_width="700dp"
+                    android:layout_height="350dp"
+                    android:layout_below="@+id/connectingnext"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/appbrandlogo"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="100dp" />
+
+                <TextView
+                    android:id="@+id/connectingnext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/checkBox2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="33dp"
+                    android:gravity="center"
+                    android:text="Touch Here To Resume"
+                    android:textColor="#067CA0"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:id="@+id/layout_goback"
+        >
+        <ImageView
+        android:layout_width="700dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/ic_tatapower_logo"
+        />
+    </LinearLayout>-->
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layoutOTP"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:textSize="15dp"
+                android:textColor="#21597C"
+                android:gravity="center"
+                android:text="Connectivity Status:-" />
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/txt_INStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:textSize="15sp"
+                android:textColor="#21597C"
+                android:gravity="center"
+                android:text="--"/>
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/txt_Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="21dp"
+            android:textSize="20sp"
+            android:textColor="#21597C"
+            android:gravity="center"
+            android:text="Enter OTP received on your mobile number."
+            android:layout_marginBottom="60dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="12dp"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/edt_OTP0"
+                android:layout_width="450dp"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:maxLength="4"
+                android:padding="9dp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:imeOptions="actionDone"
+                android:background="@drawable/textinputborder"
+                android:inputType="number"
+                android:layout_margin="12dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:weightSum="2"
+            android:layout_marginBottom="30dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rg_language"
+               android:layout_gravity="start|center"
+                android:text="Cancel"
+                android:textSize="30dp"
+                android:layout_weight="1"
+                android:id="@+id/btn_Cancel"
+                android:layout_margin="20dp"
+                android:paddingLeft="19dp"
+                android:paddingRight="19dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/mybutton" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rg_language"
+                android:gravity="center"
+                android:text="Done"
+                android:textSize="30dp"
+                android:layout_weight="1"
+                android:id="@+id/btn_Done"
+                android:layout_margin="20dp"
+                android:paddingLeft="19dp"
+                android:paddingRight="19dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/mybutton" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

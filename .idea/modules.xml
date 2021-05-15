@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AC3PhaseBuildGivenToNishad6.0.5.iml" filepath="$PROJECT_DIR$/AC3PhaseBuildGivenToNishad6.0.5.iml" group="AC3PhaseBuildGivenToNishad6.0.5" />
+      <module fileurl="file://$PROJECT_DIR$/androidwebsocketsmaster/androidwebsocketsmaster.iml" filepath="$PROJECT_DIR$/androidwebsocketsmaster/androidwebsocketsmaster.iml" group="AC3PhaseBuildGivenToNishad6.0.5/androidwebsocketsmaster" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="AC3PhaseBuildGivenToNishad6.0.5/app" />
+      <module fileurl="file://$PROJECT_DIR$/appcrash/appcrash.iml" filepath="$PROJECT_DIR$/appcrash/appcrash.iml" group="AC3PhaseBuildGivenToNishad6.0.5/appcrash" />
+      <module fileurl="file://$PROJECT_DIR$/libwifi/libwifi.iml" filepath="$PROJECT_DIR$/libwifi/libwifi.iml" group="AC3PhaseBuildGivenToNishad6.0.5/libwifi" />
+    </modules>
+  </component>
+</project>

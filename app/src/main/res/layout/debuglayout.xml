@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:keepScreenOn="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <Button
+            android:id="@+id/btn_close2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:id="@+id/edt_commandname"/>
+        <Button
+            android:id="@+id/btn_send2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/red"></LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="false"
+        android:scrollbars = "vertical"
+        android:id="@+id/scroller">
+    <TextView
+        android:id="@+id/txt_comingdata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Coming Data..."
+        android:fadeScrollbars="false"
+        android:gravity="bottom"
+        android:layout_gravity="center"/>
+
+    </ScrollView>
+
+</LinearLayout>

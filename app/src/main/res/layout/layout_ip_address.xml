@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="550dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/linearlayout2"
+        android:weightSum="2"
+        android:layout_width="550dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="35sp"
+            android:layout_weight="1.8"
+            android:layout_height="wrap_content"
+            android:text="IP Configuration"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_weight="0.2"
+            android:id="@+id/imageView_custom_dialog_close_config"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_closef"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="550dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_below="@+id/linearlayout2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/edit_IP"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:background="@drawable/otp_bgr">
+
+            <EditText
+                android:id="@+id/edit_ServerIpAddress"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:hint=" 127.0.0.1 "
+                android:background="@android:color/transparent" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_below="@+id/linearlayout2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/edit_PORT"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:background="@drawable/otp_bgr">
+
+            <EditText
+                android:id="@+id/edit_ServerPort"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="25dp"
+                android:hint=" 8080 "
+                android:inputType="number"
+                android:gravity="center"
+                android:background="@android:color/transparent" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:textColor="#fff"
+        android:text="Configure"
+        android:id="@+id/btn_config"
+        android:textSize="25dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ic_bgbutton"/>
+
+
+</LinearLayout>

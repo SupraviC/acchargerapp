@@ -1,0 +1,3987 @@
+package com.supravin.accharger;
+
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+///import com.firebase.client.Firebase;
+import com.supravin.accharger.PowerPlugged.Power;
+import com.supravin.accharger.Storage.SPTimeReadingCP1;
+import com.supravin.accharger.Storage.SPTimeReadingCP2;
+import com.supravin.accharger.Storage.SPTimeReadingCP3;
+import com.supravin.accharger.Storage.SPisPluggedin;
+import com.supravin.accharger.Storage.SPisPoweFail;
+import com.supravin.accharger.Storage.SPlanguageCP1;
+import com.supravin.accharger.Storage.SPlanguageCP2;
+import com.supravin.accharger.Storage.SPlanguageCP3;
+import com.supravin.accharger.Storage.SPmeterReadingCP1;
+import com.supravin.accharger.Storage.SPmeterReadingCP1RO;
+import com.supravin.accharger.Storage.SPmeterReadingCP2;
+import com.supravin.accharger.Storage.SPmeterReadingCP2RO;
+import com.supravin.accharger.Storage.SPmeterReadingCP3;
+import com.supravin.accharger.Storage.SPmeterReadingCP3RO;
+import com.supravin.accharger.Storage.SPsavemoneyafterpfCP1;
+import com.supravin.accharger.Storage.SharedPreferenceUnitR;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import me.aflak.bluetooth.Bluetooth;
+import me.aflak.bluetooth.BluetoothCallback;
+import me.aflak.bluetooth.DeviceCallback;
+import me.aflak.bluetooth.DiscoveryCallback;
+
+
+public class MaindisplayActivityMannual extends AppCompatActivity {
+
+    CardView toggleBtn,btn_p2onff,btn_p3onff;
+
+    TextView toggleValue,txt_p2btnValue,txt_p3btnValue;
+
+    boolean flag=false,p2flag = false,p3flag= false;
+
+    //---------- For Round Robin -------------//
+    private int countC1,countC2,countC3;
+    private boolean isAvailableC1,isAvailableC2,isAvailableC3;
+    private boolean isStartC1,isStartC2,isStartC3;
+    private boolean isStopC1,isStopC2,isStopC3;
+    private Toast toast;
+    //---------- For Round Robin -------------//
+
+    //String red="#D74C34";
+    String red="#f21200";
+    String green="#3DAA4C";
+
+    static Animation anim,anim2,anim3;
+
+    String command= "$000";
+
+    //-------------design Variables
+    int cnt=0;
+    LinearLayout connect1,connect2,connect3,parent1;
+    TextView txt_c1round_off_mr, txt_c2round_off_mr, txt_c3round_off_mr; //unit consumption variables
+    TextView txt_c1diff,txt_c2diff,txt_c3diff; //time difference
+    TextView tv_status1,tv_status2,tv_status3; // status
+
+    //------------------ new architecture 09-01-2018
+    private SPisPluggedin sPisPluggedin;
+    private SPisPoweFail sPisPoweFail;
+    private SPmeterReadingCP1 sPmeterReadingCP1;
+    private SPmeterReadingCP2 sPmeterReadingCP2;
+    private SPmeterReadingCP3 sPmeterReadingCP3;
+
+    //------------------
+    private SPTimeReadingCP1 sPTimeReadingCP1;
+    private SPTimeReadingCP2 sPTimeReadingCP2;
+    private SPTimeReadingCP3 sPTimeReadingCP3;
+
+
+    //-----------------------CP1
+    private int plugedinCountcp1 = 0;
+    private int plugedoutCountcp1 = 0;
+    private boolean isResumedAftercp1 = false;
+    private boolean isStillOnCP1 = false;
+
+
+    //-----------------------CP2
+    private int plugedinCountcp2 = 0;
+    private int plugedoutCountcp2 = 0;
+    private boolean isResumedAftercp2 = false;
+    private boolean isStillOnCP2 = false;
+
+    //-----------------------CP3
+    private int plugedinCountcp3 = 0;
+    private int plugedoutCountcp3 = 0;
+    private boolean isResumedAftercp3 = false;
+    private boolean isStillOnCP3 = false;
+    //time______________________CP1
+    long MillisCP1 , DifferenceCP1 , NewBeginMillsCP1 , StartTimeCP1 = 0L ;
+    int HoursCP1, MinutesCP1, SecondsCP1 ;
+    //time______________________CP2
+    long MillisCP2 , DifferenceCP2 , NewBeginMillsCP2 , StartTimeCP2 = 0L ;
+    int HoursCP2, MinutesCP2, SecondsCP2 ;
+    //time______________________CP3
+    long MillisCP3 , DifferenceCP3 , NewBeginMillsCP3 , StartTimeCP3 = 0L ;
+    int HoursCP3, MinutesCP3, SecondsCP3 ;
+
+    //----------- optimize______20-01-2018
+    LinearLayout layout_detail,layout_pleasewait;
+    FrameLayout layout_main;
+    ImageView imageView_close;
+    private boolean flagEmergencyStopped=false;
+    TextView txt_cpname,txt_rate,txt_voltage_detail,txt_current_detail,txt_power_detail,txt_unit_detail,txt_etime_detail,txt_status_detail;
+    String voltage_detailCP1="000",current_detailCP1="00.00",power_detailCP1="000",unit_detailCP1="000", etime_detailCP1="00:00",status_detailCP1="IDLE";
+    String voltage_detailCP2="000",current_detailCP2="00.00",power_detailCP2="000",unit_detailCP2="000", etime_detailCP2="00:00",status_detailCP2="IDLE";
+    String voltage_detailCP3="000",current_detailCP3="00.00",power_detailCP3="000",unit_detailCP3="000", etime_detailCP3="00:00",status_detailCP3="IDLE";
+
+    String unit_detailCP21="000",unit_detailCP22="000",unit_detailCP23="000";
+    String etime_detailCP21="00:00",etime_detailCP22="00:00",etime_detailCP23="00:00";
+    //----------
+    String detail_flag = "";
+    boolean flagIsCancel=false;
+    boolean flagResetVals=false;
+    int countN=0;
+    //--- for Rs
+    String rsCP1 = "₹ 00.00", rsCP2 = "₹ 00.00", rsCP3 = "₹ 00.00",rsPOCP1 = "₹ 00.00", rsPOCP2 = "₹ 00.00", rsPOCP3 = "₹ 00.00",mrsPOCP1 = "₹ 00.00", mrsPOCP2 = "₹ 00.00", mrsPOCP3 = "₹ 00.00";
+    String rsCP21 = "₹ 00.00", rsCP22 = "₹ 00.00", rsCP23 = "₹ 00.00",rsPOCP21 = "₹ 00.00", rsPOCP22 = "₹ 00.00", rsPOCP23 = "₹ 00.00",mrsPOCP21 = "₹ 00.00", mrsPOCP22 = "₹ 00.00", mrsPOCP23 = "₹ 00.00";
+    //---for overlay________
+    RelativeLayout relativeLayout1st,relativeLayout2nd,relativeLayout3rd;
+    int overlayCounti = 0,overlayCountii = 0,overlayCountiii = 0;
+
+
+    //language Selection
+    private String s1_CP1,s2_CP1,s3_CP1,s4_CP1,s5_CP1,s6_CP1,s7_CP1,s8_CP1,s9_CP1,s10_CP1,s11_CP1,s12_CP1,s13_CP1,s14_CP1,s15_CP1,s16_CP1,s17_CP1,s18_CP1,s19_CP1,s20_CP1,s21_CP1,s22_CP1,s23_CP1,s24_CP1;
+    private String s1_CP2,s2_CP2,s3_CP2,s4_CP2,s5_CP2,s6_CP2,s7_CP2,s8_CP2,s9_CP2,s10_CP2,s11_CP2,s12_CP2,s13_CP2,s14_CP2,s15_CP2,s16_CP2,s17_CP2,s18_CP2,s19_CP2,s20_CP2,s21_CP2,s22_CP2,s23_CP2,s24_CP2;
+    private String s1_CP3,s2_CP3,s3_CP3,s4_CP3,s5_CP3,s6_CP3,s7_CP3,s8_CP3,s9_CP3,s10_CP3,s11_CP3,s12_CP3,s13_CP3,s14_CP3,s15_CP3,s16_CP3,s17_CP3,s18_CP3,s19_CP3,s20_CP3,s21_CP3,s22_CP3,s23_CP3,s24_CP3;
+    private TextView txt_touch1,txt_touch2,txt_touch3,txt_etime_display1,txt_etime_display2,txt_etime_display3,txt_etime_displayf,txt_unit_display,txt_rate_display;
+
+    private SPlanguageCP1 sPlanguageCP1;
+    private SPlanguageCP2 sPlanguageCP2;
+    private SPlanguageCP3 sPlanguageCP3;
+    private SharedPreferenceUnitR sharedPreference;
+
+    private RadioGroup rg_language_m;
+
+    public boolean isAlreadyonm = true;
+    Button c1,c2,c3,c4;
+    private File myExternalFile;
+    String filename = "Config.txt";
+    String filepath = "MyFileStorage";
+    String cid;
+    String hname="sour";
+    Float erate;
+    String erate_s;
+    int clickCount = 0;
+    //------------
+    private int countidleCP1 = 0,countidleCP2 = 0,countidleCP3 = 0;
+    private RelativeLayout layout_goback ;
+
+
+    private int displayPlugoutCountC1 = 0;
+    private int displayPlugoutCountC2 = 0;
+    private int displayPlugoutCountC3 = 0;
+    boolean isTappedC1 = false, isTappedC2 = false, isTappedC3 = false;
+    boolean isPleaseWaitC1 = false, isPleaseWaitC2 = false, isPleaseWaitC3 = false;
+
+    //meterReadingChange-----------------------------------------------------------------------------------------------------------------------------------------
+    /*SPispowerfailafter4mrCP1 sPispowerfailafter4mrCP1;*/
+   /* SPispowerfailafter4mrCP2 sPispowerfailafter4mrCP2;
+    SPispowerfailafter4mrCP3 sPispowerfailafter4mrCP3;*/
+    //sharedPreferenceforNMeter data________________________________________________________________________________________
+    SPmeterReadingCP1RO sPmeterReadingCP1RO;
+    SPmeterReadingCP2RO sPmeterReadingCP2RO;
+    SPmeterReadingCP3RO sPmeterReadingCP3RO;
+    //-------save money
+    SPsavemoneyafterpfCP1 sPsavemoneyafterpfCP1;
+    private String globalP1meter = "0",globalP2meter="0",globalP3meter="0";
+    String emergency01="0";
+    String emergency02="0";
+    String emergency03="0";
+
+    String overCurrent01="0";
+    String overCurrent02="0";
+    String overCurrent03="0";
+
+    String overVoltage01="0";
+    String overVolatage02="0";
+    String overVolatage03="0";
+
+    String underVoltage01="0";
+    String underVolatage02="0";
+    String underVolatage03="0";
+
+    TextView txt_maininstruction;
+    // Boolean isSavedTimeC1 = false,isSavedTimeC2 = false,isSavedTimeC3 = false;
+    // Boolean isComeFrom10C1 = false,isComeFrom10C2 = false,isComeFrom10C3 = false;
+    Boolean isComefromPFUVOV = false;
+    Boolean is99Comming = true;
+    int counterPFUVOV = 0;
+
+
+    //---TriggerProgram   //_______________________________________17-05-2018
+    int i,clearcachecount;
+    Timer timer;
+    int threadCurrentCount = 0, threadPreviousCount = 0;
+
+
+    boolean isMainthreadend;
+
+    //-----------------------------------
+    Bluetooth bluetooth;
+    //-----11-06-2018
+    Button btn_tick1,btn_tick2,btn_tick3,btn_tick4;
+    String sequence_match = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.e("CRASH REPORT","onCreate MethodN");
+        flagEmergencyStopped=false;
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        setContentView(R.layout.newdesignm);
+        bluetooth = new Bluetooth(MaindisplayActivityMannual.this);
+
+
+        Log.e("CHECK", "CHECKING");
+        // AppCrash.get().showDialog();
+    }
+
+    private void GetCid()
+    {
+        myExternalFile = new File(getExternalFilesDir(filepath), filename);
+        String myData = "";
+        try {
+            FileInputStream fis = new FileInputStream(myExternalFile);
+            DataInputStream in = new DataInputStream(fis);
+            BufferedReader br =
+                    new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            while ((strLine = br.readLine()) != null) {
+                myData = myData + strLine;
+
+            }
+            in.close();
+            //      Toast.makeText(this, myData, Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        cid=myData.toString();
+        Log.e("CIID",cid);
+
+    }
+
+
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        // Toast.makeText(MaindisplayActivity.this,"onRestart Method",Toast.LENGTH_LONG).show();
+        Log.e("METHOD","onRestart Method");
+        Log.e("CRASH REPORT","onRestart Method");
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        bluetooth.onStart();
+        if (!bluetooth.isEnabled()){
+            bluetooth.enable();
+        }
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+        filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED);
+        filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+        //this.registerReceiver(mReceiver, filter);
+        IntentFilter batteryfilter = new IntentFilter();
+        batteryfilter.addAction(Intent.ACTION_POWER_CONNECTED);
+        batteryfilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        registerReceiver(batteryReceiver,batteryfilter);
+
+        //  Toast.makeText(MaindisplayActivity.this,"onStart Method",Toast.LENGTH_LONG).show();
+        Log.e("METHOD","onStart Method");
+        Log.e("CRASH REPORT","onStart Method");
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        bluetooth.connectToName("HC-05");
+        isMainthreadend = true;
+        Log.e("CRASH REPORT","onResume Method");
+
+        //=================================================================================================
+        i = 0;
+        clearcachecount = 0;
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        //TODO your background code
+                        new Handler(Looper.getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                // Toast.makeText(MaindisplayActivityMannual.this, "Count = "+i+"\nthreadPreviousCount : "+threadPreviousCount+"\nthreadCurrentCount"+threadCurrentCount+"\nclearCachecount :"+clearcachecount, Toast.LENGTH_SHORT).show();
+                                if (i>4 ){
+                                    if (threadPreviousCount==threadCurrentCount && Power.isConnected(MaindisplayActivityMannual.this)){
+                                        //trigger
+                                        if(sPisPluggedin.getisPluggedinCP1().equals("t")){
+                                            sPisPoweFail.setisPowerFailCP1("t");
+                                            // sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                                            // isSavedTimeC1 = true;
+                                        }
+                                        if(sPisPluggedin.getisPluggedinCP2().equals("t")){
+                                            sPisPoweFail.setisPowerFailCP2("t");
+                                            //  sPTimeReadingCP2.setTimeReadingCP2(MillisCP2);
+                                            // isSavedTimeC2 = true;
+                                        }
+                                        if(sPisPluggedin.getisPluggedinCP3().equals("t")){
+                                            sPisPoweFail.setisPowerFailCP3("t");
+                                            // sPTimeReadingCP3.setTimeReadingCP3(MillisCP3);
+                                            //  isSavedTimeC3 = true;
+                                        }
+
+                                        if (bluetooth.isConnected()){
+                                            bluetooth.disconnect();
+                                        }
+                                        startActivity(new Intent(MaindisplayActivityMannual.this,InitiatingActivityMannual.class));
+                                        finish();
+                                    }
+                                    else{
+
+                                        threadPreviousCount = 0;
+                                        threadCurrentCount  = 0;
+                                        i = 5;
+
+
+                                    }
+
+
+                                }
+                                i++;
+
+
+
+                                if (clearcachecount > 150){
+                                    clearCache();
+                                    Log.e("Cache","cleared");
+                                    clearcachecount = 0;
+                                }else {
+                                    clearcachecount++;
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        };
+        timer = new Timer();
+        long delay = 0;
+        long intevalPeriod = 1 * 8000;
+        // schedules the task to be run in an interval
+        timer.scheduleAtFixedRate(task, delay,
+                intevalPeriod);
+
+
+
+
+        //======================================================================================================
+        countC1 = 0 ;
+        countC2 = 0 ;
+        countC3 = 0 ;
+
+        isAvailableC1 = true;
+        isAvailableC2 = true;
+        isAvailableC3 = true;
+
+        isStopC1 = true;
+        isStopC2 = true;
+        isStopC3 = true;
+
+        isStartC3 = true;
+        isStartC2 = true;
+        isStartC1 = true;
+
+
+        c1 = findViewById(R.id.checkBox);
+        c2 = findViewById(R.id.checkBox2);
+        c3 = findViewById(R.id.checkBox3);
+        c4 = findViewById(R.id.checkBox4);
+        layout_goback =  findViewById(R.id.layout_goback);
+
+        GetCid();
+        //  Firebase.setAndroidContext(this);
+        c1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clickCount==3) {
+                    BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                    if (mBluetoothAdapter.isEnabled()) {
+                        mBluetoothAdapter.disable();
+                    }
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(MaindisplayActivityMannual.this, Authentication.class);
+                            String C_ID = cid.toString();
+
+//Create the bundle
+                            Bundle bundle = new Bundle();
+
+//Add your data to bundle
+                            bundle.putString("Cid", C_ID);
+
+//Add the bundle to the intent
+                            i.putExtras(bundle);
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            if (bluetooth.isConnected()){
+                                bluetooth.disconnect();
+                            }
+
+//Fire that second activity
+                            startActivity(i);
+                            clickCount=0;
+
+                        }
+                    }, 3000);
+                }
+                else {
+                    clickCount++;
+                }
+            }
+        });
+        sPlanguageCP1 = new SPlanguageCP1(MaindisplayActivityMannual.this);
+        sPlanguageCP2 = new SPlanguageCP2(MaindisplayActivityMannual.this);
+        sPlanguageCP3 = new SPlanguageCP3(MaindisplayActivityMannual.this);
+        sharedPreference = new SharedPreferenceUnitR();
+        if (sharedPreference.getValue(MaindisplayActivityMannual.this)== null){
+            sharedPreference.save(MaindisplayActivityMannual.this,"7");
+        }
+        erate_s = sharedPreference.getValue(MaindisplayActivityMannual.this);
+        erate = Float.parseFloat(erate_s);
+        //erate=700f;
+        langSet();
+        //  Toast.makeText(MaindisplayActivity.this,"onResume Method",Toast.LENGTH_LONG).show();
+        Log.e("METHOD","onResume Method");
+        sPisPluggedin = new SPisPluggedin(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPisPoweFail = new SPisPoweFail(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPmeterReadingCP1 = new SPmeterReadingCP1(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPmeterReadingCP2 = new SPmeterReadingCP2(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPmeterReadingCP3 = new SPmeterReadingCP3(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPTimeReadingCP1 = new SPTimeReadingCP1(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPTimeReadingCP2 = new SPTimeReadingCP2(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPTimeReadingCP3 = new SPTimeReadingCP3(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        //sPispowerfailafter4mrCP1 = new SPispowerfailafter4mrCP1(MaindisplayActivityMannual.this); // initiating sharedepreferences
+       /* sPispowerfailafter4mrCP2 = new SPispowerfailafter4mrCP2(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPispowerfailafter4mrCP3 = new SPispowerfailafter4mrCP3(MaindisplayActivityMannual.this); // initiating sharedepreferences
+     */   sPmeterReadingCP1RO = new SPmeterReadingCP1RO(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPmeterReadingCP2RO = new SPmeterReadingCP2RO(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPmeterReadingCP3RO = new SPmeterReadingCP3RO(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        sPsavemoneyafterpfCP1 = new SPsavemoneyafterpfCP1(MaindisplayActivityMannual.this); // initiating sharedepreferences
+        // Toast.makeText(MaindisplayActivity.this,"Before : "+sPisPluggedin.getisPluggedinCP1(),Toast.LENGTH_LONG).show();
+        // Toast.makeText(MaindisplayActivity.this,"Before : "+sPisPluggedin.getisPluggedinCP2(),Toast.LENGTH_LONG).show();
+        // Toast.makeText(MaindisplayActivity.this,"Before : "+sPisPluggedin.getisPluggedinCP2(),Toast.LENGTH_LONG).show();
+        txt_maininstruction = findViewById(R.id.txt_maininstruction);
+        txt_maininstruction.setSelected(true);
+
+        if (sPsavemoneyafterpfCP1.getMeterReadingCP1RO().isEmpty()){
+            sPsavemoneyafterpfCP1.setMeterReadingCP1RO("0");
+        }
+
+
+        /*if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().isEmpty()){
+            sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("f");
+        }*/
+        /*if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().isEmpty()){
+            sPispowerfailafter4mrCP2.setispowerfailafter4mrCP2("f");
+        }
+        if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().isEmpty()){
+            sPispowerfailafter4mrCP3.setispowerfailafter4mrCP3("f");
+        }*/
+
+        if(sPisPluggedin.getisPluggedinCP1().isEmpty()){
+            sPisPluggedin.setisPluggedinCP1("f");
+            // Toast.makeText(MaindisplayActivity.this,"sPisPluggedin.getisPluggedinCP1() "+sPisPluggedin.getisPluggedinCP1(),Toast.LENGTH_LONG).show();
+        }
+        // Toast.makeText(MaindisplayActivity.this,"Before : "+sPisPoweFail.getisPowerFailCP1(),Toast.LENGTH_LONG).show();
+
+        if(sPisPoweFail.getisPowerFailCP1().isEmpty()){
+            sPisPoweFail.setisPowerFailCP1("f");
+            // Toast.makeText(MaindisplayActivity.this,"sPisPoweFail.getisPowerFailCP1() "+sPisPoweFail.getisPowerFailCP1(),Toast.LENGTH_LONG).show();
+
+        }
+
+        if(sPisPoweFail.getSessionIdForCP1().isEmpty()){
+            sPisPoweFail.setSessionIdForCP1("0");
+            // Toast.makeText(MaindisplayActivity.this,"sPisPoweFail.getisPowerFailCP1() "+sPisPoweFail.getisPowerFailCP1(),Toast.LENGTH_LONG).show();
+
+        }
+        //----------------------------
+        if(sPisPluggedin.getisPluggedinCP2().isEmpty()){
+            sPisPluggedin.setisPluggedinCP2("f");
+            // Toast.makeText(MaindisplayActivity.this,"getisPluggedinCP2() "+sPisPluggedin.getisPluggedinCP2(),Toast.LENGTH_LONG).show();
+        }
+        // Toast.makeText(MaindisplayActivity.this,"Before 2: "+sPisPoweFail.getisPowerFailCP2(),Toast.LENGTH_LONG).show();
+
+        if(sPisPoweFail.getisPowerFailCP2().isEmpty()){
+            sPisPoweFail.setisPowerFailCP2("f");
+            // Toast.makeText(MaindisplayActivity.this,"sPisPoweFail.getisPowerFailCP1() "+sPisPoweFail.getisPowerFailCP2(),Toast.LENGTH_LONG).show();
+
+        }
+
+        //----------------------------
+        if(sPisPluggedin.getisPluggedinCP3().isEmpty()){
+            sPisPluggedin.setisPluggedinCP3("f");
+            //Toast.makeText(MaindisplayActivity.this,"getisPluggedinCP3() "+sPisPluggedin.getisPluggedinCP3(),Toast.LENGTH_LONG).show();
+        }
+        // Toast.makeText(MaindisplayActivity.this,"Before 3: "+sPisPoweFail.getisPowerFailCP3(),Toast.LENGTH_LONG).show();
+
+        if(sPisPoweFail.getisPowerFailCP3().isEmpty()){
+            sPisPoweFail.setisPowerFailCP3("f");
+            // Toast.makeText(MaindisplayActivity.this,"isPowerFailCP3() "+sPisPoweFail.getisPowerFailCP3(),Toast.LENGTH_LONG).show();
+
+        }
+        if (sPmeterReadingCP1.getMeterReadingCP1().isEmpty()){
+            sPmeterReadingCP1.setMeterReadingCP1("00.00");
+        }
+        if (sPmeterReadingCP2.getMeterReadingCP2().isEmpty()){
+            sPmeterReadingCP2.setMeterReadingCP2("00.00");
+        }
+        if (sPmeterReadingCP3.getMeterReadingCP3().isEmpty()){
+            sPmeterReadingCP3.setMeterReadingCP3("00.00");
+        }
+
+
+        toggleBtn   =     findViewById(R.id.toggleBtn);
+        btn_p2onff   =    findViewById(R.id.btn_p2onff);
+        btn_p3onff   =    findViewById(R.id.btn_p3onff);
+
+        toggleValue =     findViewById(R.id.toggleValue);
+        txt_p2btnValue =  findViewById(R.id.txt_p2btnValue);
+        txt_p3btnValue =  findViewById(R.id.txt_p3btnValue);
+
+
+
+        //----------------------------------------------------------
+        connect1=findViewById(R.id.ll_connect1);
+        connect2=findViewById(R.id.ll_connect2);
+        connect3=findViewById(R.id.ll_connect3);
+
+        parent1=findViewById(R.id.ll_parent1);
+
+
+        parent1.animate().translationY(0);
+
+        //-------------------------------------------------------------
+        //----------------variables
+        txt_c1round_off_mr = findViewById(R.id.tv_unit1);
+        txt_c2round_off_mr = findViewById(R.id.tv_unit2);
+        txt_c3round_off_mr = findViewById(R.id.tv_unit3);
+        //--------------------------
+        txt_c1diff = findViewById(R.id.tv_time1);
+        txt_c2diff = findViewById(R.id.tv_time2);
+        txt_c3diff = findViewById(R.id.tv_time3);
+        //----------------------
+        tv_status1 = findViewById(R.id.tv_status1);
+        tv_status2 = findViewById(R.id.tv_status2);
+        tv_status3 = findViewById(R.id.tv_status3);
+
+        //for optimise
+        layout_detail = findViewById(R.id.layout_detail);
+        layout_detail.setVisibility(View.GONE);
+        layout_pleasewait = findViewById(R.id.layout_pleasewait);
+        layout_main = findViewById(R.id.layout_main);
+        imageView_close = findViewById(R.id.imageView_close);
+        txt_cpname = findViewById(R.id.txt_cpname);
+        txt_rate = findViewById(R.id.txt_rate);
+        txt_voltage_detail = findViewById(R.id.txt_voltage_detail);
+        txt_current_detail = findViewById(R.id.txt_current_detail);
+        txt_power_detail = findViewById(R.id.txt_power_detail);
+        txt_unit_detail = findViewById(R.id.txt_unit_detail);
+        txt_etime_detail = findViewById(R.id.txt_etime_detail);
+        txt_status_detail = findViewById(R.id.txt_status_detail);
+        layout_pleasewait.setVisibility(View.VISIBLE);
+        layout_main.setVisibility(View.GONE);
+        layout_detail.setVisibility(View.GONE);
+        //touch...
+        txt_touch1 = findViewById(R.id.txt_touch1);
+        txt_touch2 = findViewById(R.id.txt_touch2);
+        txt_touch3 = findViewById(R.id.txt_touch3);
+        txt_etime_display1 = findViewById(R.id.txt_etime_display1);
+        txt_etime_display2 = findViewById(R.id.txt_etime_display2);
+        txt_etime_display3 = findViewById(R.id.txt_etime_display3);
+        txt_etime_displayf = findViewById(R.id.txt_etime_displayf);
+        txt_unit_display = findViewById(R.id.txt_unit_display);
+        txt_rate_display = findViewById(R.id.txt_rate_display);
+
+        //----------for Overlay28-1-18
+        relativeLayout1st =  findViewById(R.id.connectionLayout1st);
+        relativeLayout2nd =  findViewById(R.id.connectionLayout2nd);
+        relativeLayout3rd =  findViewById(R.id.connectionLayout3rd);
+
+        //-------------lang 30-1-18
+        rg_language_m = findViewById(R.id.rg_language_m);
+
+        //-------------11-06-2018
+        btn_tick1  = findViewById(R.id.btn_tick1);
+        btn_tick2  = findViewById(R.id.btn_tick2);
+        btn_tick3  = findViewById(R.id.btn_tick3);
+        btn_tick4  = findViewById(R.id.btn_tick4);
+
+        btn_tick1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sequence_match = "1";
+                Log.e("tick","1");
+            }
+        });
+        btn_tick2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("tick","2");
+
+                if (sequence_match.equals("1")){
+                    sequence_match = "2";
+                }
+            }
+        });
+
+        btn_tick3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("tick","3");
+
+                if (sequence_match.equals("2")){
+                    sequence_match = "3";
+                }
+            }
+        });
+        btn_tick4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("tick","4");
+
+                if (sequence_match.equals("3")){
+                    layoutback_fun();
+                }
+            }
+        });
+        rg_language_m.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                switch(checkedId)
+                {
+                    case R.id.rb_en_m:
+                        // TODO Something
+                        if (detail_flag.equals("d_CP1")) {
+                            sPlanguageCP1.setlanguageCP1("en");
+                        } else if (detail_flag.equals("d_CP2")) {
+                            sPlanguageCP2.setlanguageCP2("en");
+
+                        } else if (detail_flag.equals("d_CP3")) {
+                            sPlanguageCP3.setlanguageCP3("en");
+
+                        }
+
+                        break;
+                    case R.id.rb_hi_m:
+                        // TODO Something
+                        if (detail_flag.equals("d_CP1")) {
+                            sPlanguageCP1.setlanguageCP1("hi");
+                        } else if (detail_flag.equals("d_CP2")) {
+                            sPlanguageCP2.setlanguageCP2("hi");
+
+                        } else if (detail_flag.equals("d_CP3")) {
+                            sPlanguageCP3.setlanguageCP3("hi");
+
+                        }
+                        break;
+                    case R.id.rb_ma_m:
+                        // TODO Something
+                        if (detail_flag.equals("d_CP1")) {
+                            sPlanguageCP1.setlanguageCP1("ma");
+                        } else if (detail_flag.equals("d_CP2")) {
+                            sPlanguageCP2.setlanguageCP2("ma");
+                        } else if (detail_flag.equals("d_CP3")) {
+                            sPlanguageCP3.setlanguageCP3("ma");
+                        }
+                        break;
+                }
+            }
+        });
+
+        relativeLayout1st.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isTappedC1 = true;
+                isPleaseWaitC1 = true;
+                if (!isAvailableC2 && !isAvailableC3 ) {
+                    funConnectori();
+                    overlayCounti = 0;
+                    relativeLayout1st.setVisibility(View.GONE);
+                } else if (isAvailableC2 && countC2!=0){
+                    customToast(" Now CP2 Available...!!! ");
+                    countC2 = 0;
+                } else if (isAvailableC3 && countC3 != 0){
+                    // Toast.makeText(getApplicationContext()," Cp3 Available",Toast.LENGTH_SHORT).show();
+                    customToast(" Now CP3 Available...!!! ");
+                    countC3 = 0;
+                }
+
+                if (countC1 == countC2 && countC2 == countC3 ) {
+                    countC1 = 0;
+                    countC2 = 0;
+                    countC3 = 0;
+                }
+
+                if (countC1 == 0 && countC2 == 0 && countC3 == 0) {
+                    funConnectori();
+                    overlayCounti = 0;
+                    relativeLayout1st.setVisibility(View.GONE);
+
+                } else if (countC1 > countC2 && countC1 > countC3) {
+
+                    if (isAvailableC2 && isAvailableC3){
+                        customToast("Please Use C2 or C3...!!!");
+                    }
+                    else if (isAvailableC2) {
+                        customToast("Please Use C2...!!!");
+                    } else if (isAvailableC3) {
+                        customToast("Please Use C3...!!!");
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Not Available C2 Or C3...!!!", Toast.LENGTH_SHORT).show();
+                        countC1 = 0;
+                        funConnectori();
+                        overlayCounti = 0;
+                        relativeLayout1st.setVisibility(View.GONE);
+                    }
+
+                }
+                else if (countC1 < countC2 && countC1 < countC3)
+                {
+                    funConnectori();
+                    overlayCounti = 0;
+                    relativeLayout1st.setVisibility(View.GONE);
+                }
+                else if (countC2 > countC1  && countC2 > countC3)
+                {
+                    funConnectori();
+                    overlayCounti = 0;
+                    relativeLayout1st.setVisibility(View.GONE);
+                }
+                else if (countC3 > countC1 && countC3 > countC2)
+                {
+                    funConnectori();
+                    overlayCounti = 0;
+                    relativeLayout1st.setVisibility(View.GONE);
+                }
+                else if (countC2 < countC1 && countC2 < countC3)
+                {
+                    if (isAvailableC2)
+                    {
+                        customToast("Please Use C2...!!!");
+                    }
+                }
+                else if (countC3 < countC1 && countC3 < countC2)
+                {
+                    if (isAvailableC3)
+                    {
+                        customToast("Please Use C3...!!!");
+                    }
+                }
+
+            }
+
+        });
+
+
+        relativeLayout2nd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isTappedC2 = true;
+                isPleaseWaitC2 = true;
+
+                if (!isAvailableC3 && !isAvailableC1)
+                {
+                    funConnectorii();
+                    overlayCountii = 0;
+                    relativeLayout2nd.setVisibility(View.GONE);
+                }
+                else if (isAvailableC1 && countC2!=0){
+                    // Toast.makeText(getApplicationContext(),"CP1  Available",Toast.LENGTH_SHORT).show();
+                    customToast(" Now CP1 Available...!!! ");
+                    countC2 = 0;
+                }
+                else if (isAvailableC3 && countC3!=0){
+                    //Toast.makeText(getApplicationContext()," Cp3 Available",Toast.LENGTH_SHORT).show();
+                    customToast(" Now CP3 Available...!!! ");
+                    countC3 = 0;
+                }
+
+                if (countC1 == countC2 && countC2 == countC3 )
+                {
+                    countC1 = 0;
+                    countC2 = 0;
+                    countC3 = 0;
+
+                }
+
+                if (countC1 == 0 && countC2 == 0 && countC3 == 0)
+                {
+                    funConnectorii();
+                    overlayCountii = 0;
+                    relativeLayout2nd.setVisibility(View.GONE);
+
+
+                }
+                else if (countC2 > countC1 && countC2 > countC3)
+                {
+                    if (isAvailableC1 && isAvailableC3){
+                        customToast("Please Use C1 or C3...!!!");
+                    }
+                    else if (isAvailableC1)
+                    {
+                        customToast("Please Use C1...!!!");
+                    }
+                    else if (isAvailableC3)
+                    {
+                        customToast("Please Use C3...!!!");
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"Not Available C1 Or C3...!!!",Toast.LENGTH_SHORT).show();
+                        countC2 = 0;
+                        funConnectorii();
+                        overlayCountii = 0;
+                        relativeLayout2nd.setVisibility(View.GONE);
+                    }
+                }
+                else if (countC2 < countC1 && countC2 < countC3)
+                {
+                    funConnectorii();
+                    overlayCountii = 0;
+                    relativeLayout2nd.setVisibility(View.GONE);
+                }
+                else if (countC1 > countC2  && countC1 > countC3)
+                {
+                    funConnectorii();
+                    overlayCountii = 0;
+                    relativeLayout2nd.setVisibility(View.GONE);
+                }
+                else if (countC3 > countC1 && countC3 > countC2)
+                {
+                    funConnectorii();
+                    overlayCountii = 0;
+                    relativeLayout2nd.setVisibility(View.GONE);
+                }
+                else if (countC1 < countC2 && countC1 < countC3)
+                {
+                    if (isAvailableC1)
+                    {
+                        customToast("Please Use C1...!!!");
+                    }
+                }
+                else if (countC3 < countC1 && countC3 < countC2)
+                {
+                    if (isAvailableC3)
+                    {
+                        customToast("Please Use C3...!!!");
+                    }
+                }
+
+
+            }
+        });
+
+
+        relativeLayout3rd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isTappedC3 = true;
+                isPleaseWaitC3 = true;
+
+                if (!isAvailableC1 && !isAvailableC2)
+                {
+                    funConnectoriii();
+                    overlayCountiii = 0;
+                    relativeLayout3rd.setVisibility(View.GONE);
+                }
+                else if (isAvailableC1 && countC1!= 0){
+                    // Toast.makeText(getApplicationContext(),"CP1  Available",Toast.LENGTH_SHORT).show();
+                    customToast(" Now CP1 Available ...!!! ");
+                    countC1 = 0;
+                }
+                else if (isAvailableC2 && countC2!=0){
+                    //    Toast.makeText(getApplicationContext()," Cp2 Available",Toast.LENGTH_SHORT).show();
+                    customToast(" Now CP2 Available...!!! ");
+                    countC2 = 0;
+                }
+                if (countC1 == countC2 && countC2 == countC3) {
+                    countC1 = 0;
+                    countC2 = 0;
+                    countC3 = 0;
+                }
+
+                if (countC1 == 0 && countC2 == 0 && countC3 == 0) {
+                    funConnectoriii();
+                    overlayCountiii = 0;
+                    relativeLayout3rd.setVisibility(View.GONE);
+
+                } else if (countC3 > countC1 && countC3 > countC2) {
+                    if (isAvailableC2 && isAvailableC3){
+                        customToast("Please Use C1 or C2...!!!");
+                    }
+                    else if (isAvailableC1) {
+                        customToast("Please Use C1...!!!");
+                    } else if (isAvailableC2) {
+                        customToast("Please Use C2...!!!");
+                    } else {
+                        Toast.makeText(getApplicationContext(), " Not Available C1 Or C2...!!!", Toast.LENGTH_SHORT).show();
+                        countC3 = 0;
+                        funConnectoriii();
+                        overlayCountiii = 0;
+                        relativeLayout3rd.setVisibility(View.GONE);
+                    }
+                } else if (countC3 < countC1 && countC3 < countC2) {
+                    funConnectoriii();
+                    overlayCountiii = 0;
+                    relativeLayout3rd.setVisibility(View.GONE);
+                } else if (countC1 > countC2 && countC1 > countC3) {
+                    funConnectoriii();
+                    overlayCountiii = 0;
+                    relativeLayout3rd.setVisibility(View.GONE);
+                }
+                else if (countC2 > countC1 && countC2 > countC3)
+                {
+                    funConnectoriii();
+                    overlayCountiii = 0;
+                    relativeLayout3rd.setVisibility(View.GONE);
+                }
+                else if (countC1 < countC2 && countC1 < countC3)
+                {
+                    if (isAvailableC1)
+                    {
+                        customToast("Please Use C1 ...!!!");
+                    }
+
+                }
+                else if (countC2 < countC1 && countC2 < countC3)
+                {
+                    if (isAvailableC2)
+                    {
+                        customToast("Please Use C2...!!!");
+                    }
+                }
+            }
+        });
+
+        imageView_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                layout_main.setVisibility(View.VISIBLE);
+                layout_detail.setVisibility(View.GONE);
+                detail_flag = "c";
+
+                rsCP21="₹ 00.00";
+                rsCP1="₹ 00.00";
+                unit_detailCP21="00:00";
+                unit_detailCP1="00:00";
+                etime_detailCP21="00:00";
+                etime_detailCP1="00:00";
+
+                rsCP22="₹ 00.00";
+                rsCP2="₹ 00.00";
+                unit_detailCP22="00:00";
+                unit_detailCP2="00:00";
+                etime_detailCP22="00:00";
+                etime_detailCP2="00:00";
+
+                rsCP23="₹ 00.00";
+                rsCP3="₹ 00.00";
+                unit_detailCP23="00:00";
+                unit_detailCP3="00:00";
+                etime_detailCP23="00:00";
+                etime_detailCP3="00:00";
+
+                flagResetVals=true;
+                //countN=0;
+                // flagIsCancel=true;
+            }
+        });
+
+        connect1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //layout_main.setVisibility(View.GONE);
+                //layout_detail.setVisibility(View.VISIBLE);
+                //layout_detail.setVisibility(View.GONE);
+                //detail_flag = "d_CP1";
+            }
+        });
+        connect2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //layout_main.setVisibility(View.GONE);
+                //layout_detail.setVisibility(View.VISIBLE);
+                layout_detail.setVisibility(View.GONE);
+                detail_flag = "d_CP2";
+            }
+        });
+        connect3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //layout_main.setVisibility(View.GONE);
+                // layout_detail.setVisibility(View.VISIBLE);
+                layout_detail.setVisibility(View.GONE);
+                detail_flag = "d_CP3";
+            }
+        });
+        layout_goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                layoutback_fun();
+            }
+        });
+
+        final String s = "#234990.00+~";
+
+        anim = new AlphaAnimation(0.1f, 1.0f);
+        anim.setDuration(300);
+        anim.setRepeatMode(Animation.RESTART);
+        anim.setRepeatCount(Animation.INFINITE);
+        anim2 = new AlphaAnimation(0.1f, 1.0f);
+        anim2.setDuration(300);
+        anim2.setRepeatMode(Animation.RESTART);
+        anim2.setRepeatCount(Animation.INFINITE);
+        anim3 = new AlphaAnimation(0.1f, 1.0f);
+        anim3.setDuration(300);
+        anim3.setRepeatMode(Animation.RESTART);
+        anim3.setRepeatCount(Animation.INFINITE);
+
+
+        //
+        setToggleBtn();
+        /*new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mConnectedThread.write("c");
+                //  Toast.makeText(MaindisplayActivity.this,"Thread",Toast.LENGTH_LONG).show();
+
+                Log.e("mConnectedThreadSTRING","c : "+intervalcount);
+                intervalcount++;
+            }
+        }, 5000);*/
+
+
+
+
+        toggleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isAlreadyonm) {
+                    funConnectori();
+                }else {
+                    sPisPoweFail.setisPowerFailCP1("f");
+                    StringBuilder newCommandp1 = new StringBuilder(command);
+                    newCommandp1.setCharAt(1, '0');
+                    command = ""+newCommandp1;
+                    toggleBtn.setCardBackgroundColor(Color.parseColor(green));
+                    toggleValue.setText("CP1 "+s22_CP1);
+
+                    toggleBtn.clearAnimation();
+                }
+            }
+        });
+
+
+        btn_p2onff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isAlreadyonm) {
+                    funConnectorii();
+                }else {
+                    sPisPoweFail.setisPowerFailCP2("f");
+                    StringBuilder newCommandp2 = new StringBuilder(command);
+                    newCommandp2.setCharAt(1, '0');
+
+
+                    command = ""+newCommandp2;
+                    btn_p2onff.setCardBackgroundColor(Color.parseColor(green));
+                    txt_p2btnValue.setText("CP2 "+s22_CP2);
+                    txt_p2btnValue.clearAnimation();
+                }
+            }
+        });
+        btn_p3onff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isAlreadyonm) {
+                    funConnectoriii();
+                }else {
+                    sPisPoweFail.setisPowerFailCP3("f");
+                    StringBuilder newCommandp3 = new StringBuilder(command);
+                    newCommandp3.setCharAt(1, '0');
+                    command = ""+newCommandp3;
+                    btn_p3onff.setCardBackgroundColor(Color.parseColor(green));
+                    txt_p3btnValue.setText("CP3 "+s22_CP3);
+                    txt_p3btnValue.clearAnimation();
+                }
+            }
+        });
+
+        //===========================================================================
+
+        bluetooth.setBluetoothCallback(new BluetoothCallback() {
+            @Override
+            public void onBluetoothTurningOn() {
+
+            }
+
+            @Override
+            public void onBluetoothOn() {
+
+            }
+
+            @Override
+            public void onBluetoothTurningOff() {
+            }
+            @Override
+            public void onBluetoothOff() {
+            }
+            @Override
+            public void onUserDeniedActivation() {
+            }
+        });
+
+        List<BluetoothDevice> devices = bluetooth.getPairedDevices();
+        Log.e("BluetoothDeviceList","BluetoothDeviceLISt"+devices);
+
+        bluetooth.setDiscoveryCallback(new DiscoveryCallback() {
+            @Override
+            public void onDiscoveryStarted() {
+                Log.e("onDiscoveryStarted","onDiscoveryStarted");
+
+            }
+
+            @Override
+            public void onDiscoveryFinished() {
+                Log.e("onDiscoveryFinished","onDiscoveryFinished");
+
+            }
+
+            @Override
+            public void onDeviceFound(BluetoothDevice device) {
+                Log.e("onDeviceFound","onDeviceFound"+device);
+
+            }
+
+            @Override
+            public void onDevicePaired(BluetoothDevice device) {
+                Log.e("onDevicePaired","onDevicePaired"+device);
+
+            }
+
+            @Override
+            public void onDeviceUnpaired(BluetoothDevice device) {
+                Log.e("onDeviceUnpaired","onDeviceUnpaired"+device);
+
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("setDiscoveryCallback","onError"+message);
+
+            }
+        });
+        bluetooth.setCallbackOnUI(new MaindisplayActivityMannual());
+        bluetooth.setDeviceCallback(new DeviceCallback() {
+            @Override
+            public void onDeviceConnected(BluetoothDevice device) {
+                Log.e("setDeviceCallback","onDeviceConnected"+device);
+                layout_pleasewait.setVisibility(View.GONE);
+                layout_main.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onDeviceDisconnected(BluetoothDevice device, String message) {
+                Log.e("setDeviceCallback","onDeviceDisconnected"+device+", message :"+message);
+
+            }
+
+            @Override
+            public void onMessage(String message) {
+                Log.e("setDeviceCallback","onMessage"+message);
+                Log.e("isMainthreadend","START "+isMainthreadend);
+
+                if (isMainthreadend){
+                    main_operation(message);
+
+                }
+
+            }
+
+            @Override
+            public void onError(String message) {
+                Log.e("setDeviceCallback","onError"+message);
+
+            }
+
+            @Override
+            public void onConnectError(BluetoothDevice device, String message) {
+                Log.e("setDeviceCallback","onConnectError"+device+", message"+message);
+
+            }
+        });
+        //Get MAC address from InitiatingActivityMannual via intent
+    }
+
+    private void display_details(final String rate_detail, final String charge_point_id,final String voltage_detail,final String current_detail,final String power_detail,final String unit_detail,final String etime_detail,final String status_detail,final String etime_displayf, final String unit_display, final String rate_display, final String lang){
+        // txt_cpname,txt_rate,txt_voltage_detail,txt_current_detail,txt_power_detail,txt_unit_detail,txt_etime_detail,txt_status_detail;
+        txt_rate.setText(rate_detail);
+        txt_cpname.setText(charge_point_id);
+        txt_voltage_detail.setText(voltage_detail);
+        txt_current_detail.setText(current_detail);
+        txt_power_detail.setText(power_detail);
+        txt_unit_detail.setText(unit_detail);
+        txt_etime_detail.setText(etime_detail);
+        txt_status_detail.setText(status_detail);
+        txt_etime_displayf.setText(etime_displayf);
+        txt_unit_display.setText(unit_display);
+        txt_rate_display.setText(rate_display);
+
+        if (lang.equals("en")){
+            rg_language_m.check(R.id.rb_en_m);
+        }else if (lang.equals("ma")){
+            rg_language_m.check(R.id.rb_ma_m);
+        }else if (lang.equals("hi")){
+            rg_language_m.check(R.id.rb_hi_m);
+        }
+    }
+
+    public void funConnectori(){
+        if (isStillOnCP1){
+            flag = false;
+            setToggleBtn();
+            sPisPluggedin.setisPluggedinCP1("f");
+            sPisPoweFail.setisPowerFailCP1("f");
+        } else {
+            if (flag) {
+                StringBuilder newCommandp1 = new StringBuilder(command);
+                newCommandp1.setCharAt(1, '0');
+                Log.e("newCommandp1", "" + newCommandp1);
+                //mConnectedThread.write("" + newCommandp1);    // Send "0" via Bluetooth
+                bluetooth.send("" + newCommandp1);
+                //if (status_detailCP1.equals("IDLE") || status_detailCP1.equals("निष्क्रिय")){
+                    /*layout_main.setVisibility(View.GONE);
+                    layout_detail.setVisibility(View.VISIBLE);
+                    detail_flag = "d_CP1";*/
+                //}
+            } else {
+                StringBuilder newCommandp1 = new StringBuilder(command);
+                newCommandp1.setCharAt(1, '1');
+
+                Log.e("newCommandp1", "" + newCommandp1);
+                // mConnectedThread.write("" + newCommandp1);    // Send "0" via Bluetooth
+                bluetooth.send("" + newCommandp1);
+            }
+            setToggleBtn();
+        }
+    }
+    public void funConnectorii(){
+        if (isStillOnCP2){
+            p2flag = false;
+            setP2Btn();
+            sPisPluggedin.setisPluggedinCP2("f");
+            sPisPoweFail.setisPowerFailCP2("f");
+        } else {
+            if (p2flag) {
+                StringBuilder newCommandp2 = new StringBuilder(command);
+                newCommandp2.setCharAt(2, '0');
+                Log.e("newCommandp2", "" + newCommandp2);
+                //mConnectedThread.write("" + newCommandp2);    // Send "0" via Bluetooth
+                bluetooth.send("" + newCommandp2);
+
+               /* layout_main.setVisibility(View.GONE);
+                layout_detail.setVisibility(View.VISIBLE);
+                detail_flag = "d_CP2";*/
+
+            } else {
+                StringBuilder newCommandp2 = new StringBuilder(command);
+                newCommandp2.setCharAt(2, '1');
+
+                Log.e("newCommandp2", "" + newCommandp2);
+                // mConnectedThread.write("" + newCommandp2);    // Send "1" via Bluetooth
+                bluetooth.send("" + newCommandp2);
+
+                //Toast.makeText(getBaseContext(), "Turn on CP2 :" + newCommandp2, Toast.LENGTH_SHORT).show();
+                //flag=true;
+
+            }
+
+            setP2Btn();
+        }
+    }
+    public void funConnectoriii(){
+        if (isStillOnCP3){
+            p3flag = false;
+            setP3Btn();
+            sPisPluggedin.setisPluggedinCP3("f");
+            sPisPoweFail.setisPowerFailCP3("f");
+        }
+        else {
+            if (p3flag) {
+                StringBuilder newCommandp3 = new StringBuilder(command);
+                newCommandp3.setCharAt(3, '0');
+
+                Log.e("newCommandp3", "" + newCommandp3);
+                //mConnectedThread.write("" + newCommandp3);    // Send "0" via Bluetooth
+                bluetooth.send("" + newCommandp3);
+
+                /*layout_main.setVisibility(View.GONE);
+                layout_detail.setVisibility(View.VISIBLE);
+                detail_flag = "d_CP3";*/
+            } else {
+                StringBuilder newCommandp3 = new StringBuilder(command);
+                newCommandp3.setCharAt(3, '1');
+
+                Log.e("newCommandp3", "" + newCommandp3);
+                //mConnectedThread.write("" + newCommandp3);    // Send "0" via Bluetooth
+                bluetooth.send("" + newCommandp3);
+
+                //mConnectedThread.write("$100990.00");    // Send "1" via Bluetooth
+                // Toast.makeText(getBaseContext(), "Turn on CP3 :" + newCommandp3, Toast.LENGTH_SHORT).show();
+                //flag=true;
+            }
+
+            setP3Btn();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        timer.cancel();
+        bluetooth.onStop();
+        //Toast.makeText(MaindisplayActivity.this,"onStop Method",Toast.LENGTH_LONG).show();
+        Log.e("CRASH REPORT","onStop Method");
+        Log.e("METHOD","onStop Method");
+        //unregisterReceiver(mReceiver);
+        unregisterReceiver(batteryReceiver);
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // bluetooth.onStop();
+        // Toast.makeText(MaindisplayActivity.this,"onDestroy Method",Toast.LENGTH_LONG).show();
+        Log.e("METHOD","onDestroy Method");
+        Log.e("CRASH REPORT","onDestroy Method");
+    }
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+
+            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                // Toast.makeText(MaindisplayActivity.this, device.getName() + " Device found", Toast.LENGTH_LONG).show();
+            }
+            else if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) {
+                //Toast.makeText(MaindisplayActivity.this, device.getName() + " Device is now connected", Toast.LENGTH_LONG).show();
+
+            }
+            else if (BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED.equals(action)) {
+                //Toast.makeText(MaindisplayActivity.this, device.getName() + " Device is about to disconnect", Toast.LENGTH_LONG).show();
+            }
+            else if (BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(action)) {
+                //Toast.makeText(MaindisplayActivity.this, device.getName() + " Device has disconnected", Toast.LENGTH_LONG).show();
+                tv_status1.setText(s6_CP1);
+
+                String s = globalP1meter;
+                float v = Float.parseFloat(s);
+                int b=(int) v;
+                /*  if (b>=4) {*/
+                //sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("t");
+                sPsavemoneyafterpfCP1.setMeterReadingCP1RO(mrsPOCP1);
+
+                //sPsavemoneyafterpfCP1.setMeterReadingCP1RO("4.00");
+
+                /*}*/
+                toggleBtn.setCardBackgroundColor(Color.parseColor(red));
+                toggleBtn.startAnimation(anim);
+
+                tv_status2.setText(s6_CP2);
+                String s2 = globalP2meter;
+                float v2 = Float.parseFloat(s2);
+                int b2=(int) v2;
+                /*if (b2>=4) {
+                    sPispowerfailafter4mrCP2.setispowerfailafter4mrCP2("t");
+                }*/
+                btn_p2onff.setCardBackgroundColor(Color.parseColor(red));
+                btn_p2onff.startAnimation(anim);
+                tv_status3.setText(s6_CP3);
+                String s3 = globalP3meter;
+                float v3 = Float.parseFloat(s3);
+                int b3=(int) v3;
+                /*if (b3>=4) {
+                    sPispowerfailafter4mrCP3.setispowerfailafter4mrCP3("t");
+                }*/
+                btn_p3onff.setCardBackgroundColor(Color.parseColor(red));
+                btn_p3onff.startAnimation(anim);
+
+                if(sPisPluggedin.getisPluggedinCP1().equals("t")){
+                    sPisPoweFail.setisPowerFailCP1("t");
+                    sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                    // isSavedTimeC1 = true;
+                }
+
+                if(sPisPluggedin.getisPluggedinCP2().equals("t")){
+                    sPisPoweFail.setisPowerFailCP2("t");
+                    sPTimeReadingCP2.setTimeReadingCP2(MillisCP2);
+                    // isSavedTimeC2 = true;
+                }
+
+                if(sPisPluggedin.getisPluggedinCP3().equals("t")){
+                    sPisPoweFail.setisPowerFailCP3("t");
+                    sPTimeReadingCP3.setTimeReadingCP3(MillisCP3);
+                    // isSavedTimeC3 = true;
+                }
+            }
+        }
+    };
+
+    private final BroadcastReceiver batteryReceiver =  new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // TODO Auto-generated method stub
+            if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
+                //   Toast.makeText(context, "The device is charging", Toast.LENGTH_SHORT).show();
+                if (!isAlreadyonm){
+                    if (bluetooth.isConnected()){
+                        bluetooth.disconnect();
+                    }
+                    startActivity(new Intent(MaindisplayActivityMannual.this,InitiatingActivityMannual.class));
+                    finish();
+
+                }
+
+            } else {
+                intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED);
+                isAlreadyonm = false;
+                // Toast.makeText(context, "The device is not charging", Toast.LENGTH_SHORT).show();
+                tv_status1.setText(s6_CP1);
+                String s = globalP1meter;
+                float v = Float.parseFloat(s);
+                int b=(int) v;
+                /*if (b>=4) {*/
+                //sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("t");
+                sPsavemoneyafterpfCP1.setMeterReadingCP1RO(mrsPOCP1);
+                   /* sPsavemoneyafterpfCP1.setMeterReadingCP1RO("4.00");
+
+                }*/
+                toggleBtn.setCardBackgroundColor(Color.parseColor(red));
+                toggleBtn.startAnimation(anim);
+                tv_status2.setText(s6_CP2);
+                String s2 = globalP2meter;
+                float v2 = Float.parseFloat(s2);
+                int b2=(int) v2;
+                /*if (b2>=4) {
+                    sPispowerfailafter4mrCP2.setispowerfailafter4mrCP2("t");
+                }*/
+                btn_p2onff.setCardBackgroundColor(Color.parseColor(red));
+                btn_p2onff.startAnimation(anim);
+                tv_status3.setText(s6_CP3);
+                String s3 = globalP3meter;
+                float v3 = Float.parseFloat(s3);
+                int b3=(int) v3;
+                /*if (b3>=4) {
+                    sPispowerfailafter4mrCP3.setispowerfailafter4mrCP3("t");
+                }*/
+                btn_p3onff.setCardBackgroundColor(Color.parseColor(red));
+                btn_p3onff.startAnimation(anim);
+
+                if(sPisPluggedin.getisPluggedinCP1().equals("t")){
+                    sPisPoweFail.setisPowerFailCP1("t");
+                    sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                    // isSavedTimeC1 = true;
+                }
+                if(sPisPluggedin.getisPluggedinCP2().equals("t")){
+                    sPisPoweFail.setisPowerFailCP2("t");
+                    sPTimeReadingCP2.setTimeReadingCP2(MillisCP2);
+                    // isSavedTimeC2 = true;
+                }
+                if(sPisPluggedin.getisPluggedinCP3().equals("t")){
+                    sPisPoweFail.setisPowerFailCP3("t");
+                    sPTimeReadingCP3.setTimeReadingCP3(MillisCP3);
+                    //  isSavedTimeC3 = true;
+                }
+            }
+        }
+    };
+
+    private void setToggleBtn() {
+
+        if(flag) {
+            StringBuilder newCommandp3 = new StringBuilder(command);
+            newCommandp3.setCharAt(1, '1');
+
+            command = ""+newCommandp3;
+            toggleBtn.setCardBackgroundColor(Color.parseColor(green));
+            toggleValue.setText("C1\n"+s23_CP1);
+
+        } else {
+            StringBuilder newCommandp3 = new StringBuilder(command);
+            newCommandp3.setCharAt(1, '0');
+
+            command = ""+newCommandp3;
+            toggleBtn.setCardBackgroundColor(Color.parseColor(green));
+            toggleValue.setText("CP1 "+s22_CP1);
+            toggleBtn.clearAnimation();
+        }
+    }
+
+/*
+    private void showDetailsOfConnector(String fromC) {
+        */
+/*if (fromC.equals("FromC1")
+        && flagIsCancel){*//*
+
+            layout_main.setVisibility(View.GONE);
+            layout_detail.setVisibility(View.VISIBLE);
+            //layout_detail.setVisibility(View.GONE);
+            detail_flag = "d_CP1";
+            flagIsCancel=false;
+        */
+/*}else if (fromC.equals("FromC1")
+                && flagIsCancel){
+            layout_main.setVisibility(View.VISIBLE);
+            layout_detail.setVisibility(View.GONE);
+            detail_flag = "c";
+            //flagIsCancel=false;
+        }*//*
+
+
+    }
+*/
+
+    private void setP2Btn() {
+        if(p2flag) {
+            StringBuilder newCommandp3 = new StringBuilder(command);
+            newCommandp3.setCharAt(2, '1');
+
+            command = ""+newCommandp3;
+            btn_p2onff.setCardBackgroundColor(Color.parseColor(green));
+            txt_p2btnValue.setText("C2\n"+s23_CP2);
+
+            // bulb_2ii.setCardBackgroundColor(Color.parseColor(AmberON));
+            // bulb_2ii.startAnimation(anim2);
+        } else {
+            StringBuilder newCommandp3 = new StringBuilder(command);
+            newCommandp3.setCharAt(2, '0');
+
+            command = ""+newCommandp3;
+            btn_p2onff.setCardBackgroundColor(Color.parseColor(green));
+            txt_p2btnValue.setText("CP2 "+s22_CP2);
+            txt_p2btnValue.clearAnimation();
+
+            // anim2.cancel();
+
+            //bulb_2ii.setCardBackgroundColor(Color.parseColor(AmberOFF));
+
+        }
+    }
+    private void setP3Btn() {
+        if(p3flag) {
+            StringBuilder newCommandp3 = new StringBuilder(command);
+            newCommandp3.setCharAt(3, '1');
+
+            command = ""+newCommandp3;
+            btn_p3onff.setCardBackgroundColor(Color.parseColor(green));
+            txt_p3btnValue.setText("C3\n"+s23_CP3);
+
+            //  bulb_2iii.setCardBackgroundColor(Color.parseColor(AmberON));
+            // bulb_2iii.startAnimation(anim3);
+        }
+        else
+        {
+            StringBuilder newCommandp3 = new StringBuilder(command);
+            newCommandp3.setCharAt(3, '0');
+
+            command = ""+newCommandp3;
+            btn_p3onff.setCardBackgroundColor(Color.parseColor(green));
+            txt_p3btnValue.setText("CP3 "+s22_CP3);
+            txt_p3btnValue.clearAnimation();
+
+            //anim3.cancel();
+
+            // bulb_2iii.setCardBackgroundColor(Color.parseColor(AmberOFF));
+
+        }
+    }
+
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        timer.cancel();
+        // bluetooth.onStop();
+
+        Log.e("CRASH REPORT","onPause Method");
+
+        /*if(sPisPluggedin.getisPluggedinCP1().equals("t")){
+            sPisPoweFail.setisPowerFailCP1("t");
+           *//* if (!isSavedTimeC1) {
+                sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+            }*//*
+
+        }
+        if(sPisPluggedin.getisPluggedinCP2().equals("t")){
+            sPisPoweFail.setisPowerFailCP2("t");
+           *//* if (!isSavedTimeC2) {
+                sPTimeReadingCP2.setTimeReadingCP2(MillisCP2);
+            }
+*//*
+        }
+        if(sPisPluggedin.getisPluggedinCP3().equals("t")){
+            sPisPoweFail.setisPowerFailCP3("t");
+            *//*if (!isSavedTimeC3) {
+                sPTimeReadingCP3.setTimeReadingCP3(MillisCP3);
+            }*//*
+
+        }*/
+
+    }
+
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(!hasFocus) {
+            // Close every kind of system dialog
+            Intent closeDialog = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+            sendBroadcast(closeDialog);
+        }
+    }
+    public void langSet(){
+        if (sPlanguageCP1.getlanguageCP1().equals("en")){
+            s1_CP1 = LangString.s1_E;  s2_CP1 = LangString.s2_E;  s3_CP1 = LangString.s3_E;  s4_CP1 = LangString.s4_E;  s5_CP1 = LangString.s5_E;  s6_CP1 = LangString.s6_E;  s7_CP1 = LangString.s7_E;  s8_CP1 = LangString.s8_E;  s9_CP1 = LangString.s9_E;  s10_CP1 = LangString.s10_E;  s11_CP1 = LangString.s11_E;  s12_CP1 = LangString.s12_E; s13_CP1 = LangString.s13_E; s14_CP1 = LangString.s14_E; s15_CP1 = LangString.s15_E; s16_CP1 = LangString.s16_E; s17_CP1 = LangString.s17_E; s21_CP1 = LangString.s21_E; s22_CP1 = LangString.s22_E; s23_CP1 = LangString.s23_E;s24_CP1 = LangString.s24_E;
+        }
+        else if (sPlanguageCP1.getlanguageCP1().equals("ma")){
+            s1_CP1 = LangString.s1_M;  s2_CP1 = LangString.s2_M;  s3_CP1 = LangString.s3_M;  s4_CP1 = LangString.s4_M;  s5_CP1 = LangString.s5_M;  s6_CP1 = LangString.s6_M;  s7_CP1 = LangString.s7_M;  s8_CP1 = LangString.s8_M;  s9_CP1 = LangString.s9_M;  s10_CP1 = LangString.s10_M; s11_CP1 = LangString.s11_M;  s12_CP1 = LangString.s12_M; s13_CP1 = LangString.s13_M; s14_CP1 = LangString.s14_M; s15_CP1 = LangString.s15_M; s16_CP1 = LangString.s16_M; s17_CP1 = LangString.s17_M; s21_CP1 = LangString.s21_M;  s22_CP1 = LangString.s22_M; s23_CP1 = LangString.s23_M;s24_CP1 = LangString.s24_M;
+        }
+        else if (sPlanguageCP1.getlanguageCP1().equals("hi")){
+            s1_CP1 = LangString.s1_H;  s2_CP1 = LangString.s2_H;  s3_CP1 = LangString.s3_H;  s4_CP1 = LangString.s4_H;  s5_CP1 = LangString.s5_H;  s6_CP1 = LangString.s6_H;  s7_CP1 = LangString.s7_H;  s8_CP1 = LangString.s8_H;  s9_CP1 = LangString.s9_H;  s10_CP1 = LangString.s10_H;  s11_CP1 = LangString.s11_H;  s12_CP1 = LangString.s12_H; s13_CP1 = LangString.s13_H; s14_CP1 = LangString.s14_H; s15_CP1 = LangString.s15_H; s16_CP1 = LangString.s16_H; s17_CP1 = LangString.s17_H; s21_CP1 = LangString.s21_H; s22_CP1 = LangString.s22_H; s23_CP1 = LangString.s23_H;s24_CP1 = LangString.s24_H;
+        }
+
+
+        if (sPlanguageCP2.getlanguageCP2().equals("en")){
+            s1_CP2 = LangString.s1_E;  s2_CP2 = LangString.s2_E;  s3_CP2 = LangString.s3_E;  s4_CP2 = LangString.s4_E;  s5_CP2 = LangString.s5_E;  s6_CP2 = LangString.s6_E;  s7_CP2 = LangString.s7_E;  s8_CP2 = LangString.s8_E;  s9_CP2 = LangString.s9_E;  s10_CP2 = LangString.s10_E;  s11_CP2 = LangString.s11_E;  s12_CP2 = LangString.s12_E; s13_CP2 = LangString.s13_E; s14_CP2 = LangString.s14_E; s15_CP2 = LangString.s15_E; s16_CP2 = LangString.s16_E; s17_CP2 = LangString.s17_E; s21_CP2 = LangString.s21_E; s22_CP2 = LangString.s22_E; s23_CP2 = LangString.s23_E;s24_CP2 = LangString.s24_E;
+
+        }
+        else if (sPlanguageCP2.getlanguageCP2().equals("ma")){
+            s1_CP2 = LangString.s1_M;  s2_CP2 = LangString.s2_M;  s3_CP2 = LangString.s3_M;  s4_CP2 = LangString.s4_M;  s5_CP2 = LangString.s5_M;  s6_CP2 = LangString.s6_M;  s7_CP2 = LangString.s7_M;  s8_CP2 = LangString.s8_M;  s9_CP2 = LangString.s9_M;  s10_CP2 = LangString.s10_M; s11_CP2 = LangString.s11_M;  s12_CP2 = LangString.s12_M; s13_CP2 = LangString.s13_M; s14_CP2 = LangString.s14_M; s15_CP2 = LangString.s15_M; s16_CP2 = LangString.s16_M; s17_CP2 = LangString.s17_M; s21_CP2 = LangString.s21_M;  s22_CP2 = LangString.s22_M; s23_CP2 = LangString.s23_M;s24_CP2 = LangString.s24_M;
+
+        }
+        else if (sPlanguageCP2.getlanguageCP2().equals("hi")){
+            s1_CP2 = LangString.s1_H;  s2_CP2 = LangString.s2_H;  s3_CP2 = LangString.s3_H;  s4_CP2 = LangString.s4_H;  s5_CP2 = LangString.s5_H;  s6_CP2 = LangString.s6_H;  s7_CP2 = LangString.s7_H;  s8_CP2 = LangString.s8_H;  s9_CP2 = LangString.s9_H;  s10_CP2 = LangString.s10_H;  s11_CP2 = LangString.s11_H;  s12_CP2 = LangString.s12_H; s13_CP2 = LangString.s13_H; s14_CP2 = LangString.s14_H; s15_CP2 = LangString.s15_H; s16_CP2 = LangString.s16_H; s17_CP2 = LangString.s17_H; s21_CP2 = LangString.s21_H; s22_CP2 = LangString.s22_H; s23_CP2 = LangString.s23_H;s24_CP2 = LangString.s24_H;
+
+        }
+
+
+        if (sPlanguageCP3.getlanguageCP3().equals("en")){
+            s1_CP3 = LangString.s1_E;  s2_CP3 = LangString.s2_E;  s3_CP3 = LangString.s3_E;  s4_CP3 = LangString.s4_E;  s5_CP3 = LangString.s5_E;  s6_CP3 = LangString.s6_E;  s7_CP3 = LangString.s7_E;  s8_CP3 = LangString.s8_E;  s9_CP3 = LangString.s9_E;  s10_CP3 = LangString.s10_E;  s11_CP3 = LangString.s11_E;  s12_CP3 = LangString.s12_E; s13_CP3 = LangString.s13_E; s14_CP3 = LangString.s14_E; s15_CP3 = LangString.s15_E; s16_CP3 = LangString.s16_E; s17_CP3 = LangString.s17_E; s21_CP3 = LangString.s21_E; s22_CP3 = LangString.s22_E; s23_CP3 = LangString.s23_E;s24_CP3 = LangString.s24_E;
+        }
+        else if (sPlanguageCP3.getlanguageCP3().equals("ma")){
+            s1_CP3 = LangString.s1_M;  s2_CP3 = LangString.s2_M;  s3_CP3 = LangString.s3_M;  s4_CP3 = LangString.s4_M;  s5_CP3 = LangString.s5_M;  s6_CP3 = LangString.s6_M;  s7_CP3 = LangString.s7_M;  s8_CP3 = LangString.s8_M;  s9_CP3 = LangString.s9_M;  s10_CP3 = LangString.s10_M; s11_CP3 = LangString.s11_M;  s12_CP3 = LangString.s12_M; s13_CP3 = LangString.s13_M; s14_CP3 = LangString.s14_M; s15_CP3 = LangString.s15_M; s16_CP3 = LangString.s16_M; s17_CP3 = LangString.s17_M; s21_CP3 = LangString.s21_M;  s22_CP3 = LangString.s22_M; s23_CP3 = LangString.s23_M;s24_CP3 = LangString.s24_M;
+        }
+        else if (sPlanguageCP3.getlanguageCP3().equals("hi")){
+            s1_CP3 = LangString.s1_H;  s2_CP3 = LangString.s2_H;  s3_CP3 = LangString.s3_H;  s4_CP3 = LangString.s4_H;  s5_CP3 = LangString.s5_H;  s6_CP3 = LangString.s6_H;  s7_CP3 = LangString.s7_H;  s8_CP3 = LangString.s8_H;  s9_CP3 = LangString.s9_H;  s10_CP3 = LangString.s10_H;  s11_CP3 = LangString.s11_H;  s12_CP3 = LangString.s12_H; s13_CP3 = LangString.s13_H; s14_CP3 = LangString.s14_H; s15_CP3 = LangString.s15_H; s16_CP3 = LangString.s16_H; s17_CP3 = LangString.s17_H; s21_CP3 = LangString.s21_H; s22_CP3 = LangString.s22_H; s23_CP3 = LangString.s23_H;s24_CP3 = LangString.s24_H;
+        }
+        // s1_CP2 = "CHARGER IS ON";  s2_CP2 = "EMERGENCY STOPPED";  s3_CP2 = "OVER CURRENT";  s4_CP2 = "EARTH FAULT";  s5_CP2 = "TEMP HAZARD";  s6_CP2 = "POWER FAILURE";  s7_CP2 = "  VEHICLE\n PLUGED OUT";  s8_CP2 = "IDLE";  s9_CP2 = "  RESUMING\n  AFTER PF";  s10_CP2 = " CHARGING IN\n   PROCESS";  s11_CP2 = "  VEHICLE\n PLUGED IN";  s12_CP2 = "UNDER VOLTAGE"; s13_CP2 = "OVER VOLTAGE";
+        //s1_CP3 = "CHARGER IS ON";  s2_CP3 = "EMERGENCY STOPPED";  s3_CP3 = "OVER CURRENT";  s4_CP3 = "EARTH FAULT";  s5_CP3 = "TEMP HAZARD";  s6_CP3 = "POWER FAILURE";  s7_CP3 = "  VEHICLE\n PLUGED OUT";  s8_CP3 = "IDLE";  s9_CP3 = "  RESUMING\n  AFTER PF";  s10_CP3 = " CHARGING IN\n   PROCESS";  s11_CP3 = "  VEHICLE\n PLUGED IN";  s12_CP3 = "UNDER VOLTAGE"; s13_CP3 = "OVER VOLTAGE";
+    }
+
+    private void customToast(String message)
+    {
+        if (toast!=null)
+        {
+            toast.cancel();
+        }
+        LayoutInflater inflater = getLayoutInflater();
+        View toastLayout = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.llCustom));
+        TextView textView = toastLayout.findViewById(R.id.customToastMsg);
+        textView.setText(message);
+        toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(toastLayout);
+        toast.show();
+    }
+
+
+
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if(dir!= null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
+    }
+    public boolean clearCache() {
+        try {
+            File[] files = getBaseContext().getCacheDir().listFiles();
+            for (File file : files) {
+                // delete returns boolean we can use
+                if (!file.delete()) {
+                    return false;
+                }
+            }
+
+            // if for completes all
+            return true;
+
+        } catch (Exception e) {}
+
+        // try stops clearing cache
+        return false;
+    }
+
+    public void main_operation(String recDataString ){
+        Log.e("isMainthreadend","MIDDLE "+isMainthreadend);
+
+        isMainthreadend = false;
+        isAlreadyonm = true;
+
+        if (Power.isConnected(MaindisplayActivityMannual.this)) {
+
+            //keep appending to string until ~
+            int startOfLineIndex = recDataString.indexOf("#");
+            int endOfLineIndex = recDataString.indexOf("~");                    // determine the end-of-line
+            //if (endOfLineIndex > 0 && endOfLineIndex < 80) {
+            //if(endOfLineIndex > 0){
+            Log.e("Indices", "recDataString" + recDataString + "\nstartOfLineIndex " + startOfLineIndex + "  endOfLineIndex " + endOfLineIndex + "\n recDataString" + recDataString);
+            //if(startOfLineIndex == 0 && endOfLineIndex > 52 && endOfLineIndex < 82){
+            if(endOfLineIndex > 0){
+                // if(endOfLineIndex > 52){
+                Log.e("isMainthreadend","C");
+
+                //if (!recDataString.toString().equals("")) {
+                //if (startOfLineIndex == 0 && endOfLineIndex > 52 && endOfLineIndex < 82) {
+                langSet();
+                if (isTappedC1) {
+                    txt_touch1.setText("C1\n" + s24_CP1);
+                } else {
+                    txt_touch1.setText("C1\n" + s21_CP1);
+                }
+
+                if (isTappedC2) {
+                    txt_touch2.setText("C2\n" + s24_CP2);
+                } else {
+                    txt_touch2.setText("C2\n" + s21_CP2);
+                }
+
+                if (isTappedC3) {
+                    txt_touch3.setText("C3\n" + s24_CP3);
+                } else {
+                    txt_touch3.setText("C3\n" + s21_CP3);
+
+                }
+                txt_etime_display1.setText(s14_CP1);
+                txt_etime_display2.setText(s14_CP2);
+                txt_etime_display3.setText(s14_CP3);
+                // make sure there data before ~
+                //get length of data received
+                //txtStringLength.setText("String Length = " + String.valueOf(dataLength));
+                if (recDataString.charAt(0) == '#')
+                //if it starts with # we know it is what we are looking for
+                {
+                    Log.e("isMainthreadend","D");
+                    threadCurrentCount++;
+
+                    String dataInPrint = recDataString.substring(0, endOfLineIndex);    // extract string
+                    // txtString.setText("Data Received = " + dataInPrint);
+                    int dataLength = dataInPrint.length();
+                    if (dataLength < 90) {
+                        try {
+                            if (countidleCP1 > 500 && countidleCP2 > 500 && countidleCP3 > 500) {
+                                layout_detail.setVisibility(View.GONE);
+                                layout_main.setVisibility(View.GONE);
+                                layout_goback.setVisibility(View.VISIBLE);
+                            }
+                            if (layout_pleasewait.getVisibility() == View.VISIBLE) {
+                                layout_pleasewait.setVisibility(View.GONE);
+                                layout_main.setVisibility(View.VISIBLE);
+
+                            }
+                            int p1startV = recDataString.indexOf("a") + 1;
+                            int p1startC = recDataString.indexOf("b") + 1;
+                            int p1startM = recDataString.indexOf("d") + 1;
+                            int p2startV = recDataString.indexOf("f") + 1;
+                            int p2startC = recDataString.indexOf("i") + 1;
+                            int p2startM = recDataString.indexOf("j") + 1;
+                            int p3startV = recDataString.indexOf("l") + 1;
+                            int p3startC = recDataString.indexOf("m") + 1;
+                            int p3startM = recDataString.indexOf("n") + 1;
+
+                            int p1endV = recDataString.indexOf("b");
+                            int p1endC = recDataString.indexOf("d");
+                            int p1endM = recDataString.indexOf("e");
+                            int p2endV = recDataString.indexOf("i");
+                            int p2endC = recDataString.indexOf("j");
+                            int p2endM = recDataString.indexOf("k");
+                            int p3endV = recDataString.indexOf("m");
+                            int p3endC = recDataString.indexOf("n");
+                            int p3endM = recDataString.indexOf("%");
+
+                            String p1OnOff = recDataString.substring(recDataString.indexOf("#") + 1, recDataString.indexOf("#") + 2);
+                            String p1plugin = recDataString.substring(recDataString.indexOf("#") + 2, recDataString.indexOf("#") + 3);
+                            String p1fault = recDataString.substring(3, recDataString.indexOf("a"));
+                            String p1voltage = recDataString.substring(p1startV, p1endV);
+                            String p1current = recDataString.substring(p1startC, p1endC);
+                            String p1meter = recDataString.substring(p1startM, p1endM);
+                            globalP1meter = p1meter;
+                            String p2OnOff = recDataString.substring(recDataString.indexOf("e") + 1, recDataString.indexOf("e") + 2);
+                            String p2plugin = recDataString.substring(recDataString.indexOf("e") + 2, recDataString.indexOf("e") + 3);
+                            String p2fault = recDataString.substring(recDataString.indexOf("e") + 3, recDataString.indexOf("f"));
+                            String p2voltage = recDataString.substring(p2startV, p2endV);
+                            String p2current = recDataString.substring(p2startC, p2endC);
+                            String p2meter = recDataString.substring(p2startM, p2endM);
+                            globalP2meter = p2meter;
+                            String p3OnOff = recDataString.substring(recDataString.indexOf("k") + 1, recDataString.indexOf("k") + 2);
+                            String p3plugin = recDataString.substring(recDataString.indexOf("k") + 2, recDataString.indexOf("k") + 3);
+                            String p3fault = recDataString.substring(recDataString.indexOf("k") + 3, recDataString.indexOf("l"));
+                            String p3voltage = recDataString.substring(p3startV, p3endV);
+                            String p3current = recDataString.substring(p3startC, p3endC);
+                            String p3meter = recDataString.substring(p3startM, p3endM);
+                            globalP3meter = p3meter;
+                            String emergency = recDataString.substring(p3endM + 1, p3endM + 2);
+                            //emergency07 = recDataString.substring(p3endM + 1, p3endM + 2);
+                            voltage_detailCP1 = p1voltage;
+                            current_detailCP1 = p1current;
+                            power_detailCP1 = p1meter;
+                            voltage_detailCP2 = p2voltage;
+                            current_detailCP2 = p2current;
+                            power_detailCP2 = p2meter;
+                            voltage_detailCP3 = p3voltage;
+                            current_detailCP3 = p3current;
+                            power_detailCP3 = p3meter;
+
+                            Log.e("SAVEDMONEY", sPsavemoneyafterpfCP1.getMeterReadingCP1RO());
+                            // Log.e("PFA4FLAGC2", sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1());
+                            /*Log.e("PFA4FLAGC2", sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2());
+                            Log.e("PFA4FLAGC3", sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3());
+                          */  Log.e("==============", "========================================");
+
+                            Log.e("sPisPoweFLAGC1", sPisPoweFail.getisPowerFailCP1());
+                            Log.e("sPisPoweFLAGC2", sPisPoweFail.getisPowerFailCP2());
+                            Log.e("sPisPoweFLAGC3", sPisPoweFail.getisPowerFailCP3());
+
+                            //---------------------------------------------------------------------
+
+
+                            //----------------------------------------roundrobin instruction goes here.....
+                            if (isAvailableC1 && isAvailableC2 && isAvailableC3) {
+                                if (countC1 == 0 && countC2 == 0 && countC3 == 0) {
+                                    if (emergency01.equals("1") || emergency02.equals("1") || emergency03.equals("1")){
+                                        txt_maininstruction.setText("Connectors not available");
+                                    }else {
+                                        txt_maininstruction.setText("All Connectors available");
+                                    }
+                                } else if (countC1 < countC2 && countC1 < countC3) {
+                                    txt_maininstruction.setText("Please use connector C1");
+
+                                } else if (countC2 < countC1 && countC2 < countC3) {
+                                    txt_maininstruction.setText("Please use connector C2");
+
+                                } else if (countC3 < countC1 && countC3 < countC2) {
+                                    txt_maininstruction.setText("Please use connector C3");
+
+                                }
+                                //
+                                else if (countC1 < countC2 && countC2 < countC3) {
+                                    txt_maininstruction.setText(" Use connector C1 or C2");
+
+                                } else if (countC2 < countC1 && countC1 < countC3) {
+                                    txt_maininstruction.setText(" Use connector C1 or C2");
+
+                                } else if (countC3 < countC1 && countC1 < countC2) {
+                                    txt_maininstruction.setText(" Use connector C1 or C3");
+
+                                } else if (countC1 < countC3 && countC3 < countC2) {
+                                    txt_maininstruction.setText(" Use connector C1 or C3");
+
+                                } else if (countC3 < countC2 && countC2 < countC1) {
+                                    txt_maininstruction.setText(" Use connector C2 or C3");
+
+                                } else if (countC2 < countC3 && countC3 < countC1) {
+                                    txt_maininstruction.setText(" Use connector C2 or C3");
+
+                                } else {
+                                    if (emergency01.equals("1") || emergency02.equals("1") || emergency03.equals("1")){
+                                        txt_maininstruction.setText("Connectors not available");
+                                    }else {
+                                        txt_maininstruction.setText("All Connectors available");
+                                    }
+                                }
+                            } else if (!isAvailableC1 && isAvailableC2 && isAvailableC3) {
+                                if (countC2 > countC3) {
+                                    txt_maininstruction.setText("Please use connector C3");
+
+                                } else if (countC2 < countC3) {
+                                    txt_maininstruction.setText("Please use connector C2");
+
+                                } else {
+                                    txt_maininstruction.setText(" Use connector C2 or C3");
+
+                                }
+                            } else if (isAvailableC1 && !isAvailableC2 && isAvailableC3) {
+                                if (countC1 > countC3) {
+                                    txt_maininstruction.setText("Please use connector C3");
+
+                                } else if (countC1 < countC3) {
+                                    txt_maininstruction.setText("Please use connector C1");
+
+                                } else {
+                                    txt_maininstruction.setText(" Use connector C1 or C3");
+
+                                }
+
+                            } else if (!isAvailableC1 && !isAvailableC2 && isAvailableC3) {
+                                txt_maininstruction.setText("Please use connector C3");
+
+
+                            } else if (isAvailableC1 && isAvailableC2 && !isAvailableC3) {
+                                if (countC1 > countC2) {
+                                    txt_maininstruction.setText("Please use connector C2");
+
+                                } else if (countC1 < countC2) {
+                                    txt_maininstruction.setText("Please use connector C1");
+
+                                } else {
+                                    txt_maininstruction.setText(" Use connector C1 or C2");
+
+                                }
+                            } else if (!isAvailableC1 && isAvailableC2 && !isAvailableC3) {
+                                txt_maininstruction.setText("Please use connector C2");
+
+                            } else if (isAvailableC1 && !isAvailableC2 && !isAvailableC3) {
+                                txt_maininstruction.setText("Please use connector C1");
+
+                            } else if (!isAvailableC1 && !isAvailableC2 && !isAvailableC3) {
+                                txt_maininstruction.setText("Connectors not available");
+
+                            }
+                            Log.e("QisComefromPFUVOV", "" + isComefromPFUVOV);
+                            Log.e("Qp1fault", p1fault);
+                            Log.e("Qis99Comming", "" + is99Comming);
+                            Log.e("QCounterOutside", "" + counterPFUVOV);
+
+                            if (isComefromPFUVOV && p1fault.equals("99")) {
+                                Log.e("QCounterinsidebefore", "" + counterPFUVOV);
+                                is99Comming = false;
+                                counterPFUVOV++;
+                                if (counterPFUVOV > 12) {
+                                    isComefromPFUVOV = false;
+                                    is99Comming = true;
+                                    counterPFUVOV = 0;
+                                    Log.e("QCounterinside", "" + counterPFUVOV);
+
+                                }
+                                Log.e("QCounterinsideafter", "" + counterPFUVOV);
+
+
+                            }
+
+                            //----------------------------------
+                            if (is99Comming) {
+
+                                if (p1OnOff.equals("0")) {
+                                    if (sPisPoweFail.getisPowerFailCP1().equals("t") && sPisPluggedin.getisPluggedinCP1().equals("t")) {
+                                        toggleBtn.performClick();
+                                    } else {
+                                        flag = false;
+                                        setToggleBtn();
+                                    }
+                                } else {
+                                    flag = true;
+                                    setToggleBtn();
+                                }
+
+                                if (p2OnOff.equals("0")) {
+
+                                    if (sPisPoweFail.getisPowerFailCP2().equals("t") && sPisPluggedin.getisPluggedinCP2().equals("t")) {
+                                        btn_p2onff.performClick();
+                                    } else {
+                                        p2flag = false;
+                                        setP2Btn();
+                                    }
+
+                                } else {
+                                    p2flag = true;
+                                    setP2Btn();
+                                }
+
+                                if (p3OnOff.equals("0")) {
+                                    if (sPisPoweFail.getisPowerFailCP3().equals("t") && sPisPluggedin.getisPluggedinCP3().equals("t")) {
+                                        btn_p3onff.performClick();
+                                    } else {
+                                        p3flag = false;
+                                        setP3Btn();
+                                    }
+                                } else {
+                                    p3flag = true;
+                                    setP3Btn();
+                                }
+
+                                if (emergency.equals("1")) {
+                                    txt_maininstruction.setText("Connectors not available");
+                                    emergency01="1";
+                                    emergency02="1";
+                                    emergency03="1";
+
+                                    tv_status1.setText(s2_CP1);
+                                    tv_status2.setText(s2_CP2);
+                                    tv_status3.setText(s2_CP3);
+                                    status_detailCP1 = s2_CP1;
+                                    status_detailCP2 = s2_CP2;
+                                    status_detailCP3 = s2_CP3;
+                                    flagEmergencyStopped=true;
+
+
+                                    rsCP21="₹ 00.00";
+                                    unit_detailCP21="00:00";
+                                    etime_detailCP21="00:00";
+                                    layout_main.setVisibility(View.VISIBLE);
+                                    layout_detail.setVisibility(View.GONE);
+                                    detail_flag = "c";
+                                } else {
+                                    //---------------------------------------------------------------------------------------------------------
+
+                                    if (p1fault.equals("03")){
+                                        overCurrent01="03";
+                                    }
+                                    if (p2fault.equals("03")){
+                                        overCurrent02="03";
+                                    }
+                                    if (p3fault.equals("03")){
+                                        overCurrent03="03";
+                                    }
+
+                                    if (p1OnOff.equals("0") && p1plugin.equals("0") && p1fault.equals("03")) {
+                                        tv_status1.setText(s3_CP1);
+                                        status_detailCP1 = s3_CP1;
+                                    }
+
+                                    if (p2OnOff.equals("0") && p2plugin.equals("0") && p2fault.equals("03")) {
+                                        tv_status2.setText(s3_CP2);
+                                        status_detailCP2 = s3_CP2;
+                                    }
+
+                                    if (p3OnOff.equals("0") && p3plugin.equals("0") && p3fault.equals("03")) {
+                                        tv_status3.setText(s3_CP3);
+                                        status_detailCP3 = s3_CP3;
+                                    }
+
+                                    //fault--------------------------------------------------------------------
+                                    if (p1fault.equals("05")) {
+                                        isComefromPFUVOV = true;
+                                        Float cp1v = Float.parseFloat(p1voltage);
+                                        if (cp1v < 260 && cp1v > 195) {
+
+                                        } else {
+                                            toggleBtn.setCardBackgroundColor(Color.parseColor(red));
+                                            toggleBtn.startAnimation(anim);
+
+                                            Log.e("Powerfailure", "OutsideC1");
+
+                                            if (sPisPluggedin.getisPluggedinCP1().equals("t")) {
+                                                sPisPoweFail.setisPowerFailCP1("t");
+                                                sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                                                // isStillOnCP1 = true;
+                                                Log.e("Pluggedintrue", "PluggedintrueC1");
+
+                                            }
+
+
+                                            if (cp1v > 263) {
+                                                tv_status1.setText(s13_CP1);
+                                                status_detailCP1 = s13_CP1;
+                                                overVoltage01="1";
+                                                Log.e("Powerfailure", "OverVoltageC1");
+
+                                            } else if (cp1v < 195 && cp1v > 150) {
+                                                tv_status1.setText(s12_CP1);
+                                                status_detailCP1 = s12_CP1;
+                                                underVoltage01="1";
+                                                Log.e("Powerfailure", "UndevoltageC1");
+
+                                            } else {
+                                                tv_status1.setText(s6_CP1);
+                                                status_detailCP1 = s6_CP1;
+                                                Log.e("Powerfailure", "PowerfailureC1");
+                                            }
+                                        }
+
+                                    }
+                                    if (p2fault.equals("05")) {
+                                        isComefromPFUVOV = true;
+
+                                        Float cp2v = Float.parseFloat(p2voltage);
+                                        if (cp2v < 260 && cp2v > 195) {
+
+                                        } else {
+
+                                            btn_p2onff.setCardBackgroundColor(Color.parseColor(red));
+                                            btn_p2onff.startAnimation(anim);
+                                            Log.e("Powerfailure", "OutsideC2");
+
+
+                                            if (sPisPluggedin.getisPluggedinCP2().equals("t")) {
+                                                sPisPoweFail.setisPowerFailCP2("t");
+                                                sPTimeReadingCP2.setTimeReadingCP2(MillisCP2);
+                                                // isStillOnCP2 = true;
+                                                Log.e("Pluggedintrue", "PluggedinTrueC2");
+                                            }
+
+
+                                            if (cp2v > 263) {
+                                                tv_status2.setText(s13_CP2);
+                                                status_detailCP2 = s13_CP2;
+                                                overVolatage02="1";
+                                                Log.e("Powerfailure", "OverVoltageC2");
+                                            } else if (cp2v < 195 && cp2v > 150) {
+                                                tv_status2.setText(s12_CP2);
+                                                status_detailCP2 = s12_CP2;
+                                                underVolatage02="1";
+                                                Log.e("Powerfailure", "UnderVoltageC2");
+                                            } else {
+                                                tv_status2.setText(s6_CP2);
+                                                status_detailCP2 = s6_CP2;
+                                                Log.e("Powerfailure", "PowerfailureC2");
+                                            }
+                                        }
+
+
+                                    }
+                                    if (p3fault.equals("05")) {
+                                        isComefromPFUVOV = true;
+
+                                        Float cp3v = Float.parseFloat(p3voltage);
+                                        if (cp3v < 260 && cp3v > 195) {
+
+                                        } else {
+
+
+                                            btn_p3onff.setCardBackgroundColor(Color.parseColor(red));
+                                            Log.e("Powerfailure", "PowerfailureC3");
+
+                                            btn_p3onff.startAnimation(anim);
+                                            if (sPisPluggedin.getisPluggedinCP3().equals("t")) {
+                                                sPisPoweFail.setisPowerFailCP3("t");
+                                                sPTimeReadingCP3.setTimeReadingCP3(MillisCP3);
+                                                // isStillOnCP3 = true;
+                                                Log.e("Pluggedintrue", "PluggeinC3");
+
+                                            }
+
+
+                                            if (cp3v > 263) {
+                                                tv_status3.setText(s13_CP3);
+                                                status_detailCP3 = s13_CP3;
+                                                overVolatage03="1";
+                                                Log.e("Powerfailure", "OverVoltageC3");
+                                            } else if (cp3v < 195 && cp3v > 150) {
+                                                tv_status3.setText(s12_CP3);
+                                                status_detailCP3 = s12_CP3;
+                                                underVolatage03="1";
+                                                Log.e("Powerfailure", "UnderVoltageC3");
+                                            } else {
+                                                tv_status3.setText(s6_CP3);
+                                                status_detailCP3 = s6_CP3;
+                                                Log.e("Powerfailure", "PowerfailureC3");
+                                            }
+                                        }
+
+                                    }
+                                    //--------------Earth Fault
+                                    if (p1fault.equals("10")) {
+                                        tv_status1.setText(s4_CP1);
+                                        status_detailCP1 = s4_CP1;
+
+                                    }
+                                    if (p2fault.equals("10")) {
+                                        tv_status2.setText(s4_CP2);
+                                        status_detailCP2 = s4_CP2;
+
+                                    }
+                                    if (p3fault.equals("10")) {
+                                        tv_status3.setText(s4_CP3);
+                                        status_detailCP3 = s4_CP3;
+
+                                    }
+                                    //---------------TEMP HAZARD
+                                    if (p1fault.equals("07")) {
+                                        tv_status1.setText(s5_CP1);
+                                        status_detailCP1 = s5_CP1;
+
+
+                                    }
+                                    if (p2fault.equals("07")) {
+                                        tv_status2.setText(s5_CP2);
+                                        status_detailCP2 = s5_CP2;
+
+                                    }
+                                    if (p3fault.equals("07")) {
+                                        tv_status3.setText(s5_CP3);
+                                        status_detailCP3 = s5_CP3;
+
+                                    }
+
+
+//-----------------------------------------------------------CP1 Status-----------------------------------------------------------------------------------------------------------------------------
+                                    if (p1OnOff.equals("0") && p1plugin.equals("0") && p1fault.equals("99")) {
+
+                                        if (sPisPluggedin.getisPluggedinCP1().equals("t")) {
+
+                                            if (plugedoutCountcp1 >= 30) {
+                                                sPisPluggedin.setisPluggedinCP1("f");
+                                            } else {
+                                                displayPlugoutCountC1 = 0;
+                                                tv_status1.setText(s7_CP1);
+                                                isAvailableC1 = true;
+                                                txt_c1round_off_mr.setText(rsPOCP1);
+                                                //rsCP21=rsCP1;
+                                                //rsCP1 = "₹ 00.00";
+                                                txt_c1diff.setText(etime_detailCP1);
+                                                status_detailCP1 = s7_CP1;
+                                                //unit_detailCP1 = unit_detailCP1;
+                                                etime_detailCP1 = etime_detailCP1;
+                                                plugedinCountcp1 = 0;
+                                                plugedoutCountcp1++;
+                                                if (isResumedAftercp1) {
+                                                    sPisPoweFail.setisPowerFailCP1("f");
+                                                }
+
+                                                //Hide_1 Snippet To Check In Idle State on 09-09-2019 12.59 PM
+                                                //----Changed Here---By Pravin
+                                                if (emergency01.equals("1")
+                                                        || overCurrent01.equals("03")
+                                                        || overVoltage01.equals("1")
+                                                        || underVoltage01.equals("1")){
+                                                    //emergency07="0";
+                                                    rsCP21="₹ 00.00";
+                                                    rsCP1="₹ 00.00";
+                                                    unit_detailCP21="00:00";
+                                                    unit_detailCP1="00:00";
+                                                    etime_detailCP21="00:00";
+                                                    etime_detailCP1="00:00";
+                                                    layout_main.setVisibility(View.VISIBLE);
+                                                    layout_detail.setVisibility(View.GONE);
+                                                    detail_flag = "c";
+                                                }else {
+                                                    rsCP21=rsCP1;
+                                                    unit_detailCP21=unit_detailCP1;
+                                                    etime_detailCP21=etime_detailCP1;
+                                                    layout_main.setVisibility(View.GONE);
+                                                    layout_detail.setVisibility(View.VISIBLE);
+                                                    detail_flag = "d_CP1";
+                                                }
+                                            }
+
+                                        } else {
+                                            countidleCP1++;
+                                            if (isPleaseWaitC1) {
+                                                tv_status1.setText("Please Wait...");
+                                                status_detailCP1 = "Please Wait...";
+                                                toggleBtn.setVisibility(View.INVISIBLE);
+
+                                            } else {
+                                                tv_status1.setText(s8_CP1);
+                                                status_detailCP1 = s8_CP1;
+                                                emergency01="0";
+                                                overCurrent01="0";
+                                                overVoltage01="0";
+                                                underVoltage01="0";
+                                                /*if (layout_detail.getVisibility()!=View.VISIBLE){
+                                                layout_main.setVisibility(View.GONE);
+                                                layout_detail.setVisibility(View.VISIBLE);
+                                                detail_flag = "d_CP1";
+                                                }*/
+                                            }
+
+
+                                            if (isStopC1) {
+                                                //countC1 = 0;
+                                                isAvailableC1 = true;
+                                                isStartC1 = true;
+                                                isStopC1 = false;
+                                            }
+
+                                            rsCP21=rsCP1;
+                                            txt_c1round_off_mr.setText("₹ 00.00");
+                                            //rsCP1 = "₹ 00.00";
+
+                                            rsPOCP21=rsPOCP1;
+                                            rsPOCP1 = "₹ 00.00";
+                                            //------------
+                                            float mrv = 0;
+                                            mrsPOCP1 = "" + mrv;
+                                            //-----------
+                                            txt_c1diff.setText("00:00:00");
+                                            unit_detailCP21=unit_detailCP1;
+                                            //unit_detailCP1 = "00.00";
+                                            etime_detailCP21 =etime_detailCP1;
+                                            //etime_detailCP1 = "00:00:00";
+                                            plugedinCountcp1 = 0;
+                                            toggleBtn.clearAnimation();
+                                            //overlay1
+                                            if (overlayCounti > 10) {
+                                                isPleaseWaitC1 = false;
+                                                relativeLayout1st.setVisibility(View.VISIBLE);
+                                            }
+                                            overlayCounti++;
+                                        }
+
+                                    }
+                                    if (p1OnOff.equals("1") && p1plugin.equals("0") && p1fault.equals("99")) {
+
+
+                                        countidleCP1 = 0;
+                                        plugedinCountcp1 = 0;
+                                        plugedoutCountcp1 = 0;
+                                        tv_status1.setText(s1_CP1);
+                                        isTappedC1 = false;
+                                        isPleaseWaitC1 = false;
+
+                                        if (isStartC1) {
+                                            isStartC1 = false;
+                                            countC1++;
+                                            isStopC1 = true;
+                                            isAvailableC1 = false;
+                                        }
+                                        // rsCP21=rsCP1;
+                                        txt_c1round_off_mr.setText("₹ 00.00");
+                                        //rsCP1 = "₹ 00.00";
+                                        txt_c1diff.setText("00:00:00");
+                                        status_detailCP1 = s1_CP1;
+                                        //unit_detailCP21=unit_detailCP1;
+                                        unit_detailCP1 = "00.00";
+                                        // etime_detailCP21 =etime_detailCP1;
+                                        etime_detailCP1 = "00:00:00";
+                                        isStillOnCP1 = false;
+                                        relativeLayout1st.setVisibility(View.GONE);
+                                        toggleBtn.setVisibility(View.VISIBLE);
+
+                                        if (displayPlugoutCountC1 == 12) {
+                                            if (sPisPoweFail.getisPowerFailCP1().equals("t") && sPisPluggedin.getisPluggedinCP1().equals("t")) {
+                                                toggleBtn.performClick();
+                                                sPisPoweFail.setisPowerFailCP1("f");
+                                                sPisPluggedin.setisPluggedinCP1("f");
+                                                tv_status1.setText(s7_CP1);
+
+                                                status_detailCP1 = s7_CP1;
+                                                // emergency07="0";
+                                               /* layout_main.setVisibility(View.GONE);
+                                                layout_detail.setVisibility(View.VISIBLE);
+                                                detail_flag = "d_CP1";*/
+                                                // sPispowerfailaf ter4mrCP1.setispowerfailafter4mrCP1("f");
+
+                                                //-----------
+                                                sPisPoweFail.setisPowerFailCP1("f");
+                                                // sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                                            }
+                                        }
+                                        displayPlugoutCountC1++;
+                                        //-----------------------------------------===============================================
+                                      /*  sPisPoweFail.setisPowerFailCP1("t");
+                                        sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);*/
+
+
+
+                                    }
+                                    if (p1OnOff.equals("1") && p1plugin.equals("1") && p1fault.equals("99")) {
+
+                                        countidleCP1 = 0;
+                                        if (sPisPoweFail.getisPowerFailCP1().equals("t")) {
+                                            //---------Status:resuming after power fail_______________
+                                            if (plugedinCountcp1 >= 10) {
+                                                //time reading______
+                                                MillisCP1 = (SystemClock.uptimeMillis() - StartTimeCP1);
+
+                                                HoursCP1 = (int) (MillisCP1 / (1000 * 60 * 60));
+                                                MinutesCP1 = (int) (MillisCP1 / (1000 * 60)) % 60;
+                                                SecondsCP1 = (int) (MillisCP1 / 1000) % 60;
+                                                String time_readingCP1 = "" + String.format("%02d", HoursCP1) + ":"
+                                                        + String.format("%02d", MinutesCP1) + ":"
+                                                        + String.format("%02d", SecondsCP1);
+                                                //-------------------------meter reading
+                                                float prev_mrCP1 = Float.parseFloat(sPmeterReadingCP1.getMeterReadingCP1());
+                                                float current_mrCP1 = 0.0f;
+                                                Log.e("Metervaluesbefore", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+                                                try {
+
+
+                                                    /*if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("t")) {
+                                                        current_mrCP1 = (Float.parseFloat(sPmeterReadingCP1RO.getMeterReadingCP1RO()) * 4) + Float.parseFloat(p1meter);
+                                                        current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP1insideadd", "" + current_mrCP1 + " b ");
+                                                    }*/
+                                                    // if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("f")) {
+                                                    current_mrCP1 = Float.parseFloat(p1meter);
+                                                    int b = (int) current_mrCP1;
+                                                    //b = b / 4;
+                                                    sPmeterReadingCP1RO.setMeterReadingCP1RO("" + b);
+                                                    Log.e("current_mrCP1inside", "" + current_mrCP1 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+
+                                                    float meterreadingdiff = current_mrCP1 - prev_mrCP1;
+                                                    float meterreadingdiffP = 0.0f;
+                                                    meterreadingdiffP = (current_mrCP1 - prev_mrCP1) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP);
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1());
+                                                    String meterreadingCP1 = String.format("%.2f", (current_mrCP1 - prev_mrCP1));
+                                                    String meterreadingCP1P = String.format("%.2f", meterreadingdiffP);
+
+                                                    //------------------
+                                                    tv_status1.setText(s10_CP1);
+                                                    // isSavedTimeC1 = false;
+                                                    if (meterreadingdiffP > 0 && meterreadingdiffP < 200) {
+                                                        txt_c1round_off_mr.setText("₹ " + meterreadingCP1P);
+                                                        rsCP1 = "₹ " + meterreadingCP1P;
+                                                        //rsCP21 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP21 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP1 = "₹ " + meterreadingCP1P;
+                                                        //------------
+                                                        float mrv = meterreadingdiffP;
+                                                        mrsPOCP1 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c1diff.setText(time_readingCP1);
+                                                    status_detailCP1 = s10_CP1;
+                                                    //unit_detailCP21=meterreadingCP1;
+                                                    unit_detailCP1 = meterreadingCP1;
+                                                    etime_detailCP1 = time_readingCP1;
+                                                    //  etime_detailCP21 = time_readingCP1;
+                                                    sPisPoweFail.setisPowerFailCP1("f");
+                                                    relativeLayout1st.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+                                            } else if (plugedinCountcp1 == 0) {
+                                                //Time reading_________________
+
+                                                StartTimeCP1 = SystemClock.uptimeMillis() + (-sPTimeReadingCP1.getTimeReadingCP1());
+                                                //-------------------------meter reading
+                                                float prev_mrCP1 = Float.parseFloat(sPmeterReadingCP1.getMeterReadingCP1());
+                                                float current_mrCP1 = 0.0f;
+                                                try {
+
+
+                                                    Log.e("Metervaluesbefore", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+                                                   /* if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("t")) {
+                                                        current_mrCP1 = (Float.parseFloat(sPmeterReadingCP1RO.getMeterReadingCP1RO()) * 4) + Float.parseFloat(p1meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP1insideadd", "" + current_mrCP1 + " b ");
+                                                    }*/
+                                                    // if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("f")) {
+                                                    current_mrCP1 = Float.parseFloat(p1meter);
+                                                    int b = (int) current_mrCP1;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP1RO.setMeterReadingCP1RO("" + b);
+                                                    Log.e("current_mrCP1inside", "" + current_mrCP1 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+
+                                                    float meterreadingdiff = current_mrCP1 - prev_mrCP1;
+                                                    float meterreadingdiffP = 0.0f;
+                                                    meterreadingdiffP = (current_mrCP1 - prev_mrCP1) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP);
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1());
+                                                    String meterreadingCP1 = String.format("%.2f", meterreadingdiff);
+                                                    String meterreadingCP1P = String.format("%.2f", meterreadingdiffP);
+                                                    //--------------------
+                                                    tv_status1.setText(s9_CP1);
+                                                    layout_detail.setVisibility(View.GONE);
+                                                    layout_main.setVisibility(View.VISIBLE);
+                                                    if (meterreadingdiffP > 0 && meterreadingdiffP < 200) {
+                                                        txt_c1round_off_mr.setText("₹ " + meterreadingCP1P);
+                                                        rsCP1 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP1 = "₹ " + meterreadingCP1P;
+                                                        // rsCP21 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP21 = "₹ " + meterreadingCP1P;
+                                                        //------------
+                                                        float mrv = meterreadingdiffP;
+                                                        mrsPOCP1 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c1diff.setText("00:00:00");
+                                                    status_detailCP1 = s9_CP1;
+                                                    //unit_detailCP21=meterreadingCP1;
+                                                    unit_detailCP1 = meterreadingCP1;
+                                                    //  etime_detailCP21 = etime_detailCP1;
+                                                    etime_detailCP1 = "00:00:00";
+                                                    plugedinCountcp1++;
+                                                    sPisPluggedin.setisPluggedinCP1("t");
+                                                    isResumedAftercp1 = true;
+                                                    toggleBtn.startAnimation(anim);
+                                                    relativeLayout1st.setVisibility(View.GONE);
+                                                    isAvailableC1 = false;
+
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+
+                                            } else {
+                                                //time reading______
+                                                MillisCP1 = (SystemClock.uptimeMillis() - StartTimeCP1);
+
+                                                HoursCP1 = (int) (MillisCP1 / (1000 * 60 * 60));
+                                                MinutesCP1 = (int) (MillisCP1 / (1000 * 60)) % 60;
+                                                SecondsCP1 = (int) (MillisCP1 / 1000) % 60;
+                                                String time_readingCP1 = "" + String.format("%02d", HoursCP1) + ":"
+                                                        + String.format("%02d", MinutesCP1) + ":"
+                                                        + String.format("%02d", SecondsCP1);
+
+                                                //-------------------------meter reading
+                                                float prev_mrCP1 = Float.parseFloat(sPmeterReadingCP1.getMeterReadingCP1());
+                                                float current_mrCP1 = 0.0f;
+                                                try {
+                                                    Log.e("Metervaluesbefore", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+                                                    /*if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("t")) {
+                                                        current_mrCP1 = (Float.parseFloat(sPmeterReadingCP1RO.getMeterReadingCP1RO()) * 4) + Float.parseFloat(p1meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP1insideadd", "" + current_mrCP1 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("f")) {
+                                                    current_mrCP1 = Float.parseFloat(p1meter);
+                                                    int b = (int) current_mrCP1;
+                                                    //b = b / 4;
+                                                    sPmeterReadingCP1RO.setMeterReadingCP1RO("" + b);
+                                                    Log.e("current_mrCP1inside", "" + current_mrCP1 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+
+                                                    float meterreadingdiff = current_mrCP1 - prev_mrCP1;
+                                                    float meterreadingdiffP = 0.0f;
+                                                    meterreadingdiffP = (current_mrCP1 - prev_mrCP1) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP);
+                                                    // Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1());
+                                                    String meterreadingCP1 = String.format("%.2f", meterreadingdiff);
+                                                    String meterreadingCP1P = String.format("%.2f", meterreadingdiffP);
+                                                    //--------------------
+
+                                                    tv_status1.setText(s9_CP1);
+                                                    isAvailableC1 = false;
+
+                                                    if (meterreadingdiffP > 0 && meterreadingdiffP < 200) {
+                                                        txt_c1round_off_mr.setText("₹ " + meterreadingCP1P);
+                                                        rsCP1 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP1 = "₹ " + meterreadingCP1P;
+                                                        //rsCP21 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP21 = "₹ " + meterreadingCP1P;
+                                                        //------------
+                                                        float mrv = meterreadingdiffP;
+                                                        mrsPOCP1 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c1diff.setText(time_readingCP1);
+                                                    status_detailCP1 = s9_CP1;
+                                                    layout_detail.setVisibility(View.GONE);
+                                                    layout_main.setVisibility(View.VISIBLE);
+                                                    // unit_detailCP21=meterreadingCP1;
+                                                    unit_detailCP1 = meterreadingCP1;
+                                                    // etime_detailCP21=time_readingCP1;
+                                                    etime_detailCP1 = time_readingCP1;
+                                                    plugedinCountcp1++;
+                                                    sPisPluggedin.setisPluggedinCP1("t");
+                                                    isResumedAftercp1 = true;
+                                                    relativeLayout1st.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+                                            }
+
+
+                                        } else {
+                                            //--------------- Status:vehicle pugged in_________
+                                            if (plugedinCountcp1 >= 10) {
+                                                //time reading______
+                                                MillisCP1 = (SystemClock.uptimeMillis() - StartTimeCP1);
+
+                                                HoursCP1 = (int) (MillisCP1 / (1000 * 60 * 60));
+                                                MinutesCP1 = (int) (MillisCP1 / (1000 * 60)) % 60;
+                                                SecondsCP1 = (int) (MillisCP1 / 1000) % 60;
+                                                String time_readingCP1 = "" + String.format("%02d", HoursCP1) + ":"
+                                                        + String.format("%02d", MinutesCP1) + ":"
+                                                        + String.format("%02d", SecondsCP1);
+
+                                                //-------------------------meter reading
+                                                float prev_mrCP1 = Float.parseFloat(sPmeterReadingCP1.getMeterReadingCP1());
+                                                float current_mrCP1 = 0.0f;
+                                                Log.e("Metervaluesbefore", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+                                                try {
+
+
+                                                    /*if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("t")) {
+                                                        current_mrCP1 = (Float.parseFloat(sPmeterReadingCP1RO.getMeterReadingCP1RO()) * 4) + Float.parseFloat(p1meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP1insideadd", "" + current_mrCP1 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("f")) {
+                                                    current_mrCP1 = Float.parseFloat(p1meter);
+                                                    int b = (int) current_mrCP1;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP1RO.setMeterReadingCP1RO("" + b);
+                                                    Log.e("current_mrCP1inside", "" + current_mrCP1 + " b " + b);
+
+                                                    //}
+
+                                                    Log.e("Metervaluesafter", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+
+                                                    float meterreadingdiff = current_mrCP1 - prev_mrCP1;
+                                                    float meterreadingdiffP = 0.0f;
+                                                    meterreadingdiffP = (current_mrCP1 - prev_mrCP1) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP);
+                                                    // Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1());
+                                                    String meterreadingCP1 = String.format("%.2f", current_mrCP1 - prev_mrCP1);
+                                                    String meterreadingCP1P = String.format("%.2f", meterreadingdiffP);
+
+                                                    tv_status1.setText(s10_CP1);
+                                                    //isSavedTimeC1 = false;
+                                                    if (meterreadingdiffP > 0 && meterreadingdiffP < 200) {
+                                                        txt_c1round_off_mr.setText("₹ " + meterreadingCP1P);
+                                                        rsCP1 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP1 = "₹ " + meterreadingCP1P;
+                                                        // rsCP21 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP21 = "₹ " + meterreadingCP1P;
+                                                        //------------
+                                                        float mrv = meterreadingdiffP;
+                                                        mrsPOCP1 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c1diff.setText(time_readingCP1);
+                                                    status_detailCP1 = s10_CP1;
+                                                    //unit_detailCP21=meterreadingCP1;
+                                                    unit_detailCP1 = meterreadingCP1;
+                                                    etime_detailCP1 = time_readingCP1;
+                                                    // sPisPoweFail.setisPowerFailCP1("t");
+                                                    relativeLayout1st.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+
+                                            } else if (plugedinCountcp1 == 0) {
+                                                tv_status1.setText(s11_CP1);
+                                                isAvailableC1 = false;
+                                                //rsCP21=rsCP1;
+                                                txt_c1round_off_mr.setText("₹ 00.00");
+                                                //rsCP1 = "₹ 00.00";
+                                                txt_c1diff.setText("00:00:00");
+                                                status_detailCP1 = s11_CP1;
+
+                                                // unit_detailCP21 = unit_detailCP1;
+                                                unit_detailCP1 = "00.00";
+                                                //etime_detailCP21=etime_detailCP1;
+                                                etime_detailCP1 = "00:00:00";
+                                                sPisPluggedin.setisPluggedinCP1("t");
+                                                //-----------------meter reading
+                                                //sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("f");
+                                                //-------------
+                                                plugedinCountcp1++;
+
+                                                //meter reading-------------------------
+                                                sPmeterReadingCP1.setMeterReadingCP1(p1meter);
+                                                //Time reading_________________
+                                                StartTimeCP1 = SystemClock.uptimeMillis() + (-NewBeginMillsCP1);  //--> Start Time
+                                                toggleBtn.startAnimation(anim);
+
+                                            } else {
+                                                //time reading______
+                                                MillisCP1 = (SystemClock.uptimeMillis() - StartTimeCP1);
+
+                                                HoursCP1 = (int) (MillisCP1 / (1000 * 60 * 60));
+                                                MinutesCP1 = (int) (MillisCP1 / (1000 * 60)) % 60;
+                                                SecondsCP1 = (int) (MillisCP1 / 1000) % 60;
+                                                String time_readingCP1 = "" + String.format("%02d", HoursCP1) + ":"
+                                                        + String.format("%02d", MinutesCP1) + ":"
+                                                        + String.format("%02d", SecondsCP1);
+
+
+                                                //-----------meter Reading
+                                                float prev_mrCP1 = Float.parseFloat(sPmeterReadingCP1.getMeterReadingCP1());
+                                                float current_mrCP1 = 0.0f;
+                                                try {
+
+
+                                                    Log.e("Metervaluesbefore", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+                                                    /*if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("t")) {
+                                                        current_mrCP1 = (Float.parseFloat(sPmeterReadingCP1RO.getMeterReadingCP1RO()) * 4) + Float.parseFloat(p1meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP1insideadd", "" + current_mrCP1 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1().equals("f")) {
+                                                    current_mrCP1 = Float.parseFloat(p1meter);
+                                                    int b = (int) current_mrCP1;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP1RO.setMeterReadingCP1RO("" + b);
+                                                    Log.e("current_mrCP1inside", "" + current_mrCP1 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP1" + prev_mrCP1 + "current_mrCP1 " + current_mrCP1);
+
+                                                    float meterreadingdiff = current_mrCP1 - prev_mrCP1;
+                                                    float meterreadingdiffP = 0.0f;
+                                                    meterreadingdiffP = (current_mrCP1 - prev_mrCP1) * erate;
+
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP1.getispowerfailafter4mrCP1());
+                                                    String meterreadingCP1 = String.format("%.2f", meterreadingdiff);
+                                                    String meterreadingCP1P = String.format("%.2f", meterreadingdiffP);
+
+                                                    //--------------------
+                                                    tv_status1.setText(s11_CP1);
+                                                    isAvailableC1 = false;
+
+                                                    if (meterreadingdiffP > 0 && meterreadingdiffP < 200) {
+                                                        txt_c1round_off_mr.setText("₹ " + meterreadingCP1P);
+                                                        rsCP1 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP1 = "₹ " + meterreadingCP1P;
+                                                        // rsCP21 = "₹ " + meterreadingCP1P;
+                                                        rsPOCP21 = "₹ " + meterreadingCP1P;
+                                                        //------------
+                                                        float mrv = meterreadingdiffP;
+                                                        mrsPOCP1 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c1diff.setText(time_readingCP1);
+                                                    status_detailCP1 = s11_CP1;
+                                                    //unit_detailCP21=meterreadingCP1;
+                                                    unit_detailCP1 = meterreadingCP1;
+                                                    etime_detailCP1 = time_readingCP1;
+                                                    sPisPluggedin.setisPluggedinCP1("t");
+                                                    //---------------------
+                                                    //sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("f");
+                                                    //-----------
+                                                    //sPisPoweFail.setisPowerFailCP1("t");
+                                                    // sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);------------------TTTTTTTTTTTTTTTT
+                                                    //-------------------------------
+                                                    plugedinCountcp1++;
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+                                            }
+
+                                        }
+
+                                    }
+
+                                    Log.e("isMainthreadend","D");
+
+//=======================================================================================================================================================================================================================================================================================
+
+                                    //-----------------------------------------------------------CP2 Status-----------------------------------------------------------------------------------------------------------------------------
+                                    if (p2OnOff.equals("0") && p2plugin.equals("0") && p2fault.equals("99")) {
+
+                                        if (sPisPluggedin.getisPluggedinCP2().equals("t")) {
+
+                                            if (plugedoutCountcp2 >= 30) {
+                                                sPisPluggedin.setisPluggedinCP2("f");
+
+                                            } else {
+                                                displayPlugoutCountC2 = 0;
+                                                tv_status2.setText(s7_CP2);
+                                                isAvailableC2 = true;
+
+                                                txt_c2round_off_mr.setText(rsPOCP2);
+                                                //rsCP22=rsCP2;
+                                                //rsCP2 = "₹ 00.00";
+                                                txt_c2diff.setText(etime_detailCP2);
+
+                                                status_detailCP2 = s7_CP2;
+                                                unit_detailCP2 = unit_detailCP2;
+                                                etime_detailCP2 = etime_detailCP2;
+                                                // sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("f");
+
+                                                plugedinCountcp2 = 0;
+                                                plugedoutCountcp2++;
+                                                if (isResumedAftercp2) {
+                                                    sPisPoweFail.setisPowerFailCP2("f");
+                                                    //sPispowerfailafter4mrCP2.setispowerfailafter4mrCP2("f");
+
+                                                }
+
+                                                if (emergency02.equals("1")
+                                                        || overCurrent02.equals("03")
+                                                        || overVolatage02.equals("1")
+                                                        || underVolatage02.equals("1")){
+                                                    //emergency07="0";
+                                                    rsCP22="₹ 00.00";
+                                                    rsCP2="₹ 00.00";
+                                                    unit_detailCP22="00:00";
+                                                    unit_detailCP2="00:00";
+                                                    etime_detailCP22="00:00";
+                                                    etime_detailCP2="00:00";
+                                                    layout_main.setVisibility(View.VISIBLE);
+                                                    layout_detail.setVisibility(View.GONE);
+                                                    detail_flag = "c";
+                                                }else {
+
+                                                    rsCP22=rsCP2;
+                                                    unit_detailCP22=unit_detailCP2;
+                                                    etime_detailCP22=etime_detailCP2;
+                                                    layout_main.setVisibility(View.GONE);
+                                                    layout_detail.setVisibility(View.VISIBLE);
+                                                    detail_flag = "d_CP2";
+                                                }
+                                            }
+
+                                        } else {
+                                            countidleCP2++;
+                                            if (isPleaseWaitC2) {
+                                                tv_status2.setText("Please Wait...");
+                                                status_detailCP2 = "Please Wait...";
+                                                btn_p2onff.setVisibility(View.INVISIBLE);
+
+                                            } else {
+                                                tv_status2.setText(s8_CP2);
+                                                status_detailCP2 = s8_CP2;
+                                                emergency02="0";
+                                                overCurrent02="0";
+                                                overVolatage02="0";
+                                                underVolatage02="0";
+                                               /* layout_main.setVisibility(View.GONE);
+                                                layout_detail.setVisibility(View.VISIBLE);
+                                                detail_flag = "d_CP2";*/
+                                            }
+
+
+                                            if (isStopC2) {
+                                                //   countC1 = 0;
+                                                isAvailableC2 = true;
+
+                                                isStartC2 = true;
+                                                isStopC2 = false;
+                                            }
+
+                                            rsCP22=rsCP2;
+                                            txt_c2round_off_mr.setText("₹ 00.00");
+                                            //rsCP2 = "₹ 00.00";
+                                            rsPOCP22=rsPOCP2;
+                                            rsPOCP2 = "₹ 00.00";
+                                            //------------
+                                            float mrv = 0;
+                                            mrsPOCP2 = "" + mrv;
+                                            //-----------
+                                            txt_c2diff.setText("00:00:00");
+                                            //unit_detailCP22 = unit_detailCP2;
+                                            unit_detailCP2 = "00.00";
+                                            etime_detailCP2 = "00:00:00";
+                                            plugedinCountcp2 = 0;
+                                            btn_p2onff.clearAnimation();
+                                            //overlay1
+                                            if (overlayCountii > 10) {
+                                                isPleaseWaitC2 = false;
+                                                relativeLayout2nd.setVisibility(View.VISIBLE);
+                                            }
+                                            overlayCountii++;
+                                        }
+
+                                    }
+                                    if (p2OnOff.equals("1") && p2plugin.equals("0") && p2fault.equals("99")) {
+
+                                        countidleCP2 = 0;
+                                        plugedinCountcp2 = 0;
+                                        plugedoutCountcp2 = 0;
+                                        tv_status2.setText(s1_CP2);
+                                        isTappedC2 = false;
+                                        isPleaseWaitC2 = false;
+
+                                        if (isStartC2) {
+                                            isStartC2 = false;
+                                            countC2++;
+                                            isStopC2 = true;
+                                            isAvailableC2 = false;
+                                        }
+                                        //rsCP22=rsCP2;
+                                        txt_c2round_off_mr.setText("₹ 00.00");
+                                        // rsCP2 = "₹ 00.00";
+                                        txt_c2diff.setText("00:00:00");
+                                        status_detailCP2 = s1_CP2;
+                                        //  unit_detailCP22 = unit_detailCP2;
+                                        unit_detailCP2 = "00.00";
+                                        etime_detailCP2 = "00:00:00";
+                                        isStillOnCP2 = false;
+                                        relativeLayout2nd.setVisibility(View.GONE);
+                                        btn_p2onff.setVisibility(View.VISIBLE);
+
+                                        if (displayPlugoutCountC2 == 12) {
+                                            if (sPisPoweFail.getisPowerFailCP2().equals("t") && sPisPluggedin.getisPluggedinCP2().equals("t")) {
+                                                btn_p2onff.performClick();
+                                                sPisPoweFail.setisPowerFailCP2("f");
+                                                sPisPluggedin.setisPluggedinCP2("f");
+                                                tv_status2.setText(s7_CP2);
+
+                                                status_detailCP2 = s7_CP2;
+                                                // sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("f");
+
+                                                //-----------
+                                                sPisPoweFail.setisPowerFailCP2("f");
+                                                // sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                                            }
+                                        }
+                                        displayPlugoutCountC2++;
+
+                                        //------------------------------=====================================
+                                        /*sPisPoweFail.setisPowerFailCP2("t");
+                                        sPTimeReadingCP2.setTimeReadingCP2(MillisCP2);*/
+
+
+
+                                    }
+                                    if (p2OnOff.equals("1") && p2plugin.equals("1") && p2fault.equals("99")) {
+
+                                        countidleCP2 = 0;
+                                        if (sPisPoweFail.getisPowerFailCP2().equals("t")) {
+                                            //---------Status:resuming after power fail_______________
+                                            if (plugedinCountcp2 >= 10) {
+                                                //time reading______
+                                                MillisCP2 = (SystemClock.uptimeMillis() - StartTimeCP2);
+
+                                                HoursCP2 = (int) (MillisCP2 / (1000 * 60 * 60));
+                                                MinutesCP2 = (int) (MillisCP2 / (1000 * 60)) % 60;
+                                                SecondsCP2 = (int) (MillisCP2 / 1000) % 60;
+                                                String time_readingCP2 = "" + String.format("%02d", HoursCP2) + ":"
+                                                        + String.format("%02d", MinutesCP2) + ":"
+                                                        + String.format("%02d", SecondsCP2);
+                                                //-------------------------meter reading
+                                                float prev_mrCP2 = Float.parseFloat(sPmeterReadingCP2.getMeterReadingCP2());
+                                                float current_mrCP2 = 0.0f;
+                                                Log.e("Metervaluesbefore", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+                                                try {
+
+
+                                                   /* if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().equals("t")) {
+                                                        current_mrCP2 = (Float.parseFloat(sPmeterReadingCP2RO.getMeterReadingCP2RO()) * 4) + Float.parseFloat(p2meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP2insideadd", "" + current_mrCP2 + " b ");
+                                                    }*/
+                                                    // if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().equals("f")) {
+                                                    current_mrCP2 = Float.parseFloat(p2meter);
+                                                    int b = (int) current_mrCP2;
+                                                    //   b = b / 4;
+                                                    sPmeterReadingCP2RO.setMeterReadingCP2RO("" + b);
+                                                    Log.e("current_mrCP2inside", "" + current_mrCP2 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+
+                                                    float meterreadingdiff2 = current_mrCP2 - prev_mrCP2;
+                                                    float meterreadingdiffP2 = 0.0f;
+                                                    meterreadingdiffP2 = (current_mrCP2 - prev_mrCP2) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP2);
+                                                    // Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2());
+                                                    String meterreadingCP2 = String.format("%.2f", meterreadingdiff2);
+                                                    String meterreadingCP2P = String.format("%.2f", meterreadingdiffP2);
+
+                                                    //------------------
+                                                    tv_status2.setText(s10_CP2);
+                                                    // isSavedTimeC2 = false;
+                                                    if (meterreadingdiffP2 > 0 && meterreadingdiffP2 < 200) {
+                                                        txt_c2round_off_mr.setText("₹ " + meterreadingCP2P);
+                                                        rsCP2 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP2 = "₹ " + meterreadingCP2P;
+                                                        //rsCP22 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP22 = "₹ " + meterreadingCP2P; //------------
+                                                        float mrv = meterreadingdiffP2;
+                                                        mrsPOCP2 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c2diff.setText(time_readingCP2);
+                                                    status_detailCP2 = s10_CP2;
+                                                    //unit_detailCP22 = meterreadingCP2;
+                                                    unit_detailCP2 = meterreadingCP2;
+                                                    etime_detailCP2 = time_readingCP2;
+                                                    sPisPoweFail.setisPowerFailCP2("f");
+                                                    relativeLayout2nd.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+                                            } else if (plugedinCountcp2 == 0) {
+                                                //Time reading_________________
+
+                                                StartTimeCP2 = SystemClock.uptimeMillis() + (-sPTimeReadingCP2.getTimeReadingCP2());
+                                                //-------------------------meter reading
+                                                float prev_mrCP2 = Float.parseFloat(sPmeterReadingCP2.getMeterReadingCP2());
+                                                float current_mrCP2 = 0.0f;
+                                                try {
+                                                    current_mrCP2 = Float.parseFloat(p2meter);
+                                                    int b = (int) current_mrCP2;
+                                                    sPmeterReadingCP2RO.setMeterReadingCP2RO("" + b);
+                                                    float meterreadingdiff2 = current_mrCP2 - prev_mrCP2;
+                                                    float meterreadingdiffP2 = 0.0f;
+                                                    meterreadingdiffP2 = (current_mrCP2 - prev_mrCP2) * erate;
+                                                    String meterreadingCP2 = String.format("%.2f", meterreadingdiff2);
+                                                    String meterreadingCP2P = String.format("%.2f", meterreadingdiffP2);
+                                                    //--------------------
+                                                    tv_status2.setText(s9_CP2);
+                                                    if (meterreadingdiffP2 > 0 && meterreadingdiffP2 < 200) {
+                                                        txt_c2round_off_mr.setText("₹ " + meterreadingCP2P);
+                                                        rsCP2 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP2 = "₹ " + meterreadingCP2P;
+                                                        //rsCP22 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP22 = "₹ " + meterreadingCP2P;  //------------
+                                                        float mrv = meterreadingdiffP2;
+                                                        mrsPOCP2 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c2diff.setText("00:00:00");
+                                                    //unit_detailCP22 = meterreadingCP2;
+                                                    status_detailCP2 = s9_CP2;
+                                                    //unit_detailCP22 = meterreadingCP2;
+                                                    unit_detailCP2 = meterreadingCP2;
+                                                    etime_detailCP2 = "00:00:00";
+                                                    plugedinCountcp2++;
+                                                    sPisPluggedin.setisPluggedinCP2("t");
+                                                    isResumedAftercp2 = true;
+                                                    btn_p2onff.startAnimation(anim);
+                                                    relativeLayout2nd.setVisibility(View.GONE);
+                                                    isAvailableC2 = false;
+
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+
+                                            } else {
+                                                //time reading______
+                                                MillisCP2 = (SystemClock.uptimeMillis() - StartTimeCP2);
+
+                                                HoursCP2 = (int) (MillisCP2 / (1000 * 60 * 60));
+                                                MinutesCP2 = (int) (MillisCP2 / (1000 * 60)) % 60;
+                                                SecondsCP2 = (int) (MillisCP2 / 1000) % 60;
+                                                String time_readingCP2 = "" + String.format("%02d", HoursCP2) + ":"
+                                                        + String.format("%02d", MinutesCP2) + ":"
+                                                        + String.format("%02d", SecondsCP2);
+
+                                                //-------------------------meter reading
+                                                float prev_mrCP2 = Float.parseFloat(sPmeterReadingCP2.getMeterReadingCP2());
+                                                float current_mrCP2 = 0.0f;
+                                                try {
+                                                    Log.e("Metervaluesbefore", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+                                                    //if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().equals("f")) {
+                                                    current_mrCP2 = Float.parseFloat(p2meter);
+                                                    int b = (int) current_mrCP2;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP2RO.setMeterReadingCP2RO("" + b);
+                                                    Log.e("current_mrCP2inside", "" + current_mrCP2 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+
+                                                    float meterreadingdiff2 = current_mrCP2 - prev_mrCP2;
+                                                    float meterreadingdiffP2 = 0.0f;
+                                                    meterreadingdiffP2 = (current_mrCP2 - prev_mrCP2) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP2);
+                                                    // Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2());
+                                                    String meterreadingCP2 = String.format("%.2f", meterreadingdiff2);
+                                                    String meterreadingCP2P = String.format("%.2f", meterreadingdiffP2);
+                                                    //--------------------
+
+                                                    tv_status2.setText(s9_CP2);
+                                                    isAvailableC2 = false;
+
+                                                    if (meterreadingdiffP2 > 0 && meterreadingdiffP2 < 200) {
+                                                        txt_c2round_off_mr.setText("₹ " + meterreadingCP2P);
+                                                        rsCP2 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP2 = "₹ " + meterreadingCP2P;
+                                                        //  rsCP22 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP22 = "₹ " + meterreadingCP2P; //------------
+                                                        float mrv = meterreadingdiffP2;
+                                                        mrsPOCP2 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c2diff.setText(time_readingCP2);
+                                                    status_detailCP2 = s9_CP2;
+                                                    unit_detailCP2 = meterreadingCP2;
+                                                    etime_detailCP2 = time_readingCP2;
+                                                    plugedinCountcp2++;
+                                                    sPisPluggedin.setisPluggedinCP2("t");
+                                                    isResumedAftercp2 = true;
+                                                    relativeLayout2nd.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+                                            }
+
+
+                                        } else {
+                                            //--------------- Status:vehicle pugged in_________
+                                            if (plugedinCountcp2 >= 10) {
+                                                //time reading______
+                                                MillisCP2 = (SystemClock.uptimeMillis() - StartTimeCP2);
+
+                                                HoursCP2 = (int) (MillisCP2 / (1000 * 60 * 60));
+                                                MinutesCP2 = (int) (MillisCP2 / (1000 * 60)) % 60;
+                                                SecondsCP2 = (int) (MillisCP2 / 1000) % 60;
+                                                String time_readingCP2 = "" + String.format("%02d", HoursCP2) + ":"
+                                                        + String.format("%02d", MinutesCP2) + ":"
+                                                        + String.format("%02d", SecondsCP2);
+
+                                                //-------------------------meter reading
+                                                float prev_mrCP2 = Float.parseFloat(sPmeterReadingCP2.getMeterReadingCP2());
+                                                float current_mrCP2 = 0.0f;
+                                                Log.e("Metervaluesbefore", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+                                                try {
+
+
+                                                   /* if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().equals("t")) {
+                                                        current_mrCP2 = (Float.parseFloat(sPmeterReadingCP2RO.getMeterReadingCP2RO()) * 4) + Float.parseFloat(p2meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP2insideadd", "" + current_mrCP2 + " b ");
+                                                    }*/
+                                                    // if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().equals("f")) {
+                                                    current_mrCP2 = Float.parseFloat(p2meter);
+                                                    int b = (int) current_mrCP2;
+                                                    //   b = b / 4;
+                                                    sPmeterReadingCP2RO.setMeterReadingCP2RO("" + b);
+                                                    Log.e("current_mrCP2inside", "" + current_mrCP2 + " b " + b);
+
+                                                    //}
+
+                                                    Log.e("Metervaluesafter", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+
+                                                    float meterreadingdiff2 = current_mrCP2 - prev_mrCP2;
+                                                    float meterreadingdiffP2 = 0.0f;
+                                                    meterreadingdiffP2 = (current_mrCP2 - prev_mrCP2) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP2);
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2());
+                                                    String meterreadingCP2 = String.format("%.2f", meterreadingdiff2);
+                                                    String meterreadingCP2P = String.format("%.2f", meterreadingdiffP2);
+
+                                                    tv_status2.setText(s10_CP2);
+                                                    //  isSavedTimeC2 = false;
+                                                    if (meterreadingdiffP2 > 0 && meterreadingdiffP2 < 200) {
+                                                        txt_c2round_off_mr.setText("₹ " + meterreadingCP2P);
+                                                        rsCP2 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP2 = "₹ " + meterreadingCP2P;
+                                                        //  rsCP22 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP22 = "₹ " + meterreadingCP2P;   //------------
+                                                        float mrv = meterreadingdiffP2;
+                                                        mrsPOCP1 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c2diff.setText(time_readingCP2);
+                                                    status_detailCP2 = s10_CP2;
+                                                    // unit_detailCP22 = meterreadingCP2;
+                                                    unit_detailCP2 = meterreadingCP2;
+                                                    etime_detailCP2 = time_readingCP2;
+                                                    // sPisPoweFail.setisPowerFailCP1("t");
+                                                    relativeLayout2nd.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+
+                                            } else if (plugedinCountcp2 == 0) {
+                                                tv_status2.setText(s11_CP2);
+                                                isAvailableC2 = false;
+                                                //rsCP22=rsCP2;
+                                                txt_c2round_off_mr.setText("₹ 00.00");
+                                                // rsCP2 = "₹ 00.00";
+                                                txt_c2diff.setText("00:00:00");
+                                                status_detailCP2 = s11_CP2;
+                                                //unit_detailCP22 = unit_detailCP2;
+                                                unit_detailCP2 = "00.00";
+                                                etime_detailCP2 = "00:00:00";
+                                                sPisPluggedin.setisPluggedinCP2("t");
+                                                //-----------------meter reading
+                                                // sPispowerfailafter4mrCP2.setispowerfailafter4mrCP2("f");
+                                                //-------------
+                                                plugedinCountcp2++;
+
+                                                //meter reading-------------------------
+                                                sPmeterReadingCP2.setMeterReadingCP2(p2meter);
+                                                //Time reading_________________
+                                                StartTimeCP2 = SystemClock.uptimeMillis() + (-NewBeginMillsCP2);  //--> Start Time
+                                                btn_p2onff.startAnimation(anim);
+
+                                            } else {
+                                                //time reading______
+                                                MillisCP2 = (SystemClock.uptimeMillis() - StartTimeCP2);
+
+                                                HoursCP2 = (int) (MillisCP2 / (1000 * 60 * 60));
+                                                MinutesCP2 = (int) (MillisCP2 / (1000 * 60)) % 60;
+                                                SecondsCP2 = (int) (MillisCP2 / 1000) % 60;
+                                                String time_readingCP2 = "" + String.format("%02d", HoursCP2) + ":"
+                                                        + String.format("%02d", MinutesCP2) + ":"
+                                                        + String.format("%02d", SecondsCP2);
+
+
+                                                //-----------meter Reading
+                                                float prev_mrCP2 = Float.parseFloat(sPmeterReadingCP2.getMeterReadingCP2());
+                                                float current_mrCP2 = 0.0f;
+                                                try {
+
+
+                                                    Log.e("Metervaluesbefore", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+                                                    /*if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().equals("t")) {
+                                                        current_mrCP2 = (Float.parseFloat(sPmeterReadingCP2RO.getMeterReadingCP2RO()) * 4) + Float.parseFloat(p2meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP2insideadd", "" + current_mrCP2 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2().equals("f")) {
+                                                    current_mrCP2 = Float.parseFloat(p2meter);
+                                                    int b = (int) current_mrCP2;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP2RO.setMeterReadingCP2RO("" + b);
+                                                    Log.e("current_mrCP2inside", "" + current_mrCP2 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP2" + prev_mrCP2 + "current_mrCP2 " + current_mrCP2);
+
+                                                    float meterreadingdiff2 = current_mrCP2 - prev_mrCP2;
+                                                    float meterreadingdiffP2 = 0.0f;
+                                                    meterreadingdiffP2 = (current_mrCP2 - prev_mrCP2) * erate;
+
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP2.getispowerfailafter4mrCP2());
+                                                    String meterreadingCP2 = String.format("%.2f", meterreadingdiff2);
+                                                    String meterreadingCP2P = String.format("%.2f", meterreadingdiffP2);
+
+                                                    //--------------------
+                                                    tv_status2.setText(s11_CP2);
+                                                    isAvailableC2 = false;
+
+                                                    if (meterreadingdiffP2 > 0 && meterreadingdiffP2 < 200) {
+                                                        txt_c2round_off_mr.setText("₹ " + meterreadingCP2P);
+                                                        rsCP2 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP2 = "₹ " + meterreadingCP2P;
+                                                        //rsCP22 = "₹ " + meterreadingCP2P;
+                                                        rsPOCP22 = "₹ " + meterreadingCP2P; //------------
+                                                        float mrv = meterreadingdiffP2;
+                                                        mrsPOCP2 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c2diff.setText(time_readingCP2);
+                                                    status_detailCP2 = s11_CP2;
+                                                    // unit_detailCP22= meterreadingCP2;
+                                                    unit_detailCP2 = meterreadingCP2;
+                                                    etime_detailCP2 = time_readingCP2;
+                                                    sPisPluggedin.setisPluggedinCP2("t");
+                                                    //---------------------
+                                                    //sPispowerfailafter4mrCP2.setispowerfailafter4mrCP2("f");
+                                                    //-----------
+                                                    //sPisPoweFail.setisPowerFailCP1("t");
+                                                    // sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);------------------TTTTTTTTTTTTTTTT
+                                                    //-------------------------------
+                                                    plugedinCountcp2++;
+                                                } catch (NumberFormatException ex) {
+                                                }
+                                            }
+                                        }
+                                    }
+                                    Log.e("isMainthreadend","E");
+
+//================================================================================================================================================================================================================
+//=======================================================================================================================================================================================================================================================================================
+
+                                    //-----------------------------------------------------------CP3 Status-----------------------------------------------------------------------------------------------------------------------------
+                                    if (p3OnOff.equals("0") && p3plugin.equals("0") && p3fault.equals("99")) {
+
+                                        if (sPisPluggedin.getisPluggedinCP3().equals("t")) {
+
+                                            if (plugedoutCountcp3 >= 30) {
+                                                sPisPluggedin.setisPluggedinCP3("f");
+
+                                            } else {
+                                                displayPlugoutCountC3 = 0;
+                                                tv_status3.setText(s7_CP3);
+                                                isAvailableC3 = true;
+
+                                                txt_c3round_off_mr.setText(rsPOCP3);
+                                                //rsCP23=rsCP3;
+                                                //rsCP3 = "₹ 00.00";
+                                                txt_c3diff.setText(etime_detailCP3);
+
+                                                status_detailCP3 = s7_CP3;
+                                                unit_detailCP3 = unit_detailCP3;
+                                                etime_detailCP3 = etime_detailCP3;
+                                                // sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("f");
+
+                                                plugedinCountcp3 = 0;
+                                                plugedoutCountcp3++;
+
+                                                if (isResumedAftercp3) {
+                                                    sPisPoweFail.setisPowerFailCP3("f");
+                                                    //sPispowerfailafter4mrCP3.setispowerfailafter4mrCP3("f");
+                                                }
+
+                                                if (emergency03.equals("1")
+                                                        || overCurrent03.equals("03")
+                                                        || overVolatage03.equals("1")
+                                                        || underVolatage03.equals("1")){
+                                                    //emergency07="0";
+                                                    rsCP23="₹ 00.00";
+                                                    rsCP3="₹ 00.00";
+                                                    unit_detailCP23="00:00";
+                                                    unit_detailCP3="00:00";
+                                                    etime_detailCP23="00:00";
+                                                    etime_detailCP3="00:00";
+                                                    layout_main.setVisibility(View.VISIBLE);
+                                                    layout_detail.setVisibility(View.GONE);
+                                                    detail_flag = "c";
+                                                }else {
+                                                    rsCP23=rsCP3;
+                                                    unit_detailCP23=unit_detailCP3;
+                                                    etime_detailCP23=etime_detailCP3;
+                                                    layout_main.setVisibility(View.GONE);
+                                                    layout_detail.setVisibility(View.VISIBLE);
+                                                    detail_flag = "d_CP3";
+                                                }
+                                            }
+
+                                        } else {
+                                            countidleCP3++;
+                                            if (isPleaseWaitC3) {
+                                                tv_status3.setText("Please Wait...");
+                                                status_detailCP3 = "Please Wait...";
+                                                btn_p3onff.setVisibility(View.INVISIBLE);
+
+                                            } else {
+                                                tv_status3.setText(s8_CP3);
+                                                status_detailCP3 = s8_CP3;
+                                                emergency03="0";
+                                                overCurrent03="0";
+                                                overVolatage03="0";
+                                                underVolatage03="0";
+                                                /*layout_main.setVisibility(View.GONE);
+                                                layout_detail.setVisibility(View.VISIBLE);
+                                                detail_flag = "d_CP3";*/
+                                            }
+
+
+                                            if (isStopC3) {
+                                                //   countC1 = 0;
+                                                isAvailableC3 = true;
+
+                                                isStartC3 = true;
+                                                isStopC3 = false;
+                                            }
+                                            rsCP23=rsCP3;
+                                            txt_c3round_off_mr.setText("₹ 00.00");
+                                            //rsCP3 = "₹ 00.00";
+                                            rsPOCP23=rsPOCP3;
+                                            rsPOCP3 = "₹ 00.00";
+                                            //------------
+                                            float mrv = 0;
+                                            mrsPOCP3 = "" + mrv;
+                                            //-----------
+                                            txt_c3diff.setText("00:00:00");
+                                            //  unit_detailCP23 = unit_detailCP3;
+                                            unit_detailCP3 = "00.00";
+                                            etime_detailCP3 = "00:00:00";
+                                            plugedinCountcp3 = 0;
+                                            btn_p3onff.clearAnimation();
+                                            //overlay1
+                                            if (overlayCountiii > 10) {
+                                                isPleaseWaitC3 = false;
+                                                relativeLayout3rd.setVisibility(View.VISIBLE);
+                                            }
+                                            overlayCountiii++;
+                                        }
+
+                                    }
+                                    if (p3OnOff.equals("1") && p3plugin.equals("0") && p3fault.equals("99")) {
+
+                                        countidleCP3 = 0;
+                                        plugedinCountcp3 = 0;
+                                        plugedoutCountcp3 = 0;
+                                        tv_status3.setText(s1_CP3);
+                                        isTappedC3 = false;
+                                        isPleaseWaitC3 = false;
+
+                                        if (isStartC3) {
+                                            isStartC3 = false;
+                                            countC3++;
+                                            isStopC3 = true;
+                                            isAvailableC3 = false;
+                                        }
+                                        // rsCP23=rsCP3;
+                                        txt_c3round_off_mr.setText("₹ 00.00");
+                                        // rsCP3 = "₹ 00.00";
+                                        txt_c3diff.setText("00:00:00");
+                                        status_detailCP3 = s1_CP3;
+                                        // unit_detailCP23 = unit_detailCP3;
+                                        unit_detailCP3 = "00.00";
+                                        etime_detailCP3 = "00:00:00";
+                                        isStillOnCP3 = false;
+                                        relativeLayout3rd.setVisibility(View.GONE);
+                                        btn_p3onff.setVisibility(View.VISIBLE);
+
+                                        if (displayPlugoutCountC3 == 12) {
+                                            if (sPisPoweFail.getisPowerFailCP3().equals("t") && sPisPluggedin.getisPluggedinCP3().equals("t")) {
+                                                btn_p3onff.performClick();
+                                                sPisPoweFail.setisPowerFailCP3("f");
+                                                sPisPluggedin.setisPluggedinCP3("f");
+                                                tv_status3.setText(s7_CP3);
+
+                                                status_detailCP3 = s7_CP3;
+                                                // sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("f");
+
+                                                //-----------
+                                                sPisPoweFail.setisPowerFailCP3("f");
+                                                // sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                                            }
+                                        }
+                                        displayPlugoutCountC3++;
+                                        //------------------===============================================================
+                                        /*sPisPoweFail.setisPowerFailCP3("t");
+                                        sPTimeReadingCP3.setTimeReadingCP3(MillisCP3);*/
+
+
+                                    }
+                                    if (p3OnOff.equals("1") && p3plugin.equals("1") && p3fault.equals("99")) {
+
+                                        countidleCP3 = 0;
+                                        if (sPisPoweFail.getisPowerFailCP3().equals("t")) {
+                                            //---------Status:resuming after power fail_______________
+                                            if (plugedinCountcp3 >= 10) {
+                                                //time reading______
+                                                MillisCP3 = (SystemClock.uptimeMillis() - StartTimeCP3);
+
+                                                HoursCP3 = (int) (MillisCP3 / (1000 * 60 * 60));
+                                                MinutesCP3 = (int) (MillisCP3 / (1000 * 60)) % 60;
+                                                SecondsCP3 = (int) (MillisCP3 / 1000) % 60;
+                                                String time_readingCP3 = "" + String.format("%02d", HoursCP3) + ":"
+                                                        + String.format("%02d", MinutesCP3) + ":"
+                                                        + String.format("%02d", SecondsCP3);
+                                                //-------------------------meter reading
+                                                float prev_mrCP3 = Float.parseFloat(sPmeterReadingCP3.getMeterReadingCP3());
+                                                float current_mrCP3 = 0.0f;
+                                                Log.e("Metervaluesbefore", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+                                                try {
+
+
+                                                    /*if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("t")) {
+                                                        current_mrCP3 = (Float.parseFloat(sPmeterReadingCP3RO.getMeterReadingCP3RO()) * 4) + Float.parseFloat(p3meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP3insideadd", "" + current_mrCP3 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("f")) {
+                                                    current_mrCP3 = Float.parseFloat(p3meter);
+                                                    int b = (int) current_mrCP3;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP3RO.setMeterReadingCP3RO("" + b);
+                                                    Log.e("current_mrCP3inside", "" + current_mrCP3 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+
+                                                    float meterreadingdiff3 = current_mrCP3 - prev_mrCP3;
+                                                    float meterreadingdiffP3 = 0.0f;
+                                                    meterreadingdiffP3 = (current_mrCP3 - prev_mrCP3) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP3);
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3());
+                                                    String meterreadingCP3 = String.format("%.2f", meterreadingdiff3);
+                                                    String meterreadingCP3P = String.format("%.2f", meterreadingdiffP3);
+
+                                                    //------------------
+                                                    tv_status3.setText(s10_CP3);
+                                                    // isSavedTimeC3 = false;
+                                                    if (meterreadingdiffP3 > 0 && meterreadingdiffP3 < 200) {
+                                                        txt_c3round_off_mr.setText("₹ " + meterreadingCP3P);
+                                                        rsCP3 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP3 = "₹ " + meterreadingCP3P;
+                                                        //  rsCP23 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP23 = "₹ " + meterreadingCP3P;  //------------
+                                                        float mrv = meterreadingdiffP3;
+                                                        mrsPOCP3 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c3diff.setText(time_readingCP3);
+                                                    status_detailCP3 = s10_CP3;
+                                                    //  unit_detailCP23 = meterreadingCP3;
+                                                    unit_detailCP3 = meterreadingCP3;
+                                                    etime_detailCP3 = time_readingCP3;
+                                                    sPisPoweFail.setisPowerFailCP3("f");
+                                                    relativeLayout3rd.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+                                            } else if (plugedinCountcp3 == 0) {
+                                                //Time reading_________________
+
+                                                StartTimeCP3 = SystemClock.uptimeMillis() + (-sPTimeReadingCP3.getTimeReadingCP3());
+                                                //-------------------------meter reading
+                                                float prev_mrCP3 = Float.parseFloat(sPmeterReadingCP3.getMeterReadingCP3());
+                                                float current_mrCP3 = 0.0f;
+                                                try {
+
+
+                                                    Log.e("Metervaluesbefore", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+                                                    /*if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("t")) {
+                                                        current_mrCP3 = (Float.parseFloat(sPmeterReadingCP3RO.getMeterReadingCP3RO()) * 4) + Float.parseFloat(p3meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP3insideadd", "" + current_mrCP3 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("f")) {
+                                                    current_mrCP3 = Float.parseFloat(p3meter);
+                                                    int b = (int) current_mrCP3;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP3RO.setMeterReadingCP3RO("" + b);
+                                                    Log.e("current_mrCP3inside", "" + current_mrCP3 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP2" + prev_mrCP3 + "current_mrCP2 " + current_mrCP3);
+
+                                                    float meterreadingdiff3 = current_mrCP3 - prev_mrCP3;
+                                                    float meterreadingdiffP3 = 0.0f;
+                                                    meterreadingdiffP3 = (current_mrCP3 - prev_mrCP3) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP3);
+                                                    // Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3());
+                                                    String meterreadingCP3 = String.format("%.2f", meterreadingdiff3);
+                                                    String meterreadingCP3P = String.format("%.2f", meterreadingdiffP3);
+                                                    //--------------------
+                                                    tv_status3.setText(s9_CP3);
+                                                    if (meterreadingdiffP3 > 0 && meterreadingdiffP3 < 200) {
+                                                        txt_c3round_off_mr.setText("₹ " + meterreadingCP3P);
+                                                        rsCP3 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP3 = "₹ " + meterreadingCP3P;
+                                                        //  rsCP23 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP23 = "₹ " + meterreadingCP3P;//------------
+                                                        float mrv = meterreadingdiffP3;
+                                                        mrsPOCP3 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c3diff.setText("00:00:00");
+                                                    status_detailCP3 = s9_CP3;
+                                                    //   unit_detailCP23 = meterreadingCP3;
+                                                    unit_detailCP3 = meterreadingCP3;
+                                                    etime_detailCP3 = "00:00:00";
+                                                    plugedinCountcp3++;
+                                                    sPisPluggedin.setisPluggedinCP3("t");
+                                                    isResumedAftercp3 = true;
+                                                    btn_p3onff.startAnimation(anim);
+                                                    relativeLayout3rd.setVisibility(View.GONE);
+                                                    isAvailableC3 = false;
+
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+
+                                            } else {
+                                                //time reading______
+                                                MillisCP3 = (SystemClock.uptimeMillis() - StartTimeCP3);
+
+                                                HoursCP3 = (int) (MillisCP3 / (1000 * 60 * 60));
+                                                MinutesCP3 = (int) (MillisCP3 / (1000 * 60)) % 60;
+                                                SecondsCP3 = (int) (MillisCP3 / 1000) % 60;
+                                                String time_readingCP3 = "" + String.format("%02d", HoursCP3) + ":"
+                                                        + String.format("%02d", MinutesCP3) + ":"
+                                                        + String.format("%02d", SecondsCP3);
+
+                                                //-------------------------meter reading
+                                                float prev_mrCP3 = Float.parseFloat(sPmeterReadingCP3.getMeterReadingCP3());
+                                                float current_mrCP3 = 0.0f;
+                                                try {
+                                                    Log.e("Metervaluesbefore", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+                                                    /*if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("t")) {
+                                                        current_mrCP3 = (Float.parseFloat(sPmeterReadingCP3RO.getMeterReadingCP3RO()) * 4) + Float.parseFloat(p3meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP3insideadd", "" + current_mrCP3 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("f")) {
+                                                    current_mrCP3 = Float.parseFloat(p3meter);
+                                                    int b = (int) current_mrCP3;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP3RO.setMeterReadingCP3RO("" + b);
+                                                    Log.e("current_mrCP3inside", "" + current_mrCP3 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+
+                                                    float meterreadingdiff3 = current_mrCP3 - prev_mrCP3;
+                                                    float meterreadingdiffP3 = 0.0f;
+                                                    meterreadingdiffP3 = (current_mrCP3 - prev_mrCP3) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP3);
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3());
+                                                    String meterreadingCP3 = String.format("%.2f", meterreadingdiff3);
+                                                    String meterreadingCP3P = String.format("%.2f", meterreadingdiffP3);
+                                                    //--------------------
+
+                                                    tv_status3.setText(s9_CP3);
+                                                    isAvailableC3 = false;
+
+                                                    if (meterreadingdiffP3 > 0 && meterreadingdiffP3 < 200) {
+                                                        txt_c3round_off_mr.setText("₹ " + meterreadingCP3P);
+                                                        rsCP3 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP3 = "₹ " + meterreadingCP3P;
+                                                        //------------
+                                                        float mrv = meterreadingdiffP3;
+                                                        mrsPOCP3 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c3diff.setText(time_readingCP3);
+                                                    status_detailCP3 = s9_CP3;
+                                                    //unit_detailCP23 = meterreadingCP3;
+                                                    unit_detailCP3 = meterreadingCP3;
+                                                    etime_detailCP3 = time_readingCP3;
+                                                    plugedinCountcp3++;
+                                                    sPisPluggedin.setisPluggedinCP3("t");
+                                                    isResumedAftercp3 = true;
+                                                    relativeLayout3rd.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+                                            }
+
+
+                                        } else {
+                                            //--------------- Status:vehicle pugged in_________
+                                            if (plugedinCountcp3 >= 10) {
+                                                //time reading______
+                                                MillisCP3 = (SystemClock.uptimeMillis() - StartTimeCP3);
+
+                                                HoursCP3 = (int) (MillisCP3 / (1000 * 60 * 60));
+                                                MinutesCP3 = (int) (MillisCP3 / (1000 * 60)) % 60;
+                                                SecondsCP3 = (int) (MillisCP3 / 1000) % 60;
+                                                String time_readingCP3 = "" + String.format("%02d", HoursCP3) + ":"
+                                                        + String.format("%02d", MinutesCP3) + ":"
+                                                        + String.format("%02d", SecondsCP3);
+
+                                                //-------------------------meter reading
+                                                float prev_mrCP3 = Float.parseFloat(sPmeterReadingCP3.getMeterReadingCP3());
+                                                float current_mrCP3 = 0.0f;
+                                                Log.e("Metervaluesbefore", "prev_mrCP2" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+                                                try {
+
+
+                                                    /*if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("t")) {
+                                                        current_mrCP3 = (Float.parseFloat(sPmeterReadingCP3RO.getMeterReadingCP3RO()) * 4) + Float.parseFloat(p3meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP2insideadd", "" + current_mrCP3 + " b ");
+                                                    }*/
+                                                    // if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("f")) {
+                                                    current_mrCP3 = Float.parseFloat(p3meter);
+                                                    int b = (int) current_mrCP3;
+                                                    //   b = b / 4;
+                                                    sPmeterReadingCP3RO.setMeterReadingCP3RO("" + b);
+                                                    Log.e("current_mrCP3inside", "" + current_mrCP3 + " b " + b);
+
+                                                    //}
+
+                                                    Log.e("Metervaluesafter", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+
+                                                    float meterreadingdiff3 = current_mrCP3 - prev_mrCP3;
+                                                    float meterreadingdiffP3 = 0.0f;
+                                                    meterreadingdiffP3 = (current_mrCP3 - prev_mrCP3) * erate;
+
+                                                    Log.e("SAVEDMONEYINSIDE", "" + meterreadingdiffP3);
+                                                    //Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3());
+                                                    String meterreadingCP3 = String.format("%.2f", meterreadingdiff3);
+                                                    String meterreadingCP3P = String.format("%.2f", meterreadingdiffP3);
+
+                                                    tv_status3.setText(s10_CP3);
+                                                    //isSavedTimeC3 = false;
+                                                    if (meterreadingdiffP3 > 0 && meterreadingdiffP3 < 200) {
+                                                        txt_c3round_off_mr.setText("₹ " + meterreadingCP3P);
+                                                        rsCP3 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP3 = "₹ " + meterreadingCP3P;
+                                                        //  rsCP23 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP23 = "₹ " + meterreadingCP3P; //------------
+                                                        float mrv = meterreadingdiffP3;
+                                                        mrsPOCP3 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c3diff.setText(time_readingCP3);
+                                                    status_detailCP3 = s10_CP3;
+                                                    // unit_detailCP23 = meterreadingCP3;
+                                                    unit_detailCP3 = meterreadingCP3;
+                                                    etime_detailCP3 = time_readingCP3;
+                                                    // sPisPoweFail.setisPowerFailCP1("t");
+                                                    relativeLayout3rd.setVisibility(View.GONE);
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+
+
+                                            } else if (plugedinCountcp3 == 0) {
+                                                tv_status3.setText(s11_CP3);
+                                                isAvailableC3 = false;
+                                                //  rsCP23=rsCP3;
+                                                txt_c3round_off_mr.setText("₹ 00.00");
+                                                // rsCP3 = "₹ 00.00";
+                                                txt_c3diff.setText("00:00:00");
+                                                status_detailCP3 = s11_CP3;
+                                                // unit_detailCP23 = unit_detailCP3;
+                                                unit_detailCP3 = "00.00";
+                                                etime_detailCP3 = "00:00:00";
+                                                sPisPluggedin.setisPluggedinCP3("t");
+                                                //-----------------meter reading
+                                                //sPispowerfailafter4mrCP3.setispowerfailafter4mrCP3("f");
+                                                //-------------
+                                                plugedinCountcp3++;
+
+                                                //meter reading-------------------------
+                                                sPmeterReadingCP3.setMeterReadingCP3(p3meter);
+                                                //Time reading_________________
+                                                StartTimeCP3 = SystemClock.uptimeMillis() + (-NewBeginMillsCP3);  //--> Start Time
+                                                btn_p3onff.startAnimation(anim);
+
+                                            } else {
+                                                //time reading______
+                                                MillisCP3 = (SystemClock.uptimeMillis() - StartTimeCP3);
+
+                                                HoursCP3 = (int) (MillisCP3 / (1000 * 60 * 60));
+                                                MinutesCP3 = (int) (MillisCP3 / (1000 * 60)) % 60;
+                                                SecondsCP3 = (int) (MillisCP3 / 1000) % 60;
+                                                String time_readingCP3 = "" + String.format("%02d", HoursCP3) + ":"
+                                                        + String.format("%02d", MinutesCP3) + ":"
+                                                        + String.format("%02d", SecondsCP3);
+
+
+                                                //-----------meter Reading
+                                                float prev_mrCP3 = Float.parseFloat(sPmeterReadingCP3.getMeterReadingCP3());
+                                                float current_mrCP3 = 0.0f;
+                                                try {
+
+
+                                                    Log.e("Metervaluesbefore", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+                                                    /*if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("t")) {
+                                                        current_mrCP3 = (Float.parseFloat(sPmeterReadingCP3RO.getMeterReadingCP3RO()) * 4) + Float.parseFloat(p3meter);
+                                                        //current_mrCP1 = Float.parseFloat("4.00")+Float.parseFloat(p1meter);
+                                                        Log.e("current_mrCP3insideadd", "" + current_mrCP3 + " b ");
+                                                    }*/
+                                                    //if (sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3().equals("f")) {
+                                                    current_mrCP3 = Float.parseFloat(p3meter);
+                                                    int b = (int) current_mrCP3;
+                                                    //  b = b / 4;
+                                                    sPmeterReadingCP3RO.setMeterReadingCP3RO("" + b);
+                                                    Log.e("current_mrCP3inside", "" + current_mrCP3 + " b " + b);
+
+                                                    //}
+                                                    Log.e("Metervaluesafter", "prev_mrCP3" + prev_mrCP3 + "current_mrCP3 " + current_mrCP3);
+
+                                                    float meterreadingdiff3 = current_mrCP3 - prev_mrCP3;
+                                                    float meterreadingdiffP3 = 0.0f;
+                                                    meterreadingdiffP3 = (current_mrCP3 - prev_mrCP3) * erate;
+
+                                                    // Log.e("SAVEDMONEYFLAGINSIDE", sPispowerfailafter4mrCP3.getispowerfailafter4mrCP3());
+                                                    String meterreadingCP3 = String.format("%.2f", meterreadingdiff3);
+                                                    String meterreadingCP3P = String.format("%.2f", meterreadingdiffP3);
+
+                                                    //--------------------
+                                                    tv_status3.setText(s11_CP3);
+                                                    isAvailableC3 = false;
+
+                                                    if (meterreadingdiffP3 > 0 && meterreadingdiffP3 < 200) {
+                                                        txt_c3round_off_mr.setText("₹ " + meterreadingCP3P);
+                                                        rsCP3 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP3 = "₹ " + meterreadingCP3P;
+                                                        // rsCP23 = "₹ " + meterreadingCP3P;
+                                                        rsPOCP23 = "₹ " + meterreadingCP3P;//------------
+                                                        float mrv = meterreadingdiffP3;
+                                                        mrsPOCP3 = "" + mrv;
+                                                        //-----------
+                                                    }
+                                                    txt_c3diff.setText(time_readingCP3);
+                                                    status_detailCP3 = s11_CP3;
+                                                    unit_detailCP3 = meterreadingCP3;
+                                                    etime_detailCP3 = time_readingCP3;
+                                                    sPisPluggedin.setisPluggedinCP3("t");
+                                                    //--------------------
+                                                    //sPispowerfailafter4mrCP3.setispowerfailafter4mrCP3("f");
+                                                    //-----------
+                                                    //sPisPoweFail.setisPowerFailCP1("t");
+                                                    // sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);------------------TTTTTTTTTTTTTTTT
+                                                    //-------------------------------
+                                                    plugedinCountcp3++;
+                                                } catch (NumberFormatException ex) {
+
+                                                }
+                                            }
+
+                                        }
+
+                                    }
+                                    Log.e("isMainthreadend","F");
+
+//================================================================================================================================================================================================================
+
+                                    if (detail_flag.equals("d_CP1")) {
+                                        /* if (flagResetVals){
+                                         *//*Log.e("DisplayDetails IF"," IF --> \nRs :- "+rsCP21+"\nUnitDetails :- "+unit_detailCP21+"\nTIME :- "+etime_detailCP21);
+                                            display_details(rsCP21, s15_CP1 + " #01", voltage_detailCP1, current_detailCP1, power_detailCP1, unit_detailCP21, etime_detailCP21, status_detailCP1, s14_CP1, s17_CP1, " ₹ " + erate_s + " " + s16_CP1, sPlanguageCP1.getlanguageCP1());
+                                       *//* }else {*/
+                                           /* String rsCP211;
+                                            if (!rsCP21.equals("₹ 00.00")){
+                                                rsCP211=rsCP21;
+                                            }*//*else {
+                                                rsCP211="12345";
+                                            }*/
+
+                                        // Log.e("DisplayDetails IF"," IF --> \nRs :- "+rsCP21+"\nUnitDetails :- "+unit_detailCP21+"\nTIME :- "+etime_detailCP21);
+                                        display_details(rsCP21, s15_CP1 + " #01", voltage_detailCP1, current_detailCP1, power_detailCP1, unit_detailCP21, etime_detailCP21, status_detailCP1, s14_CP1, s17_CP1, " ₹ " + erate_s + " " + s16_CP1, sPlanguageCP1.getlanguageCP1());
+                                        /*  }*/
+                                    } else if (detail_flag.equals("d_CP2")) {
+                                        display_details(rsCP22, s15_CP2 + " #02", voltage_detailCP2, current_detailCP2, power_detailCP2, unit_detailCP22, etime_detailCP22, status_detailCP2, s14_CP2, s17_CP2, " ₹ " + erate_s + " " + s16_CP2, sPlanguageCP2.getlanguageCP2());
+                                    } else if (detail_flag.equals("d_CP3")) {
+                                        display_details(rsCP23, s15_CP3 + " #03", voltage_detailCP3, current_detailCP3, power_detailCP3, unit_detailCP23, etime_detailCP23, status_detailCP3, s14_CP3, s17_CP3, " ₹ " + erate_s + " " + s16_CP3, sPlanguageCP3.getlanguageCP3());
+                                    }
+
+                                    Log.e("CHECKII", "CHECKING");
+
+                                    Log.e("COMMING STRING", recDataString + "\n\np1OnOff :" + p1OnOff + "\tp1plugin :" + p1plugin + "\tp1fault :" + p1fault + "\tp1voltage :" + p1voltage + "\tp1current :" + p1current + "\tp1meter :" + p1meter +
+                                            "\n\np2OnOff : " + p2OnOff + "\tp2plugin : " + p2plugin + "\tp2fault : " + p2fault + "\tp2voltage : " + p2voltage + "\tp2current : " + p2current + "\tp2meter : " + p2meter +
+                                            "\n\np3OnOff : " + p3OnOff + "\tp3plugin : " + p3plugin + "\tp3fault : " + p3fault + "\tp3voltage: " + p3voltage + "\tp3current : " + p3current + "\tp3meter : " + p3meter);
+
+                                    Log.e("isMainthreadend","G");
+
+                                }
+                            }
+
+                        } catch (StringIndexOutOfBoundsException siobe) {
+                            //System.out.println("invalid input");
+
+                        }
+                        Log.e("isMainthreadend","H");
+
+                    }
+                }
+
+                Log.e("isMainthreadend","C");
+
+            }
+
+        } else {
+            tv_status1.setText(s6_CP1);
+            String s = globalP1meter;
+            float v = Float.parseFloat(s);
+            int b = (int) v;
+            /*if (b >= 4) {*/
+            //sPispowerfailafter4mrCP1.setispowerfailafter4mrCP1("t");
+            sPsavemoneyafterpfCP1.setMeterReadingCP1RO(mrsPOCP1);
+            //sPsavemoneyafterpfCP1.setMeterReadingCP1RO("4.00");
+
+            /*}*/
+            tv_status2.setText(s6_CP2);
+
+            String s2 = globalP2meter;
+            float v2 = Float.parseFloat(s2);
+            int b2 = (int) v2;
+            /*if (b2 >= 4) {
+                sPispowerfailafter4mrCP2.setispowerfailafter4mrCP2("t");
+            }*/
+            tv_status3.setText(s6_CP3);
+
+            String s3 = globalP3meter;
+            float v3 = Float.parseFloat(s3);
+            int b3 = (int) v3;
+            /*if (b3 >= 4) {
+                sPispowerfailafter4mrCP3.setispowerfailafter4mrCP3("t");
+            }*/
+            toggleBtn.setCardBackgroundColor(Color.parseColor(red));
+            toggleBtn.startAnimation(anim);
+            btn_p2onff.setCardBackgroundColor(Color.parseColor(red));
+            btn_p2onff.startAnimation(anim);
+            btn_p3onff.setCardBackgroundColor(Color.parseColor(red));
+            btn_p3onff.startAnimation(anim);
+            if (sPisPluggedin.getisPluggedinCP1().equals("t")) {
+                sPisPoweFail.setisPowerFailCP1("t");
+                sPTimeReadingCP1.setTimeReadingCP1(MillisCP1);
+                //  isSavedTimeC1 = true;
+
+
+            }
+            if (sPisPluggedin.getisPluggedinCP2().equals("t")) {
+                sPisPoweFail.setisPowerFailCP2("t");
+                sPTimeReadingCP2.setTimeReadingCP2(MillisCP2);
+                // isSavedTimeC2 = true;
+
+            }
+            if (sPisPluggedin.getisPluggedinCP3().equals("t")) {
+                sPisPoweFail.setisPowerFailCP3("t");
+                sPTimeReadingCP3.setTimeReadingCP3(MillisCP3);
+                // isSavedTimeC3 = true;
+
+            }
+        }
+
+        isMainthreadend = true;
+        Log.e("isMainthreadend","END "+isMainthreadend);
+    }
+
+    public void layoutback_fun(){
+        Intent i = new Intent(MaindisplayActivityMannual.this, LangSelection.class);
+        String C_ID=cid.toString();
+
+//Create the bundle
+        Bundle bundle = new Bundle();
+
+//Add your data to bundle
+        bundle.putString("Cid", C_ID);
+
+//Add the bundle to the intent
+        i.putExtras(bundle);
+        if (bluetooth.isConnected()){
+            bluetooth.disable();
+        }
+
+
+//Fire that second activity
+        startActivity(i);
+        finish();
+    }
+}

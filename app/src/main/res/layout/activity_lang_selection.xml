@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.supravin.accharger.LangSelection"
+    android:keepScreenOn="true">
+
+
+<LinearLayout
+    android:id="@+id/lnrLyOutLogoNVersion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:orientation="horizontal"
+    android:layout_marginBottom="9dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/masstechLogo"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+
+        android:src="@drawable/appbrandlogo"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_VersionNoI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="21dp"
+        android:gravity="bottom|end"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="bottom|end"
+        android:textColor="@color/blue_band"
+        android:text="Version No."/>
+</LinearLayout>
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="1sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/lnrLyOutLogoNVersion"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/darker_gray"
+        tools:ignore="SmallSp" />
+
+
+    <RelativeLayout
+        android:id="@+id/layout123"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view1"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:layout_marginBottom="3dp">
+
+        <TextView
+            android:id="@+id/langSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Language Selection"
+            android:textSize="43sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10sp"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/langSelect"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rg_language"
+            android:layout_marginBottom="10dp">
+
+            <RadioButton
+                android:hint="en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  English"
+                android:textSize="37dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"/>
+
+            <RadioButton
+                android:hint="hi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  हिंदी "
+                android:textSize="37dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"/>
+
+            <RadioButton
+                android:hint="ma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  मराठी "
+                android:textSize="37dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"/>
+        </RadioGroup>
+
+        <Button
+            android:layout_width="220dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/rg_language"
+            android:gravity="center"
+            android:text="Submit"
+            android:textSize="30dp"
+            android:id="@+id/btn_submitlang"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="90dp"
+            android:background="@drawable/mybutton"
+            />
+
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/txt_langinst"
+        android:layout_below="@+id/layout123"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:ellipsize="marquee"
+        android:textSize="25dp"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:fadingEdge="horizontal"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:textColor="@android:color/black"
+        android:background="#D3D3D3"
+        android:text="Please select language       Please select language       Please select language       Please select language       Please select language       Please select language       Please select language       "
+        android:singleLine="true" />
+
+
+
+    <Button
+        android:id="@+id/checkBox"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:alpha="0"
+        android:text="h"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/connecting"
+        android:layout_marginTop="23dp"
+        />
+
+    <Button
+        android:id="@+id/checkBox2"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:alpha="0"
+        android:text="h"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/checkBox"
+        />
+
+    <Button
+        android:id="@+id/checkBox3"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="h"
+        android:layout_alignParentBottom="true"
+        android:alpha="0"
+        android:layout_marginBottom="12dp"
+        android:layout_toEndOf="@+id/linearLayout"
+        />
+
+    <Button
+        android:id="@+id/checkBox4"
+
+        android:text="h"
+        android:alpha="0"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/checkBox3"
+        android:layout_alignStart="@+id/checkBox2"
+        />
+</RelativeLayout>

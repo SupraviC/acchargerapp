@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll_parent1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <LinearLayout
+                android:id="@+id/ll_connect1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="6"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_blue"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2.5"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_unit"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_unit1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="85.00"
+                        android:layout_gravity="center"
+                        android:textSize="70sp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Units (kWh)"
+                        android:layout_gravity="center"
+                        android:textSize="30sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_time1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="85:00"
+                        android:layout_gravity="center"
+                        android:textSize="45sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/digital7italic"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Elapsed Time"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/bg_statusbar">
+                    <TextView
+                        android:id="@+id/tv_status1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STATUS"
+                        android:textStyle="bold"
+                        android:textColor="@color/status_color"
+                        android:textSize="40sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:layout_margin="20dp">
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/toggleBtn"
+                        android:layout_width="140dp"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        android:layout_gravity="center"
+                        >
+                        <TextView
+                            android:id="@+id/toggleValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:layout_gravity="center"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/rockb"
+                            android:gravity="center"
+                            android:text="START"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>

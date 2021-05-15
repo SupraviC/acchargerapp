@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="black">#000000</color>
+    <color name="textcolor">#7E8889</color>
+    <color name="background">#142634</color>
+
+    <color name="light_gray">#E0E0E0</color>
+    <color name="red">#f2100c</color>
+    <color name="dark_red">#40000c</color>
+    <color name="window_background">#FFF5F5F5</color>
+
+    <color name="c_headline">#424242</color>
+    <color name="c_timestamp">#757575</color>
+    <color name="c_news">#616161</color>
+    <color name="RedON">#f2100c</color>
+    <color name="RedOFF">#fc761d17</color>
+    <color name="GreenON">#fe76e90a</color>
+    <color name="GreenOFF">#d725350f</color>
+    <color name="AmberON">#fef74825</color>
+    <color name="AmberOFF">#cc733413</color>
+    <color name="arduinoOp">#efefeb09</color>
+
+
+    <color name="grey">#616161</color>
+    <color name="white">#ffffff</color>
+    <!-- newassets-->
+    <color name="bg_blue">#34C0BF</color>
+    <color name="blue_band">#11959A</color>
+    <color name="blue_center">#15949B</color>
+    <color name="blue_top">#07535F</color>
+    <color name="bg_green">#17D72A</color>
+    <color name="green_band">#17AE22</color>
+    <color name="green_center">#0AB90A</color>
+    <color name="green_top">#0B6000</color>
+    <color name="bg_red">#F07702</color>
+    <color name="red_band">#DB2D0B</color>
+    <color name="red_center">#E62311</color>
+    <color name="red_top">#76110C</color>
+    <color name="unitkwh">#858585</color>
+    <color name="status_color">#fff000</color>
+    <color name="bk_color">#F2F3F5</color>
+    //----------- overlay ------------ //
+    <color name="colorTransparent">#b1131212</color>
+    <color name="colorTransparentBack">#33131212</color>
+
+</resources>

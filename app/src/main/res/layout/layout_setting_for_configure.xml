@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_weight="2">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/textborder">
+
+        <TextView
+            android:id="@+id/txt_ipconfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:text="IP Configuration"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_ipconfig"
+            android:orientation="vertical"
+            android:weightSum="3.5">
+            <LinearLayout
+                android:id="@+id/configlayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1.5"
+                android:layout_below="@+id/txt_ipconfig"
+                android:layout_marginTop="30dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter IP Address"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:id="@+id/edit_IPAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textSize="27dp"
+                    android:hint=" 127.0.0.1 "
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/configlayout2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1.5"
+                android:layout_below="@+id/configlayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Port Number"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:id="@+id/edit_Port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textSize="27dp"
+                    android:hint=" 8080 "
+                    />
+            </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/configlayout2"
+                    android:text="Configure"
+                    android:textSize="25dp"
+                    android:layout_margin="9dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:layout_weight=".5"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="20dp"
+            android:background="@drawable/textborder">
+
+            <TextView
+                android:id="@+id/txt_faultconfig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="Fault Detection Setting"
+                android:textColor="@android:color/black"
+                android:textSize="40sp" />
+
+            <LinearLayout
+                android:id="@+id/configlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/txt_faultconfig"
+                android:layout_marginTop="30dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:layout_margin="16dp">
+
+                    <CheckBox
+                        android:id="@+id/chbx_Earth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Earth Fault Detection"
+                        android:textSize="30dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="9dp"/>
+
+                    <CheckBox
+                        android:id="@+id/chbx_Tempt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Temperature Hazard Detection"
+                        android:textSize="30dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="9dp"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/textborder">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Go Back"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="30dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

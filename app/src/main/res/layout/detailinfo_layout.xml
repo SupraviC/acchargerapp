@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/ll_parent2"
+    android:layout_marginTop="50dp"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:background="#ffffff"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#A7FFEB"
+        android:layout_margin="10dp"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_title_volt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Voltage"
+                android:textSize="37dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:fontFamily="@font/rockb"
+                android:textColor="#000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_d_volt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/textborder"
+                android:textSize="40sp"
+                android:fontFamily="@font/digital7"
+                android:textColor="#dd0000"
+                android:text="000 V"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_title_curr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Current"
+                android:textSize="37dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:fontFamily="@font/rockb"
+                android:textColor="#000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_d_curr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/textborder"
+                android:textSize="40sp"
+                android:fontFamily="@font/digital7"
+                android:textColor="#dd0000"
+                android:text="000 mA"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_title_power"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Power"
+                android:textSize="37dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:fontFamily="@font/rockb"
+                android:textColor="#000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_d_pow"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/textborder"
+                android:textSize="40sp"
+                android:fontFamily="@font/digital7"
+                android:textColor="#dd0000"
+                android:text="3456"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#80D8FF"
+        android:weightSum="3"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_title_unit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Unit"
+                android:textSize="37dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:fontFamily="@font/rockb"
+                android:textColor="#000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_d_unit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/textborder"
+                android:textSize="40sp"
+                android:fontFamily="@font/digital7"
+                android:textColor="#dd0000"
+                android:text="00.00"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_title_stat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Status"
+                android:textSize="37dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:fontFamily="@font/rockb"
+                android:textColor="#000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_d_stat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/textborder"
+                android:textSize="35sp"
+                android:fontFamily="@font/rockb"
+                android:textColor="#dd0000"
+                android:text="Idle"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tv_title_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Elapsed Time"
+                android:textSize="37dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:fontFamily="@font/rockb"
+                android:textColor="#000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_d_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/textborder"
+                android:textSize="40sp"
+                android:fontFamily="@font/digital7"
+                android:textColor="#dd0000"
+                android:text="34:00"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

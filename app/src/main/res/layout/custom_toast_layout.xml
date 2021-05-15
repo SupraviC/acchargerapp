@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="50dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingEnd="7dp"
+    android:paddingStart="7dp"
+    android:background="@drawable/background_for_custom_toast"
+    android:orientation="horizontal">
+   <!-- &lt;!&ndash; ImageVView and TextView for custom Toast &ndash;&gt;
+    <ImageView
+        android:id="@+id/toastImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp" />-->
+
+    <TextView
+        android:id="@+id/toastTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Toast"
+        android:gravity="center"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/maven_pro_medium"
+        android:textColor="@android:color/white" />
+</LinearLayout>

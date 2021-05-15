@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">3Phase Charger</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="button_connect">Connect</string>
+    <string name="button_disconnect">Disconnect</string>
+    <string name="title_devices">Bluetooth Settings</string>
+    <string name="action_settings">Settings</string>
+    <string name="scan">Scan</string>
+    <string name="stopScan">Stop Scanning</string>
+</resources>
